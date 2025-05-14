@@ -1,4 +1,51 @@
-/* Lagförda, antal efter huvudbrott; Grov Kvinnofridskränkning, kön och år */
+/*Anmäld grov kvinnofridskränkning 1998-2023*/
+
+const urlSCBAnmalda = 'https://api.scb.se/OV0104/v1/doris/sv/ssd/START/LE/LE0201/LE0201Våld/Tema613'
+const querySCBAnmalda = {
+    "query": [],
+    "response": {
+      "format": "json"
+    }
+  };
+  
+  const requestAnmalda = new Request(urlSCBAnmalda, {
+    method: 'POST',
+    body: JSON.stringify(querySCBAnmalda)
+  });
+
+  fetch(requestAnmalda)
+    .then((response) => response.json())
+    .then(printSCBAnmaldaChart);
+   
+
+    function printSCBAnmaldaChart(dataSCBAnmalda) {
+        const yearsSCBAnmalda = dataSCBAnmalda.data;
+       console.log(yearsSCBAnmalda);
+
+       const labelsSCBAnmalda = yearsSCBAnmalda.map((year) => year.key[0]);
+       console.log(labelsSCBAnmalda);
+
+       const dataAnmalda = yearsSCBAnmalda.map((year) => year.values[0]);
+       console.log(dataAnmalda);
+
+       const datasetsSCBAnmalda = [{
+        label: 'Anmäld grov kvinnofridskränkning',
+        data: dataAnmalda,
+        borderColor: "rgb(229, 75, 96)",
+        backgroundColor: "rgba(145, 35, 223, 0.4)"
+       }
+    ];
+    new Chart(document.getElementById('scbAnmalda'), {
+       type: 'line',
+       data: {
+            labels: labelsSCBAnmalda,
+            datasets: datasetsSCBAnmalda
+       } 
+    });
+
+    }
+
+/* Lagförda, antal efter huvudbrott; Grov Kvinnofridskränkning, 2017–2023 */
 
 const urlSCBLagforda = "https://api.scb.se/OV0104/v1/doris/sv/ssd/START/LE/LE0201/LE0201Våld/Tema615";
 
@@ -77,34 +124,6 @@ function printSCBLagfordaChart(dataSCBLagforda) {
 }
 
 
-
-
-
-
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* Personer som blir utsatta för misshandel efter relation till förövare 2015-2016 */
 
 const urlSCButsatta =
@@ -171,51 +190,3 @@ const querySCButsatta =
 }
  
 
-
-
-/*Anmäld grov kvinnofridskränkning 1998-2023*/
-
-const urlSCBAnmalda = 'https://api.scb.se/OV0104/v1/doris/sv/ssd/START/LE/LE0201/LE0201Våld/Tema613'
-const querySCBAnmalda = {
-    "query": [],
-    "response": {
-      "format": "json"
-    }
-  };
-  
-  const requestAnmalda = new Request(urlSCBAnmalda, {
-    method: 'POST',
-    body: JSON.stringify(querySCBAnmalda)
-  });
-
-  fetch(requestAnmalda)
-    .then((response) => response.json())
-    .then(printSCBAnmaldaChart);
-   
-
-    function printSCBAnmaldaChart(dataSCBAnmalda) {
-        const yearsSCBAnmalda = dataSCBAnmalda.data;
-       console.log(yearsSCBAnmalda);
-
-       const labelsSCBAnmalda = yearsSCBAnmalda.map((year) => year.key[0]);
-       console.log(labelsSCBAnmalda);
-
-       const dataAnmalda = yearsSCBAnmalda.map((year) => year.values[0]);
-       console.log(dataAnmalda);
-
-       const datasetsSCBAnmalda = [{
-        label: 'Anmäld grov kvinnofridskränkning',
-        data: dataAnmalda,
-        borderColor: "rgb(229, 75, 96)",
-        backgroundColor: "rgba(145, 35, 223, 0.4)"
-       }
-    ];
-    new Chart(document.getElementById('scbAnmalda'), {
-       type: 'line',
-       data: {
-            labels: labelsSCBAnmalda,
-            datasets: datasetsSCBAnmalda
-       } 
-    });
-
-    }
