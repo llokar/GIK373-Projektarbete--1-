@@ -70,8 +70,15 @@ function printSCBLagfordaChart(dataSCBLagforda) {
         document.getElementById("scbLagforda"),
         {
             type: 'bar',
-            data: { labels: labels, datasets: datasets}
-        }
+            data: { labels: labels, datasets: datasets},
+            options: {
+            scales: {
+                y: {
+                suggestedMin: 10,
+                suggestedMax: 2000
+                }
+            }
+            }}
     );
 
 }
@@ -177,7 +184,23 @@ const querySCButsatta =
 
 const urlSCBAnmalda = 'https://api.scb.se/OV0104/v1/doris/sv/ssd/START/LE/LE0201/LE0201Våld/Tema613'
 const querySCBAnmalda = {
-    "query": [],
+    "query": [
+      {
+        "code": "Tid",
+        "selection": {
+          "filter": "item",
+          "values": [
+            "2017",
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+            "2023"
+          ]
+        }
+      }
+    ],
     "response": {
       "format": "json"
     }
@@ -211,7 +234,7 @@ const querySCBAnmalda = {
        }
     ];
     new Chart(document.getElementById('scbAnmalda'), {
-       type: 'line',
+       type: 'bar',
        data: {
             labels: labelsSCBAnmalda,
             datasets: datasetsSCBAnmalda
