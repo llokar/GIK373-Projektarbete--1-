@@ -85,17 +85,18 @@ Promise.all([
 
   const datasets = [
     {
-      label: 'Anmälda: grov kvinnofridskränkning',
+      label: 'Anmälda',
       data: dataAnmalda,
-      backgroundColor: 'rgba(145, 35, 223, 0.4)',
-      borderColor: 'rgb(229, 75, 96',
-      borderWidth: 1
+      backgroundColor: 'rgb(211, 37, 34)',
+      borderColor: 'rgb(180, 36, 55)',
+      borderWidth: 1,
+      borderRadius: 1
     },
     {
-      label: 'Lagförda: grov kvinnofridskränkning',
+      label: 'Lagförda',
       data: dataLagforda,
-      backgroundColor: 'rgba(75, 192, 192, 0.4)',
-      borderColor: 'rgb(75, 192, 192)',
+      backgroundColor: 'rgb(238, 151, 150)',
+      borderColor: 'rgb(237, 135, 133)',
       borderWidth: 1
     }
   ];
@@ -106,6 +107,39 @@ Promise.all([
       labels: labels,
       datasets: datasets
     },
+    options: {
+       scales:{
+         y: {
+             title: {
+               display: true,
+               text: 'Antal',
+               padding: 20
+              }
+             },
+
+           x: {
+            title: {
+              display: false,
+             text: 'År',
+              padding: 20
+             }
+          }  
+         },
+      
+      plugins: {        
+        title: {           
+            display: true,
+              text: ['Kvinnofridskränkning i Sverige' , 'Anmälningar vs Lagförda'],
+              color: '#350908',
+                padding: 20,
+                font: {
+                  family: 'montserrat, sans-serif',
+                    size: 20,
+                    weight: 'bold'
+                },
+              }
+            }
+           } 
   });
 
 }); /* .catch(err => console.error('Fel vid hämtning av data:', err)); */

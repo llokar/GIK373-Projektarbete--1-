@@ -2,6 +2,110 @@ body {
     background-color: #e7e4dc;
 }
 
-h1 {
-    color: #d64d40;
+
+.header-text {
+    color: #DE2F2B;
+/*     font-family: montserrat, sans-serif; */
+    font-family: akshar, sans-serif;
+    font-size: 7rem;
+    margin: 0;
+    font-weight: bold;
+}
+.img {
+    position:sticky;
+}
+.header-container {
+    position: relative;
+    text-align: left;
+  }
+  .header-intro {
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+   /*  margin-left: 5rem; */
+  }
+  .intro {
+    color: #DE2F2B;  
+    padding-left: 1.1rem;
+    margin-top: -1rem; 
+    font-size: 1.1rem;
+    font-family: akshar, sans-serif;
+    font-weight:lighter;
+   
+  }
+
+  .block {
+background-color: #22231f;
+padding-block: 3rem;
+margin-block: 2rem;
+font-family: akshar, sans-serif;
+color: #e7e4dc;
+  }
+
+  .block-text {
+    font-size: 2rem;
+    margin-left: 2rem;
+  }
+  .morkertal {
+    margin-left: 2rem;
+  }
+
+.first-text {
+    font-size: 0.8rem;
+    font-family: helvetica, sans-serif;
+    font-weight:lighter;
+    color: #350908;
+}
+
+/* X-Small devices (0-575px) */
+@media (max-width: 575px) {
+    .header-text {
+        font-size: 5rem;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { }
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {  }
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {  }
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { }
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) { }
+
+
+.navbar-design,
+.navbar-design .nav-link {
+    color: #DE2F2B !important;
+    font-family: helvetica, sans-serif;
+    font-weight:lighter;
+    font-size: 1rem;
+    margin-block: -.3rem;
+}
+.navbar-brand {
+    color: #DE2F2B !important;
+    font-family: helvetica, sans-serif;
+    font-weight:lighter;
+    font-size: 1.2rem;
+
+}
+
+
+.navbar-design .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23DE2F2B' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.first-text {
+    margin: 5rem;
+}
+
+
+.accordion-body-2 {
+    background-color: #350908;
 }
