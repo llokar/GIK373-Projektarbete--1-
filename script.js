@@ -137,6 +137,86 @@ Promise.all([
 
 }); /* .catch(err => console.error('Fel vid hämtning av data:', err)); */
 
+/* Anmäld grov kvinnofridskräkning 1998–2023*/
+
+const urlSCBKvinnofrid = 'https://api.scb.se/OV0104/v1/doris/sv/ssd/START/LE/LE0201/LE0201Våld/Tema613' 
+
+const querySCBKvinnofrid = {
+  "query": [],
+  "response": {
+    "format": "json"
+  }
+};
+
+const requestKvinnofrid = new Request(urlSCBKvinnofrid, { 
+
+method: 'POST', 
+
+body: JSON.stringify(querySCBKvinnofrid) 
+
+}); 
+
+
+fetch(requestKvinnofrid) 
+
+.then((response) => response.json()) 
+
+.then(printSCBKvinnofridChart); 
+
+ 
+
+function printSCBKvinnofridChart(dataSCBKvinnofrid) { 
+
+const yearsSCBKvinnofrid = dataSCBKvinnofrid.data; 
+
+console.log(yearsSCBKvinnofrid); 
+
+const labels = yearsSCBKvinnofrid.map((year) => year.key[0]); 
+
+console.log(labels); 
+
+ 
+
+const dataKvinnofrid = yearsSCBKvinnofrid.map((year) => year.values[0]); 
+
+console.log(dataKvinnofrid); 
+
+ 
+
+const datasetsSCBKvinnofrid = [{ 
+
+label: 'Anmäld grov kvinnofridskränkning', 
+
+data: dataKvinnofrid, 
+
+borderColor: "#DE2F2B", 
+
+backgroundColor: "rgba(145, 35, 223, 0.4)" 
+
+} 
+
+]; 
+
+new Chart(document.getElementById('scbAnmaldaKvinnofrid'), { 
+
+type: 'line', 
+
+data: { 
+
+labels: labels, 
+
+datasets: datasetsSCBKvinnofrid 
+
+}  
+
+}); 
+
+ 
+
+} 
+
+ 
+
 
 /* Personer som blir utsatta för misshandel efter relation till förövare 2015-2016 */
 
@@ -172,14 +252,18 @@ const querySCButsatta =
 
     function printSCButsattaChart(dataSCButsatta) {
       console.log(dataSCButsatta);
+     
       const gender = dataSCButsatta.data;
       const relation = dataSCButsatta.data;
       const amount = dataSCButsatta.data;
-    const womenValues = dataSCButsatta.data.filter(data => data.key[1] == 1).map(data => data.values[0]); 
+   
+      const womenValues = dataSCButsatta.data.filter(data => data.key[1] == 1).map(data => data.values[0]); 
     const menValues = dataSCButsatta.data.filter(data => data.key[1] == 2).map(data => data.values[0]); 
     console.log(womenValues)
+   
     const labels = gender.map(gender => gender.key[1]);
     console.log(labels);
+    
     const keys = relation.map(relation => relation.key[0]);
     const labels1 = [
     ...keys.slice(0, 1),
@@ -330,3 +414,26 @@ const querySCButsatta =
   };
 
 const scbMisshandel = new Chart(document.getElementById("scbMisshandel"), config2)
+
+const upBtn = document.getElementById("button-up");
+
+window.onscroll = function () {
+scrollFunction();
+};
+
+function scrollFunction() {
+if (
+document.body.scrollTop > 20 ||
+document.documentElement.scrollTop > 20
+) {
+upBtn.style.display = "block";
+} else {
+upBtn.style.display = "none";
+}
+}
+upBtn.addEventListener("click", backToTop);
+
+function backToTop() {
+document.body.scrollTop = 0;
+document.documentElement.scrollTop = 0;
+}

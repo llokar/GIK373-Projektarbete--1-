@@ -2,7 +2,6 @@ body {
     background-color: #fbfbf8;
 }
 
-
 .header-text {
     color: #de2e2b;
 /*     font-family: montserrat, sans-serif; */
@@ -31,7 +30,6 @@ body {
     font-size: 1.1rem;
     font-family: akshar, sans-serif;
     font-weight:lighter;
-   
   }
 
   .block {
@@ -98,14 +96,25 @@ color: #F7F6F3;
     font-size: 1.2rem;
 }
 
+.nav-link {
+    padding-inline: .4rem;
+}
 .navbar-design .nav-link:hover {
     color: #DE2F2B;
     opacity: 1;
 }
 /* gör hamburger-ikon röd */
 .navbar-design .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23DE2F2B' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23DE2F2B' stroke-width='2' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
+
+.navbar-toggler:focus {
+  box-shadow: none;
+}
+.navbar-toggler {
+    border: none;
+}
+
 
 .first-text {
     margin: 5rem;
@@ -118,6 +127,7 @@ color: #F7F6F3;
 
 .accordion-button-1 {
     background-color: #350908;
+    margin-top: 4rem;
 }
 
 .accordion-button-2 {
@@ -130,11 +140,12 @@ color: #F7F6F3;
 .accordion-button-1, .accordion-button-2, .accordion-button-3 {
     color: #fbfbf8;
     width: 100%;
-    font-family: akshar, sans-serif;
-    font-size: 1.5rem;
+    font-family: helvetica;
+    font-size: 1.2rem;
     font-weight: lighter;
     padding-block: 1rem;
  /*    margin-bottom: .4rem; */
+        
 
     text-align: left;
     padding-left: 2rem;
@@ -175,4 +186,23 @@ color: #F7F6F3;
     padding-left: 2rem;
     padding: 1rem;
     max-width: 60%;
+  }
+
+  #button-up {
+    position: fixed;
+    bottom: 20px; 
+    right: 30px;
+    border: none;
+    outline: none; 
+    background-color:rgb(53, 9, 8, 0.5); 
+    color: #fbfbf8; 
+    padding-inline: 1rem; 
+    padding-block: .4rem;
+    border-radius: .4rem; 
+    font-size: 1rem; 
+  }
+  
+  #button-up:hover {
+    background-color: #fbfbf8;
+    color: #350908;
   }
