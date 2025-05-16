@@ -113,17 +113,10 @@ Promise.all([
              title: {
                display: true,
                text: 'Antal',
-               padding: 20
+               padding: 15
               }
              },
-
-           x: {
-            title: {
-              display: false,
-             text: 'År',
-              padding: 20
-             }
-          }  
+  
          },
       
       plugins: {      
@@ -178,57 +171,98 @@ const querySCButsatta =
   .then(printSCButsattaChart);
 
     function printSCButsattaChart(dataSCButsatta) {
-    console.log(dataSCButsatta);
-    const relation = dataSCButsatta.data;
-    console.log(relation);
-    const gender = dataSCButsatta.data;
-    console.log(gender);
-    const amount = dataSCButsatta.data;
-    console.log(amount);
-    
-    const labels = relation.map(relation => relation.key[0]);
+      console.log(dataSCButsatta);
+      const gender = dataSCButsatta.data;
+      const relation = dataSCButsatta.data;
+      const amount = dataSCButsatta.data;
+    const womenValues = dataSCButsatta.data.filter(data => data.key[1] == 1).map(data => data.values[0]); 
+    const menValues = dataSCButsatta.data.filter(data => data.key[1] == 2).map(data => data.values[0]); 
+    console.log(womenValues)
+    const labels = gender.map(gender => gender.key[1]);
     console.log(labels);
-    const labels1 = gender.map(gender => gender.key[1]);
-    console.log(labels1);
+    const keys = relation.map(relation => relation.key[0]);
+    const labels1 = [
+    ...keys.slice(0, 1),
+    ...keys.slice(2, 3),
+    ...keys.slice(4, 5)
+    ];
 
-    const data = amount.map(
-        (amount) => amount.values[0]
-    );
+    console.log(labels1);
+    const data = amount.map(amount => amount.values[0]);
     console.log(data);
 
     const datasets = [{
-        label: "Utsatta för misshandel, efter relation till förövare 2015-2016",
-        data: data,
-        backgroundColor: 'rgb(211, 37, 34)',
-        borderColor: 'rgb(180, 36, 55)',
-        borderWidth: 1,
-        borderRadius: 1
-    }];
-/*     const datasets = {
-      type: "bar",
-      data: {
-        datasets: [{
-          label: "Kvinnor", 
-          data: dataSCButsatta
-        },
-        {
-          label: "Män", 
-          data: dataSCButsatta
-        }
-      ]
-      
-      }
-      
-    }; */
-
-    const myChart = new Chart(
-        document.getElementById("scbUtsatta"),
+      label: "Kvinnor",
+      data: womenValues,
+      backgroundColor: 'rgb(211, 37, 34)',
+      borderColor: 'rgb(180, 36, 55)',
+      borderWidth: 1,
+      borderRadius: 1
+    },
     {
-        type: "bar",
-        data: {labels: labels, datasets: datasets}
+      label: "Män",
+      data: menValues,
+      backgroundColor: 'rgb(238, 151, 150)',
+      borderColor: 'rgb(237, 135, 133)',
+      borderWidth: 1,
+      borderRadius: 1
     }
+  ];
+
+    const myChart = new Chart(document.getElementById("scbUtsatta"),
+      {
+        type: "bar",
+        data: {
+          datasets: datasets,
+          labels: ['Närstående', 'Bekanta', 'Helt okända'] 
+        },
+        options: {
+       scales:{
+         y: {
+             title: {
+               display: true,
+               text: 'Antal',
+               color:'#350908',
+               padding: 15,
+               font:{
+                family: 'montserrat, sans-serif',
+                weight: 'bold',
+                size: 13, 
+               }
+              }
+             },
+
+           x: {
+            title: {
+              display: true,
+             text: 'Typ av relation',
+             color: '#350908',
+              padding: 15,
+              font: {
+                family: 'monsterrat, sans-serif',
+                weight: 'bold',
+                size: 13,
+              },
+             }
+          }  
+         },
+      
+      plugins: {      
+        title: {           
+            display: true,
+              text: ['Personer utsatta för misshandel, efter relation till förövare','Sverige 2015-2016'],
+              color: '#350908',
+                padding: 20,
+                font: {
+                  family: 'montserrat, sans-serif',
+                    weight: 'bold'
+                },
+              }
+            }
+           } 
+      }
     );
-}
+    }
  
 /* Anmäld misshandel närstående genom parrelation */
 
@@ -286,7 +320,8 @@ const querySCButsatta =
         data: [3000, 2954, 2912],
         backgroundColor: 'rgb(238, 151, 150)',
         borderColor: 'rgb(237, 135, 133)',
-        borderWidth: 1
+        borderWidth: 1,
+        borderRadius: 1
       }
     ]
     
