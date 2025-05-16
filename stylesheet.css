@@ -1,10 +1,10 @@
 body {
-    background-color: #e7e4dc;
+    background-color: #fbfbf8;
 }
 
 
 .header-text {
-    color: #DE2F2B;
+    color: #de2e2b;
 /*     font-family: montserrat, sans-serif; */
     font-family: akshar, sans-serif;
     font-size: 7rem;
@@ -39,7 +39,7 @@ background-color: #22231f;
 padding-block: 3rem;
 margin-block: 2rem;
 font-family: akshar, sans-serif;
-color: #e7e4dc;
+color: #F7F6F3;
   }
 
   .block-text {
@@ -54,7 +54,7 @@ color: #e7e4dc;
     font-size: 0.8rem;
     font-family: helvetica, sans-serif;
     font-weight:lighter;
-    color: #350908;
+    color: rgb(53, 9, 8)
 }
 
 /* X-Small devices (0-575px) */
@@ -82,14 +82,16 @@ color: #e7e4dc;
 
 .navbar-design,
 .navbar-design .nav-link {
-    color: #DE2F2B !important;
+    color: #fbfbf8 !important;
     font-family: helvetica, sans-serif;
     font-weight:lighter;
     font-size: 1rem;
     margin-block: -.3rem;
 }
 .navbar-brand {
-    color: #DE2F2B !important;
+    color: #fbfbf8 !important;
+    background-color:rgba(222, 46, 43, .4);
+    padding-inline: .4rem;
     font-family: helvetica, sans-serif;
     font-weight:lighter;
     font-size: 1.2rem;
@@ -105,7 +107,17 @@ color: #e7e4dc;
     margin: 5rem;
 }
 
-
-.accordion-body-2 {
+.accordion-button {
     background-color: #350908;
+    color: #fbfbf8;
 }
+
+.accordion {
+    margin-block: 2rem;
+}
+
+
+.accordion-button::after {
+    filter: brightness(0) invert(1); /* Gör pilen vit */
+  }
+

@@ -31,18 +31,14 @@ const querySCBLagforda = {
         "code": "Huvudbrott",
         "selection": {
           "filter": "item",
-          "values": [
-            "06"
-          ]
+          "values": ["06"]
         }
       },
       {
         "code": "Kon",
         "selection": {
           "filter": "item",
-          "values": [
-            "1"
-          ]
+          "values": ["1"]
         }
       },
       {
@@ -100,7 +96,11 @@ Promise.all([
       borderWidth: 1
     }
   ];
-
+  let size = 20; 
+  //om window.matchMedia > 600px, sätt size till något annat
+  if(window.matchMedia("(max-width: 600px)")) {
+    size = 15; 
+  }
   new Chart(document.getElementById('scbAnmaldaochLagforda'), {
     type: 'bar',
     data: {
@@ -126,7 +126,7 @@ Promise.all([
           }  
          },
       
-      plugins: {        
+      plugins: {      
         title: {           
             display: true,
               text: ['Kvinnofridskränkning i Sverige' , 'Anmälningar vs Lagförda'],
@@ -134,7 +134,7 @@ Promise.all([
                 padding: 20,
                 font: {
                   family: 'montserrat, sans-serif',
-                    size: 20,
+                    size: size,
                     weight: 'bold'
                 },
               }
@@ -198,8 +198,28 @@ const querySCButsatta =
 
     const datasets = [{
         label: "Utsatta för misshandel, efter relation till förövare 2015-2016",
-        data: data
+        data: data,
+        backgroundColor: 'rgb(211, 37, 34)',
+        borderColor: 'rgb(180, 36, 55)',
+        borderWidth: 1,
+        borderRadius: 1
     }];
+/*     const datasets = {
+      type: "bar",
+      data: {
+        datasets: [{
+          label: "Kvinnor", 
+          data: dataSCButsatta
+        },
+        {
+          label: "Män", 
+          data: dataSCButsatta
+        }
+      ]
+      
+      }
+      
+    }; */
 
     const myChart = new Chart(
         document.getElementById("scbUtsatta"),
@@ -210,7 +230,7 @@ const querySCButsatta =
     );
 }
  
-/* Personer som blir utsatta för misshandel efter relation till förövare 2015-2016 */
+/* Anmäld misshandel närstående genom parrelation */
 
 /* const urlSCBmisshandel =
 "https://api.scb.se/OV0104/v1/doris/sv/ssd/START/LE/LE0201/LE0201Våld/Tema16b";
@@ -255,11 +275,18 @@ const querySCButsatta =
       labels: [2020, 2021, 2022],
       datasets: [{
         label: "Kvinnor", 
-        data: [13616, 13583, 13445]
+        data: [13616, 13583, 13445],
+        backgroundColor: 'rgb(211, 37, 34)',
+        borderColor: 'rgb(180, 36, 55)',
+        borderWidth: 1,
+        borderRadius: 1
       },
       {
         label: "Män", 
-        data: [3000, 2954, 2912]
+        data: [3000, 2954, 2912],
+        backgroundColor: 'rgb(238, 151, 150)',
+        borderColor: 'rgb(237, 135, 133)',
+        borderWidth: 1
       }
     ]
     
