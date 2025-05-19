@@ -12,6 +12,7 @@ body {
 }
 .img {
     position:sticky;
+    width: 100%;
 }
 .header-container {
     position: relative;
@@ -172,6 +173,10 @@ body {
     padding-left: 2rem;
 }
 
+.accordion-button:hover {
+  color: DE2F2B;
+}
+
 /* .accordion {
     margin-block: 2rem;
 } */
@@ -243,3 +248,8 @@ body {
     margin-left: 2rem;
   }
 
+  .img-2 {
+    object-fit: cover;
+    height: 100%;
+    max-height: 100vh; /* eller ett fast värde som 500px */
+  }

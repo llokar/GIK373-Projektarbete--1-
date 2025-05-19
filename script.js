@@ -91,8 +91,8 @@ Promise.all([
     {
       label: 'Lagförda',
       data: dataLagforda,
-      backgroundColor: '#350908',
-      borderColor: '#350908',
+      backgroundColor: '#ee9796',
+      borderColor: '#ee9796',
       borderWidth: 1
     }
   ];
@@ -399,9 +399,34 @@ const querySCButsatta =
  
 /* Anmäld misshandel närstående genom parrelation */
 
-/* const urlSCBmisshandel =
-"https://api.scb.se/OV0104/v1/doris/sv/ssd/START/LE/LE0201/LE0201Våld/Tema16b";
-*/
+const urlSCBmisshandel = 'https://api.scb.se/OV0104/v1/doris/sv/ssd/START/LE/LE0201/LE0201Våld/Tema16b'
+
+const querySCBmisshandel = {
+  "query": [
+    {
+      "code": "RelOff",
+      "selection": {
+        "filter": "item",
+        "values": [
+          "30"
+        ]
+      }
+    },
+    {
+      "code": "ContentsCode",
+      "selection": {
+        "filter": "item",
+        "values": [
+          "000004K5"
+        ]
+      }
+    }
+  ],
+  "response": {
+    "format": "json"
+  }
+};
+
 
 const request1 = new Request(urlSCBmisshandel, {
   method: "POST",
@@ -449,8 +474,8 @@ fetch(request1)
     {
     label: 'Män',
     data: valueMen,
-     backgroundColor: 'rgb(238, 151, 150)',
-      borderColor: 'rgb(237, 135, 133)',
+     backgroundColor: 'rgba(53, 9, 8, 1)',
+      borderColor: '#350908',
       borderWidth: 1,
       borderRadius: 1
 
@@ -490,6 +515,7 @@ fetch(request1)
         
       }
     });
+  
 
 
 
