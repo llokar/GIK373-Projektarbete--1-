@@ -217,7 +217,6 @@ datasets: datasetsSCBKvinnofrid
 
  
 
-
 /* Personer som blir utsatta för misshandel efter relation till förövare 2015-2016 */
 
 const urlSCButsatta =
