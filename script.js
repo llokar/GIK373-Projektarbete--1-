@@ -91,8 +91,8 @@ Promise.all([
     {
       label: 'Lagförda',
       data: dataLagforda,
-      backgroundColor: 'rgb(238, 151, 150)',
-      borderColor: 'rgb(237, 135, 133)',
+      backgroundColor: '#350908',
+      borderColor: '#350908',
       borderWidth: 1
     }
   ];
@@ -185,17 +185,25 @@ console.log(dataKvinnofrid);
 
 const datasetsSCBKvinnofrid = [{ 
 
-label: 'Anmäld grov kvinnofridskränkning', 
+label: 'Kvinnor utsatta av män',
 
 data: dataKvinnofrid, 
 
+ 
+
 borderColor: "#DE2F2B", 
 
-backgroundColor: "rgba(145, 35, 223, 0.4)" 
+backgroundColor: "#DE2F2B" 
 
 } 
 
 ]; 
+
+let size = 20; 
+  //om window.matchMedia > 600px, sätt size till något annat
+  if(window.matchMedia("(max-width: 600px)")) {
+    size = 15; 
+  }
 
 new Chart(document.getElementById('scbAnmaldaKvinnofrid'), { 
 
@@ -207,14 +215,56 @@ labels: labels,
 
 datasets: datasetsSCBKvinnofrid 
 
-}  
+}, 
+    options: {
+       scales:{
+         y: {
+             title: {
+               display: true,
+               text: 'Antal',
+               weight: 'bold',
+               padding: 15,
+               color:  "#350908",
+               font: {
+                family: 'montserrat, sans-serif',
+                  size: size,
+                  weight: 'bold'
+              },
+             
+             },
+             ticks: {
+              color: "#350908"
+             }
+         },
+         x: {
+          ticks: {
+            color: "#350908"
+          }
+         }
+        },
+      
+      plugins: {    
+        legend: {
+          labels: {
+            color: "#350908"
+          }
+        },
+        title: {           
+            display: true,
+              text: ['Anmälda brott: grov kvinnofridskränkning i Sverige 1998–2023'],
+              color: '#350908',
+                padding: 20,
+                font: {
+                  family: 'montserrat, sans-serif',
+                    size: size,
+                    weight: 'bold'
+                },
+              }
+            }
+           } 
+  });
 
-}); 
-
- 
-
-} 
-
+};
  
 
 /* Personer som blir utsatta för misshandel efter relation till förövare 2015-2016 */
@@ -257,11 +307,11 @@ const querySCButsatta =
       const amount = dataSCButsatta.data;
    
       const womenValues = dataSCButsatta.data.filter(data => data.key[1] == 1).map(data => data.values[0]); 
-    const menValues = dataSCButsatta.data.filter(data => data.key[1] == 2).map(data => data.values[0]); 
-    console.log(womenValues)
+      const menValues = dataSCButsatta.data.filter(data => data.key[1] == 2).map(data => data.values[0]); 
+      console.log(womenValues)
    
-    const labels = gender.map(gender => gender.key[1]);
-    console.log(labels);
+      const labels = gender.map(gender => gender.key[1]);
+      console.log(labels);
     
     const keys = relation.map(relation => relation.key[0]);
     const labels1 = [
@@ -285,8 +335,8 @@ const querySCButsatta =
     {
       label: "Män",
       data: menValues,
-      backgroundColor: 'rgb(238, 151, 150)',
-      borderColor: 'rgb(237, 135, 133)',
+      backgroundColor: '#350908',
+      borderColor: '#350908',
       borderWidth: 1,
       borderRadius: 1
     }
@@ -353,7 +403,97 @@ const querySCButsatta =
 "https://api.scb.se/OV0104/v1/doris/sv/ssd/START/LE/LE0201/LE0201Våld/Tema16b";
 */
 
-  const labels = [
+const request1 = new Request(urlSCBmisshandel, {
+  method: "POST",
+  body: JSON.stringify(querySCBmisshandel)
+});
+
+fetch(request1)
+  .then(response => response.json())
+  .then(printSCBMisshandel);
+
+  function printSCBMisshandel(dataSCBMisshandel) {
+    const years = dataSCBMisshandel.data;
+    const amount = dataSCBMisshandel.data;
+    console.log(dataSCBMisshandel);
+
+    const valueWomen = dataSCBMisshandel.data.filter(data => data.key[1] == 2).map(data => data.values[0]);
+    const valueMen = dataSCBMisshandel.data.filter(data => data.key[1] == 1).map(data => data.values[0]);
+    console.log(valueWomen);
+
+
+    const labels = years.map(years => years.key[2]);
+    console.log(labels);
+
+
+    const keys1 = years.map(years => years.key[2]); 
+    const labels2 = [
+       ...keys1.slice(0, 1),
+        ...keys1.slice(2, 3),
+        ...keys1.slice(4, 5)
+    ];
+    console.log(labels2);
+
+    const data = amount.map(amount => amount.values[0]);
+    console.log(data);
+
+
+    const datasets = [{
+      label: "Kvinnor",
+      data: valueWomen,
+      backgroundColor: 'rgb(211, 37, 34)',
+      borderColor: 'rgb(180, 36, 55)',
+      borderWidth: 1,
+      borderRadius: 1
+    },
+    {
+    label: 'Män',
+    data: valueMen,
+     backgroundColor: 'rgb(238, 151, 150)',
+      borderColor: 'rgb(237, 135, 133)',
+      borderWidth: 1,
+      borderRadius: 1
+
+    }
+  
+  ];
+
+  new Chart(document.getElementById('scbMisshandel'), {
+      type: 'bar',
+      data: {labels: labels2, datasets: datasets},
+    
+
+      options: {
+        scales:{
+          y: {
+            title: {
+              display: true,
+              text: 'Antal',
+              padding: 15
+            }
+          }
+          },
+
+
+          plugins: {
+            title: {
+              display: true,
+              text: ['Anmäld misshandel genom parrelation', 'Sverige 2015-2016'],
+              color: '#350908',
+              padding: 15,
+              font: {
+                family: 'montserrat, sans-serif',
+                weight: 'bold'
+              }
+            }
+          }
+        
+      }
+    });
+
+
+
+  /* const labels = [
     "Kvinnor",
     "Män"
   ];
@@ -413,7 +553,9 @@ const querySCButsatta =
   };
 
 const scbMisshandel = new Chart(document.getElementById("scbMisshandel"), config2)
+ */
 
+/* Back-to-top */
 const upBtn = document.getElementById("button-up");
 
 window.onscroll = function () {
@@ -436,3 +578,4 @@ function backToTop() {
 document.body.scrollTop = 0;
 document.documentElement.scrollTop = 0;
 }
+  }

@@ -33,11 +33,11 @@ body {
   }
 
   .block {
-background-color: #22231f;
-padding-block: 3rem;
-margin-block: 2rem;
-font-family: akshar, sans-serif;
-color: #F7F6F3;
+    background-color: #22231f;
+    padding-block: 3rem;
+    margin-block: 2rem;
+    font-family: akshar, sans-serif;
+    color: #F7F6F3;
   }
 
   .block-text {
@@ -55,6 +55,20 @@ color: #F7F6F3;
     color: rgb(53, 9, 8);
 }
 
+.text-grafer {
+  font-size: 0.8rem;
+  font-family: helvetica, sans-serif;
+  font-weight:lighter;
+  color: #350908;
+}
+
+.rubrik-under-grafer {
+  font-size: 1.5rem;
+  font-family: helvetica, sans-serif;
+  font-weight: medium;
+  color: #350908;
+}
+
 /* X-Small devices (0-575px) */
 @media (max-width: 575px) {
     .header-text {
@@ -66,7 +80,14 @@ color: #F7F6F3;
 @media (min-width: 576px) { }
 
 /* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {  }
+@media (min-width: 768px) {
+/* .accordion-button {
+  display: inline;
+  }
+.img-2 {
+  display: inline;
+  } */
+  }
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {  }
@@ -125,9 +146,8 @@ color: #F7F6F3;
     color: #fbfbf8;
 } */
 
-.accordion-button-1 {
+/* .accordion-button-1 {
     background-color: #350908;
-    margin-top: 4rem;
 }
 
 .accordion-button-2 {
@@ -135,11 +155,12 @@ color: #F7F6F3;
 }
 .accordion-button-3 {
     background-color: #ee9796;
-}
+    margin-bottom: 2rem;
+} */
 
 .accordion-button-1, .accordion-button-2, .accordion-button-3 {
     color: #fbfbf8;
-    width: 100%;
+    background-color: #350908;
     font-family: helvetica;
     font-size: 1.2rem;
     font-weight: lighter;
@@ -160,7 +181,13 @@ color: #F7F6F3;
     filter: brightness(0) invert(1); /* Gör pilen vit */
   }
 
-  .accordion-button-1:not(.collapsed) {
+  .accordion-button-1:not(.collapsed), 
+  .accordion-button-2:not(.collapsed),
+  .accordion-button-3:not(.collapsed) {
+    background-color: rgb(53, 9, 8);
+    color: #fbfbf8;
+  }
+/*   .accordion-button-1:not(.collapsed) {
     background-color: rgb(53, 9, 8);
     color: #fbfbf8;
    
@@ -168,13 +195,14 @@ color: #F7F6F3;
   
   .accordion-button-2:not(.collapsed) {
     background-color: #DE2F2B;
+    background-color: rgb(53, 9, 8);
     color: #fbfbf8;
   }
   
   .accordion-button-3:not(.collapsed) {
     background-color: rgb(238, 151, 150);
     color: #fbfbf8;
-  }
+  } */
 
   .accordion-button:focus {
     border-color: transparent;
@@ -206,3 +234,12 @@ color: #F7F6F3;
     background-color: #fbfbf8;
     color: #350908;
   }
+
+  .text-grafer {
+    width: 70%;
+  }
+
+  .text-grafer, .rubrik-under-grafer {
+    margin-left: 2rem;
+  }
+
