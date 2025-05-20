@@ -11,7 +11,7 @@ body {
 }
 .img {
     position:sticky;
-    width: 100%;
+/*     width: 100%; */
 }
 .header-container {
     position: relative;
@@ -60,10 +60,11 @@ body {
   font-family: helvetica, sans-serif;
   font-weight:lighter;
   color: #350908;
+  text-align: justify;
 }
 
 .rubrik-under-grafer {
-  font-size: 2.4rem;
+  font-size: 1.4rem;
   font-family: montserrat, sans-serif;
   font-weight: bold;
   color: #350908;
@@ -74,10 +75,18 @@ body {
     .header-text {
         font-size: 5rem;
     }
+
+    .chartResize {
+      width: 34rem;
+      height: 17rem;
+     
+    }
 }
 
 /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) { }
+@media (min-width: 576px) {
+
+ }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
@@ -87,10 +96,27 @@ body {
 .img-2 {
   display: inline;
   } */
+
   }
 
 /* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {  }
+@media (min-width: 992px) {
+  .chartResize {
+    width: 36rem;
+    height: 18rem;
+  }
+  .text-grafer {
+    column-count: 2;
+    column-gap: 1.7rem;
+    text-align: justify;
+  }
+  .rubrik-under-grafer {
+    font-size: 2.4rem;
+    font-family: montserrat, sans-serif;
+    font-weight: bold;
+    color: #350908;
+  }
+  }
 
 /* X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { }
@@ -102,18 +128,19 @@ body {
 .navbar-design,
 .navbar-design {
     background-color: rgba(53, 9, 8, 0.5);
-    
-    color: #fbfbf8 !important;
+/*     width: 100vw; */
+    color: #fbfbf8;
     font-family: helvetica, sans-serif;
     font-weight:lighter;
     font-size: 1rem;
     margin-block: -.3rem;
+
 }
 .navbar-brand {
-    color: #fbfbf8 !important;
+    color: #fbfbf8;
     padding-inline: .4rem;
     font-family: helvetica, sans-serif;
-    font-weight:lighter;
+    font-weight: bolder;
     font-size: 1.2rem;
 }
 
@@ -239,11 +266,7 @@ body {
     color: #350908;
   }
 
-  .text-grafer {
-    column-count: 2;
-    column-gap: 1.7rem;
-    text-align: justify;
-  }
+
 
  /*  .text-grafer, .rubrik-under-grafer {
     margin-left: 2rem;
@@ -255,10 +278,15 @@ body {
     max-height: 100vh; /* eller ett fast värde som 500px */
   }
 
-  .chartResize {
+/*   .chartResize {
     width: 80rem;
     height: 40rem;
-  }
+  } */
+
+ /*  .chartResize {
+    width: 36rem;
+    height: 18rem;
+  } */
 
   .text {
     margin-top: 4rem;
@@ -267,4 +295,31 @@ body {
 
 .row {
   margin-top: 5rem;
+}
+
+.navbar-nav .dropdown {
+  position: relative; /* Viktigt! Annars har 'top' ingen referens */
+}
+
+.dropdown-menu {
+  background-color: rgba(53, 9, 8, 0.7);
+  border: none;
+  top: 3.4rem;
+}
+
+.dropdown-item {
+  color: #fbfbf8;
+  font-family: helvetica;
+  font-weight: lighter;
+  
+  }
+
+.dropdown-item:hover {
+    color:#DE2F2B;
+    background-color: transparent;
+}
+
+.navbar-nav .dropdown:hover .dropdown-menu {
+      display: block;
+      margin-top: 0; 
 }
