@@ -109,6 +109,7 @@ Promise.all([
     },
     options: {
        scales:{
+        responsive: true,
          y: {
              title: {
                display: true,
@@ -330,7 +331,9 @@ const querySCButsatta =
       backgroundColor: 'rgb(211, 37, 34)',
       borderColor: 'rgb(180, 36, 55)',
       borderWidth: 1,
-      borderRadius: 1
+      borderRadius: 1,
+      barPercentage: 0.5,
+      categoryPercentage: 1
     },
     {
       label: "Män",
@@ -338,7 +341,9 @@ const querySCButsatta =
       backgroundColor: '#350908',
       borderColor: '#350908',
       borderWidth: 1,
-      borderRadius: 1
+      borderRadius: 1,
+      barPercentage: 0.5,
+      categoryPercentage: 1
     }
   ];
 
@@ -469,15 +474,19 @@ fetch(request1)
       backgroundColor: 'rgb(211, 37, 34)',
       borderColor: 'rgb(180, 36, 55)',
       borderWidth: 1,
-      borderRadius: 1
+      borderRadius: 1,
+      barPercentage: 0.5,
+      categoryPercentage: 1
     },
     {
     label: 'Män',
     data: valueMen,
-     backgroundColor: 'rgba(53, 9, 8, 1)',
-      borderColor: '#350908',
+     backgroundColor: '#FF9F1C',
+      borderColor: '#FF9F1C',
       borderWidth: 1,
-      borderRadius: 1
+      borderRadius: 1,
+      barPercentage: 0.5,
+      categoryPercentage: 1
 
     }
   
@@ -518,68 +527,6 @@ fetch(request1)
   
 
 
-
-  /* const labels = [
-    "Kvinnor",
-    "Män"
-  ];
-
-  const datasets = [
-    {
-      label: 'Anmäld misshandel, kvinnor',
-      data: [13616, 13583, 13445],
-      backgroundColor: "rgba(244,255,12,0.4)",
-      borderColor: "blue",
-      borderWidth: 2,
-      hoverBorderColor: "red",
-     
-      
-    },    
-    {
-      label: 'Anmäld misshandel, män',
-      data: [3000, 2954, 2912],
-      backgroundColor: "rgba(244,255,12)",
-      hoverBorderColor: "magenta",
-
-    },
-  ];
-  
-  const config = { 
-    type: 'bar',
-    data: {labels: labels, datasets: datasets}, 
-};
-
-  const canvas = document.getElementById('myChart');
-  const myChart = new Chart(canvas, config);
-
-  const config2 = {
-    type: "bar",
-    data: {
-      labels: [2020, 2021, 2022],
-      datasets: [{
-        label: "Kvinnor", 
-        data: [13616, 13583, 13445],
-        backgroundColor: 'rgb(211, 37, 34)',
-        borderColor: 'rgb(180, 36, 55)',
-        borderWidth: 1,
-        borderRadius: 1
-      },
-      {
-        label: "Män", 
-        data: [3000, 2954, 2912],
-        backgroundColor: 'rgb(238, 151, 150)',
-        borderColor: 'rgb(237, 135, 133)',
-        borderWidth: 1,
-        borderRadius: 1
-      }
-    ]
-    
-    }
-    
-  };
-
-const scbMisshandel = new Chart(document.getElementById("scbMisshandel"), config2)
- */
 
 /* Back-to-top */
 const upBtn = document.getElementById("button-up");
