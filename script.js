@@ -112,51 +112,29 @@ Promise.all([
     options: {
       responsive: true,
       scales: {
-        
          y: {
-             title: {
-               display: true,
-               text: 'Antal',
-               padding: 15,
-               color: "#350908",
-               font: {
-                family: 'montserrat, sans-serif',
-                size: size,
-                weight: 'bold'
-              }
-            },
             ticks: {
               color: "#350908" // <-- Färg på y-axelns värden
             }
           },
           x: {
-            title: {
-              display: true,
-              text: 'År',
-              padding: 15,
-              color: "#350908",
-              font: {
-               family: 'montserrat, sans-serif',
-               size: size,
-               weight: 'bold'
-             }
-           },
             ticks: {
               color: "#350908"
             }
           }
-        },
+        ,
       },
     
        plugins: {    
-      /*   legend: {
+      legend: {
           labels: {
-            color: "#350908"
+            color: "#350908",
           }
-        }, */  
+        },  
         title: {           
             display: true,
-              text: ['Grov kvinnofridskränkning i Sverige' , 'Anmälda vs Lagförda'],
+            align: 'start',
+              text: 'Grov kvinnofridskränkning i Sverige, anmälda vs Lagförda',
               color: '#350908',
                 padding: 20,
                 font: {
@@ -167,7 +145,8 @@ Promise.all([
               }
             }
           }
-      )});
+        }
+    )});
       
 
 
@@ -255,19 +234,7 @@ datasets: datasetsSCBKvinnofrid
     options: {
        scales:{
          y: {
-             title: {
-               display: true,
-               text: 'Antal',
-               weight: 'bold',
-               padding: 15,
-               color:  "#350908",
-               font: {
-                family: 'montserrat, sans-serif',
-                  size: size,
-                  weight: 'bold'
-              },
-             
-             },
+            
              ticks: {
               color: "#350908"
              }
@@ -281,15 +248,15 @@ datasets: datasetsSCBKvinnofrid
       
       plugins: {    
         legend: {
-          labels: {
-            color: "#350908"
-          }
+          display: false,
+          
         },
         title: {           
             display: true,
+            align: 'start',
               text: ['Anmälda brott: grov kvinnofridskränkning i Sverige 1998–2023'],
               color: '#350908',
-                padding: 20,
+                padding: 40,
                 font: {
                   family: 'montserrat, sans-serif',
                     size: size,
@@ -368,7 +335,8 @@ const querySCButsatta =
       borderWidth: 1,
       borderRadius: 1,
       barPercentage: 0.5,
-      categoryPercentage: 1
+      categoryPercentage: 1,
+      
     },
     {
       label: "Män",
@@ -378,7 +346,8 @@ const querySCButsatta =
       borderWidth: 1,
       borderRadius: 1,
       barPercentage: 0.5,
-      categoryPercentage: 1
+      categoryPercentage: 1,
+      
     }
   ];
 
@@ -392,43 +361,39 @@ const querySCButsatta =
         options: {
        scales:{
          y: {
-             title: {
-               display: true,
-               text: 'Antal',
-               color:'#350908',
-               padding: 15,
-               font:{
-                family: 'montserrat, sans-serif',
-                weight: 'bold',
-                size: 13, 
-               }
+             ticks: {
+              color: "#350908"
               }
              },
 
            x: {
-            title: {
-              display: true,
-             text: 'Typ av relation',
-             color: '#350908',
-              padding: 15,
-              font: {
-                family: 'Montserrat, sans-serif',
-                weight: 'bold',
-                size: 13,
-              },
-             }
+            ticks: {
+              color: "#350908"
+            }
           }  
          },
       
-      plugins: {      
+      plugins: { 
+        
+        legend: {
+          position: 'right',
+          align: 'center',
+          
+           labels:{
+            color: "#350908",
+           }
+        },
+        
         title: {           
             display: true,
-              text: ['Personer utsatta för misshandel, efter relation till förövare','Sverige 2015-2016'],
+            align: 'start',
+              text: 'Antal personer utsatta för misshandel efter relation till förövare i Sverige år 2015-2016',
               color: '#350908',
-                padding: 20,
+                padding: 49,
                 font: {
                   family: 'montserrat, sans-serif',
-                    weight: 'bold'
+                    weight: 'bold',
+                    size: 16
                 },
               }
             }
@@ -535,11 +500,7 @@ fetch(request1)
       options: {
         scales:{
           y: {
-            title: {
-              display: true,
-              text: 'Antal',
-              padding: 15
-            }
+            
           }
           },
 
@@ -547,12 +508,14 @@ fetch(request1)
           plugins: {
             title: {
               display: true,
-              text: ['Anmäld misshandel genom parrelation', 'Sverige 2015-2016'],
+              align: 'start',
+              text: 'Anmäld misshandel genom parrelation Sverige 2015-2016',
               color: '#350908',
               padding: 15,
               font: {
                 family: 'montserrat, sans-serif',
-                weight: 'bold'
+                weight: 'bold',
+                size: 16
               }
             }
           }

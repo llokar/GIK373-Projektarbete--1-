@@ -93,9 +93,9 @@ body {
       width: 34rem;
       height: 17rem;
     } */
-    .chartResize {
+/*     .chartResize {
       width: 46rem !important; 
-   }
+   } */
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -104,16 +104,16 @@ body {
     width: 40rem;
     height: 20rem;
   } */
-  .chartResize {
+/*   .chartResize {
     width: 41rem !important; 
- }
+ } */
  }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
-  .chartResize {
+/*   .chartResize {
     width: 52rem !important; 
- }
+ } */
 /* .accordion-button {
   display: inline;
   }
