@@ -551,3 +551,93 @@ document.documentElement.scrollTop = 0;
 }
   }
 
+/* Karta */
+
+const countryCodes = {
+  'BE': 'Belgium', 
+  'BG': 'Bulgaria', 
+  'CZ': 'Czech Republic', 
+  'DK': 'Denmark',
+  'DE': 'Germany', 
+  'EE': 'Estonia', 
+  'IE': 'Ireland', 
+  'EL': 'Greece',
+  'ES': 'Spain', 
+  'FR': 'France', 
+  'HR': 'Croatia', 
+  'IT': 'Italy',
+  'CY': 'Cyprus', 
+  'LV': 'Latvia', 
+  'LT': 'Lithuania', 
+  'LU': 'Luxembourg',
+  'HU': 'Hungary', 
+  'MT': 'Malta', 
+  'NL': 'Netherlands', 
+  'AT': 'Austria',
+  'PL': 'Poland', 
+  'PT': 'Portugal', 
+  'RO': 'Romania', 
+  'SI': 'Slovenia',
+  'SK': 'Slovakia', 
+  'FI': 'Finland', 
+  'SE': 'Sweden', 
+  'ME': 'Montenegro',
+  'RS': 'Serbia'
+};
+
+async function fetchEurostatsData() {
+  const euStatsUrl = 'https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gbv_ipv_type$defaultview/?format=JSON&lang=en';
+  try {
+    const response = await fetch(euStatsUrl);
+    if (!response.ok) {
+      throw new Error(`Error status: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    const geoIndex = data.dimension?.geo?.category?.index;
+    const countries = Object.keys(geoIndex).map(code => countryCodes[code] || code);
+    const valuesArray = Object.values(data.value);
+
+    return {
+      countries,
+      valuesArray
+    };
+  } catch (error) {
+    console.error("Error fetching EuroStats data:", error);
+  }
+}
+
+async function displayCountryDataOnMap() {
+  const mapData = await fetchEurostatsData();
+  if (!mapData) return;
+
+  const data = [{
+    type: "choropleth",
+    locations: mapData.countries,
+    z: mapData.valuesArray,
+    featureidkey: "properties.NAME",
+    geojson: "https://raw.githubusercontent.com/leakyMirror/map-of-europe/refs/heads/master/GeoJSON/europe.geojson"
+    
+  }];
+
+  const layout = {
+    geo: {
+      scope: 'europe',
+      center: { lon: 15, lat: 52 },
+      zoom: 3.2,
+      projection: { type: "natural earth" },
+      showland: true,
+      landcolor: "#e0e0e0",
+      countrycolor: "#ffffff", 
+      showcountries: true
+    },
+    margin: { t: 0, b: 0, l: 0, r: 0 },
+    width: 800,
+    height: 600
+  };
+
+  Plotly.newPlot('euStats', data, layout);
+}
+
+displayCountryDataOnMap();
