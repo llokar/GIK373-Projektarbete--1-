@@ -26,11 +26,17 @@ body {
   .intro {
     color: #DE2F2B;  
     padding-left: 1.1rem;
-    margin-top: -1rem; 
-    font-size: 1.1rem;
+    margin-top: -4vw; 
+    font-size: 3.5vw;
     font-family: akshar, sans-serif;
     font-weight:lighter;
   }
+
+  .titel {
+    font-size: 4rem;
+  }
+
+  
 
   .block {
     background-color: #22231f;
@@ -38,6 +44,7 @@ body {
     margin-block: 2rem;
     font-family: akshar, sans-serif;
     color: #F7F6F3;
+    margin-bottom: 4rem;
   }
 
   .block-text {
@@ -53,14 +60,18 @@ body {
     font-family: helvetica, sans-serif;
     font-weight:lighter;
     color: rgb(53, 9, 8);
+    max-width: 80ch;
+    text-align: center;
+    margin-top: 2rem;
 }
+
 
 .text-grafer {
   font-size: 0.8rem;
   font-family: helvetica, sans-serif;
   font-weight:lighter;
   color: #350908;
-  text-align: justify;
+  margin-bottom: 8rem;
 }
 
 .rubrik-under-grafer {
@@ -69,47 +80,67 @@ body {
   font-weight: bold;
   color: #350908;
 }
-
+.header-text {
+  font-size: 16vw;
+}
+/* .chartResize {
+  width: 100%
+} */
 /* X-Small devices (0-575px) */
 @media (max-width: 575px) {
-    .header-text {
-        font-size: 5rem;
-    }
 
-    .chartResize {
+/*     .chartResize {
       width: 34rem;
       height: 17rem;
-     
-    }
+    } */
+    .chartResize {
+      width: 46rem !important; 
+   }
 }
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
-
+/*   .chartResize {
+    width: 40rem;
+    height: 20rem;
+  } */
+  .chartResize {
+    width: 41rem !important; 
+ }
  }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
+  .chartResize {
+    width: 52rem !important; 
+ }
 /* .accordion-button {
   display: inline;
   }
 .img-2 {
   display: inline;
   } */
-
-  }
-
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
-  .chartResize {
-    width: 36rem;
-    height: 18rem;
-  }
   .text-grafer {
+    text-align: justify;
     column-count: 2;
     column-gap: 1.7rem;
-    text-align: justify;
   }
+/*   .header-text {
+    font-size: 8rem;
+}
+.intro {
+  font-size: 1.6rem;
+  margin-top: -2rem;
+  } */
+
+}
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+/*   .chartResize {
+    width: 36rem;
+    height: 18rem;
+  } */
+
   .rubrik-under-grafer {
     font-size: 2.4rem;
     font-family: montserrat, sans-serif;
@@ -164,9 +195,9 @@ body {
 }
 
 
-.first-text {
+/* .first-text {
     margin: 5rem;
-}
+} */
 
 /* .accordion-button {
     background-color: #350908;
@@ -297,11 +328,12 @@ body {
   margin-top: 5rem;
 }
 
-.navbar-nav .dropdown {
+ .navbar-nav .dropdown {
   position: relative; /* Viktigt! Annars har 'top' ingen referens */
 }
-
+ 
 .dropdown-menu {
+  position: absolute;
   background-color: rgba(53, 9, 8, 0.7);
   border: none;
   top: 3.4rem;
@@ -314,6 +346,7 @@ body {
   
   }
 
+
 .dropdown-item:hover {
     color:#DE2F2B;
     background-color: transparent;
@@ -323,3 +356,84 @@ body {
       display: block;
       margin-top: 0; 
 }
+
+.dropdown-hover-bridge {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 3.4rem;
+  pointer-events: auto;
+  background: transparent;
+  z-index: 1;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 301px;
+  height: 450px;
+  border-radius: 6px;
+  perspective: 1000px; 
+  margin-bottom: 10rem;
+}
+
+
+.flip-card-holder {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  border-radius: 6px;
+  border: 1px solid #cdcdcd;
+  
+}
+
+
+.flip-card:hover .flip-card-holder {
+  transform: rotateY(180deg);
+}
+
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+
+.flip-card-front {
+  background-color: #fbfbf8;
+  color: black;
+  border-radius: 6px;
+}
+
+
+.flip-card-back {
+  background-color: #350908;
+  color: white;
+  transform: rotateY(180deg);
+  
+  border-radius: 6px;
+}
+
+.flip-card-body {
+  padding: 1rem;
+}
+.flip-card-title {
+  margin-bottom: .5rem;
+  color: #350908
+}
+
+.flip-card-text {
+  font-size: 1rem;
+  color:#350908;
+}
+
+.flip-card-img {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+

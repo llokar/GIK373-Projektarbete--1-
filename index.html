@@ -31,6 +31,7 @@
                     <a class="nav-link active dropdown-toggle" href="#" id="statistikDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Statistik
                     </a>
+                    <div class = "dropdown-hover-bridge"></div>
                     <ul class = "dropdown-menu" aria-labelledby="statistikDropdown">
                       <li><a class="dropdown-item" href="#">Grov kvinnofridskränkning: anmälda vs lagförda </a></li>
                       <li><a class="dropdown-item" href="#">Anmälda brott: grov kvinnofridskränkning</a></li>
@@ -50,17 +51,62 @@
             <p class="intro">och vi behöver din hjälp</p> 
         </div>   
     </header>
-<div class="first-text col-9 col-sm-9 col-md-7 col-lg-5">
-    <h2 class="rubrik-under-grafer">Women Stats</h2>
-    <p>Var tredje kvinna utsätts för våld under sin livstid. Det är en siffra som borde skrika – men i stället viskas den bort. Det är lätt att blunda för statistik, att scrolla förbi ett procenttal, att tro att det inte rör dig. Men bakom varje siffra finns ett ansikte, ett namn, ett liv som slagits i spillror. Women Stats finns för att synliggöra det som många försöker gömma undan. Vi samlar och visualiserar statistik om våld mot kvinnor, inte för att chocka, utan för att väcka. För att upplysa. För att driva förändring. För vi vet att förändring börjar med att våga se – även det som gör ont. Siffror ljuger inte. Och vi vägrar vara tysta.</p>
+<div class="first-text col-12 offset-0 offset-lg-3 offset-sm-2">
+    <h2 class="rubrik-under-grafer titel">Women Stats</h2>
+    <p class="first-text-block">Var tredje kvinna utsätts för våld under sin livstid. Det är en siffra som borde skrika – men i stället viskas den bort. Det är lätt att blunda för statistik, att scrolla förbi ett procenttal, att tro att det inte rör dig. Men bakom varje siffra finns ett ansikte, ett namn, ett liv som slagits i spillror. Women Stats finns för att synliggöra det som många försöker gömma undan. Vi samlar och visualiserar statistik om våld mot kvinnor, inte för att chocka, utan för att väcka. För att upplysa. För att driva förändring. För vi vet att förändring börjar med att våga se – även det som gör ont. Siffror ljuger inte. Och vi vägrar vara tysta.</p>
 </div>
-   
+
+<!--flip cards !-->
+
+<div class ="row">     
+<div class="col-3 offset-2">
+<div class="flip-card">
+  <div class="flip-card-holder">
+    <div class="flip-card-front">
+      <img class="flip-card-img" src="/Bilder/05-jamstalldhet.png" alt="Avatar" style="width:300px;height:300px;">
+      <div class="flip-card-body">
+        <h4 class ="flip-card-title">Globala målet 5</h4>
+        <p class ="flip-card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+      </div>
+    </div>
+    <div class="flip-card-back">
+      <div class="flip-card-body">
+      <h3>Jämställdhet</h3>
+      <p>Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="col-3 offset-1">
+<div class="flip-card">
+  <div class="flip-card-holder">
+    <div class="flip-card-front">
+      <img class="flip-card-img" src="/Bilder/utrota.png" alt="..." style="width:300px;height:300px;">
+      <div class="flip-card-body">
+        <h4 class ="flip-card-title">Delmål 5.2</h4>
+        <p class ="flip-card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+      </div>
+    </div>
+    <div class="flip-card-back">
+      <div class="flip-card-body">
+      <h3>Delmålet</h3>
+      <p>Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+
 <!--         <canvas id="euStats"></canvas> -->
-        <div class = "chartResize col-12 offset-md-0">
+        <div class = "chartResize">
           <canvas id="scbAnmaldaochLagforda"></canvas> 
         </div>
 
-      <div class = "text col-8  offset-sm-1 offset-2 col-lg-7">
+      <div class = "text col-8  offset-sm-1 offset-2 col-md-10 col-lg-9">
         <p class ="rubrik-under-grafer">Vad tar vi med oss?</p>
         <p class="text-grafer">I jämförelse mellan kvinnor och män syns tydliga skillnader i vilka typer av relationer där våldet sker. Fler män än kvinnor uppger att de utsatts av en närstående, medan utsattheten är mer jämnt fördelad när det gäller bekanta. I situationer där förövaren är helt okänd är kvinnor däremot betydligt mer utsatta än män.
 
@@ -77,10 +123,10 @@
     <p class="morkertal col-9">Det finns ett enormt mörkertal. Många utsatta vågar inte anmäla med risk att riskera sitt liv. </p>
 </div>
 
-    <div class = "chartResize col-12 offset-md-0">
+    <div class = "chartResize">
       <canvas id="scbAnmaldaKvinnofrid"></canvas>
    </div>
-   <div class = "text col-8 offset-2 offset-sm-1 col-lg-7">
+   <div class = "text col-8 offset-2 offset-sm-1 col-md-10 col-lg-9">
       <p class ="rubrik-under-grafer">Vad tar vi med oss?</p>
       <p class="text-grafer">I jämförelse mellan kvinnor och män syns tydliga skillnader i vilka typer av relationer där våldet sker. Fler män än kvinnor uppger att de utsatts av en närstående, medan utsattheten är mer jämnt fördelad när det gäller bekanta. I situationer där förövaren är helt okänd är kvinnor däremot betydligt mer utsatta än män.
   
@@ -91,7 +137,7 @@
       <div class = "chartResize col-12 offset-md-0">
         <canvas id="scbUtsatta"></canvas>
       </div>
-      <div class = "text col-8 offset-2 offset-sm-1 col-lg-7">
+      <div class = "text col-8 offset-2 offset-sm-1 col-md-10 col-lg-9">
         <p class ="rubrik-under-grafer">Vad tar vi med oss?</p>
         <p class="text-grafer">I jämförelse mellan kvinnor och män syns tydliga skillnader i vilka typer av relationer där våldet sker. Fler män än kvinnor uppger att de utsatts av en närstående, medan utsattheten är mer jämnt fördelad när det gäller bekanta. I situationer där förövaren är helt okänd är kvinnor däremot betydligt mer utsatta än män.
 
@@ -101,7 +147,7 @@
       </div>
       <div class="row">
         <img src="/Bilder/baby_bw.png" class="img-2 col-12 col-md-6 object-fit-cover" width="100%" alt="bebisben">
-        <div class="col-12 col-md-5">
+        <div class="col-12 col-md-6">
           <div class="accordion accordion-flush" id="accordionFlushExample">
               <div class="accordion-item">
                 <h2 class="accordion-header" id="flush-headingOne">
@@ -142,7 +188,7 @@
         <canvas id="scbMisshandel"></canvas>
       </div>
         <button onclick="topFunction()" id="button-up" title="Go to top">Till toppen</button>
-      <div class = "text col-8 offset-2 offset-sm-1 col-lg-7">
+      <div class = "text col-8 offset-2 offset-sm-1 col-md-10 col-lg-9">
         <p class ="rubrik-under-grafer">Vad tar vi med oss?</p>
         <p class="text-grafer">I jämförelse mellan kvinnor och män syns tydliga skillnader i vilka typer av relationer där våldet sker. Fler män än kvinnor uppger att de utsatts av en närstående, medan utsattheten är mer jämnt fördelad när det gäller bekanta. I situationer där förövaren är helt okänd är kvinnor däremot betydligt mer utsatta än män.
 

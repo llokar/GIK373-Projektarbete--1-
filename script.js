@@ -1,3 +1,5 @@
+/* Graf: Grov kvinnofridskränkning i SVGForeignObjectElement, anmälda vs lagförda */
+
 const urlSCBAnmalda = 'https://api.scb.se/OV0104/v1/doris/sv/ssd/START/LE/LE0201/LE0201Våld/Tema613';
 
 const urlSCBLagforda = "https://api.scb.se/OV0104/v1/doris/sv/ssd/START/LE/LE0201/LE0201Våld/Tema615";
@@ -98,7 +100,7 @@ Promise.all([
   ];
   let size = 20; 
   //om window.matchMedia > 600px, sätt size till något annat
-  if(window.matchMedia("(max-width: 600px)")) {
+  if (window.matchMedia("(max-width: 600px)")) {
     size = 15; 
   }
   new Chart(document.getElementById('scbAnmaldaochLagforda'), {
@@ -108,37 +110,70 @@ Promise.all([
       datasets: datasets
     },
     options: {
-       scales:{
-        responsive: true,
+      responsive: true,
+      scales: {
+        
          y: {
              title: {
                display: true,
                text: 'Antal',
-               padding: 15
+               padding: 15,
+               color: "#350908",
+               font: {
+                family: 'montserrat, sans-serif',
+                size: size,
+                weight: 'bold'
               }
-             },
-  
-         },
-      
-      plugins: {      
+            },
+            ticks: {
+              color: "#350908" // <-- Färg på y-axelns värden
+            }
+          },
+          x: {
+            title: {
+              display: true,
+              text: 'År',
+              padding: 15,
+              color: "#350908",
+              font: {
+               family: 'montserrat, sans-serif',
+               size: size,
+               weight: 'bold'
+             }
+           },
+            ticks: {
+              color: "#350908"
+            }
+          }
+        },
+      },
+    
+       plugins: {    
+      /*   legend: {
+          labels: {
+            color: "#350908"
+          }
+        }, */  
         title: {           
             display: true,
-              text: ['Kvinnofridskränkning i Sverige' , 'Anmälningar vs Lagförda'],
+              text: ['Grov kvinnofridskränkning i Sverige' , 'Anmälda vs Lagförda'],
               color: '#350908',
                 padding: 20,
                 font: {
                   family: 'montserrat, sans-serif',
                     size: size,
                     weight: 'bold'
-                },
+                }
               }
             }
-           } 
-  });
+          }
+      )});
+      
 
-}); /* .catch(err => console.error('Fel vid hämtning av data:', err)); */
 
-/* Anmäld grov kvinnofridskräkning 1998–2023*/
+
+
+/* Graf: Anmäld grov kvinnofridskräkning 1998–2023*/
 
 const urlSCBKvinnofrid = 'https://api.scb.se/OV0104/v1/doris/sv/ssd/START/LE/LE0201/LE0201Våld/Tema613' 
 
@@ -268,7 +303,7 @@ datasets: datasetsSCBKvinnofrid
 };
  
 
-/* Personer som blir utsatta för misshandel efter relation till förövare 2015-2016 */
+/* Graf: Personer som blir utsatta för misshandel efter relation till förövare 2015-2016 */
 
 const urlSCButsatta =
 "https://api.scb.se/OV0104/v1/doris/sv/ssd/START/LE/LE0201/LE0201Våld/Tema66";
@@ -377,7 +412,7 @@ const querySCButsatta =
              color: '#350908',
               padding: 15,
               font: {
-                family: 'monsterrat, sans-serif',
+                family: 'Montserrat, sans-serif',
                 weight: 'bold',
                 size: 13,
               },
@@ -552,3 +587,4 @@ document.body.scrollTop = 0;
 document.documentElement.scrollTop = 0;
 }
   }
+
