@@ -79,6 +79,7 @@ Promise.all([
     lagforda[year.key[2]] = Number(year.values[0]);
   });
 
+  /* om värdet är null används 0 */
   const dataLagforda = labels.map(year => lagforda[year] || 0);
 
   const andelLagforda = dataLagforda.map (
@@ -647,11 +648,40 @@ async function displayCountryDataOnMap() {
     locations: mapData.countries,
     z: mapData.valuesArray,
     featureidkey: "properties.NAME",
-    geojson: "https://raw.githubusercontent.com/leakyMirror/map-of-europe/refs/heads/master/GeoJSON/europe.geojson"
-    
+    geojson: "https://raw.githubusercontent.com/leakyMirror/map-of-europe/refs/heads/master/GeoJSON/europe.geojson",
+    colorscale: [
+      [0,    '#DE2F2B'],  // Ljus röd
+      [0.35, '#C02826'],
+      [0.5,  '#A02120'],
+      [0.6,  '#7D1919'],
+      [0.7,  '#5A1111'],
+      [1,    '#350908']   // Vinröd
+  ],
+    colorbar: {
+      title: {text: '%'},
+      thickness: 20,
+      
+  },
+  zmin: 0,
+  zmax: 55,
+  reversescale: true,
+  marker: {
+      line: {
+          color: 'white',
+          width: 1.5
+      }},
   }];
 
   const layout = {
+    title: {
+      text: 'Andel kvinnor som någonsin utsatts för parnervåld <br> - Psykiskt, fysiskt eller sexuellt'
+    },
+    font: {
+      family: "montserrat, sans-serif", 
+      weight: "bold",
+      size: 11,                    
+      color: "#350908" 
+    },
     geo: {
       scope: 'europe',
       center: { lon: 15, lat: 52 },
@@ -660,28 +690,22 @@ async function displayCountryDataOnMap() {
       showland: true,
       landcolor: "#e0e0e0",
       countrycolor: "#ffffff", 
-      showcountries: true,
+      bgcolor: 'rgba(0,0,0,0)'
 
     },
-    margin: { t: 80, b: 0, l: 0, r: 0 },
-    width: 800,
-    height: 600,
-      title: {
-        text: 'KAJDFJNSAKNASKLNRTA',
-        font: {
-          family: 'montserrat, sans-serif',
-          weight: 'bold',
-          size: 16
-        }
-      }
-
-
+    
+    margin: { t: 30, b: 0, l: 0, r: 0 },
+   /*  width: 700,
+    height: 400, */
+    paper_bgcolor: 'rgba(0,0,0,0)',
+    plot_bgcolor: 'rgba(0,0,0,0)',
+   
     
   
   
   };
 
-  Plotly.newPlot('euStats', data, layout);
-};
+  Plotly.newPlot('euStats', data, layout, {scrollZoom: false});
+}
 
 displayCountryDataOnMap();

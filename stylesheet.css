@@ -86,9 +86,28 @@ body {
 /* .chartResize {
   width: 100%
 } */
+
+
 /* X-Small devices (0-575px) */
 @media (max-width: 575px) {
+  .first-text-block {
+    font-size: 0.8rem;
+  }
+  
+  .flip-card {
+     width: 15rem;
+     height: 27rem;
+  }
 
+  .flip-card-img {
+    width:14.95rem;
+    height:auto;
+  }
+  /* .test {
+    width: 2rem;
+  } */
+
+ 
 /*     .chartResize {
       width: 34rem;
       height: 17rem;
@@ -100,6 +119,20 @@ body {
 
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
+
+  .first-text-block {
+    font-size: 1rem;
+  }
+
+    .flip-card {
+     width: 17rem;
+  height: 29rem;
+  }
+
+  .flip-card-img {
+      width:17rem;
+    height:17rem;
+  }
 /*   .chartResize {
     width: 40rem;
     height: 20rem;
@@ -120,7 +153,20 @@ body {
 .img-2 {
   display: inline;
   } */
+
+  .first-text-block {
+    font-size: 1.2rem;
+  }
+
+  .rubrik-under-grafer {
+    font-size: 2rem;
+    font-family: montserrat, sans-serif;
+    font-weight: bold;
+    color: #350908;
+  } 
+
   .text-grafer {
+    font-size: 1.1rem;
     text-align: justify;
     column-count: 2;
     column-gap: 1.7rem;
@@ -136,10 +182,14 @@ body {
 }
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-/*   .chartResize {
-    width: 36rem;
-    height: 18rem;
-  } */
+  
+  .first-text-block {
+    font-size: 1.6rem;
+  }
+
+  .text-grafer {
+    font-size: 1.3rem;
+  }
 
   .rubrik-under-grafer {
     font-size: 2.4rem;
@@ -150,10 +200,42 @@ body {
   }
 
 /* X-Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) { }
+@media (min-width: 1200px) {
+
+  .first-text-block {
+    font-size: 1.8rem;
+  }
+
+  .text-grafer {
+    font-size: 1.8rem;
+  }
+  
+  .rubrik-under-grafer {
+    font-size: 2.8rem;
+    font-family: montserrat, sans-serif;
+    font-weight: bold;
+    color: #350908;
+  } 
+ }
 
 /* XX-Large devices (larger desktops, 1400px and up) */
-@media (min-width: 1400px) { }
+@media (min-width: 1400px) { 
+
+  .first-text-block {
+    font-size: 2rem;
+  }
+
+  .text-grafer {
+    font-size: 2rem;
+  }
+
+  .rubrik-under-grafer {
+    font-size: 3.2rem;
+    font-family: montserrat, sans-serif;
+    font-weight: bold;
+    color: #350908;
+  } 
+}
 
 
 .navbar-design,
@@ -165,7 +247,7 @@ body {
     font-weight:lighter;
     font-size: 1rem;
     margin-block: -.3rem;
-
+  
 }
 .navbar-brand {
     color: #fbfbf8;
@@ -370,8 +452,6 @@ body {
 
 .flip-card {
   background-color: transparent;
-  width: 301px;
-  height: 450px;
   border-radius: 6px;
   perspective: 1000px; 
   margin-bottom: 10rem;
@@ -385,7 +465,7 @@ body {
   transition: transform 0.8s;
   transform-style: preserve-3d;
   border-radius: 6px;
-  border: 1px solid #cdcdcd;
+  border: 1px solid #b1b1b1;
   
 }
 
@@ -434,8 +514,12 @@ body {
 .flip-card-img {
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
+
 }
 
-.mapEustat {
+/* .mapEustat {
   background-color: wheat;
-}
+} */
+
+
+
