@@ -81,7 +81,23 @@ Promise.all([
 
   const dataLagforda = labels.map(year => lagforda[year] || 0);
 
+  const andelLagforda = dataLagforda.map (
+    (Lagforda, i) =>
+    Number((Lagforda / dataAnmalda[i]) * 100).toFixed(2)); 
+
+
   const datasets = [
+    {
+      label: '%',
+      data: andelLagforda,
+      backgroundColor: 'rgb(211, 37, 34)',
+      borderColor: 'rgb(180, 36, 55)',
+      borderWidth: 1,
+      borderRadius: 1
+    }
+  ];
+
+/*   const datasets = [
     {
       label: 'Anmälda',
       data: dataAnmalda,
@@ -97,7 +113,7 @@ Promise.all([
       borderColor: '#ee9796',
       borderWidth: 1
     }
-  ];
+  ]; */
   let size = 20; 
   //om window.matchMedia > 600px, sätt size till något annat
   if (window.matchMedia("(max-width: 600px)")) {
@@ -127,14 +143,12 @@ Promise.all([
     
        plugins: {    
       legend: {
-          labels: {
-            color: "#350908",
-          }
+          display: false,
         },  
         title: {           
             display: true,
             align: 'start',
-              text: 'Grov kvinnofridskränkning i Sverige, anmälda vs Lagförda',
+              text: ['Grov kvinnofridskränkning i Sverige', 'Anmälda brott som blev lagförda (%)'],
               color: '#350908',
                 padding: 20,
                 font: {
@@ -148,8 +162,6 @@ Promise.all([
         }
     )});
       
-
-
 
 
 /* Graf: Anmäld grov kvinnofridskräkning 1998–2023*/
@@ -241,10 +253,14 @@ datasets: datasetsSCBKvinnofrid
          },
          x: {
           ticks: {
-            color: "#350908"
+            color: "#350908",
+            callback: function(val, index) {
+              // Hide every 2nd tick label
+              return index % 2 === 0 ? this.getLabelForValue(val) : '';
+            }
           }
-         }
-        },
+        }
+      },
       
       plugins: {    
         legend: {
@@ -331,11 +347,12 @@ const querySCButsatta =
       label: "Kvinnor",
       data: womenValues,
       backgroundColor: 'rgb(211, 37, 34)',
-      borderColor: 'rgb(180, 36, 55)',
-      borderWidth: 1,
+      backgroundColor: '#DE2F2B',
+      borderColor: '#DE2F2B',
+    /*   borderWidth: 1,
       borderRadius: 1,
       barPercentage: 0.5,
-      categoryPercentage: 1,
+      categoryPercentage: 1, */
       
     },
     {
@@ -343,10 +360,10 @@ const querySCButsatta =
       data: menValues,
       backgroundColor: '#350908',
       borderColor: '#350908',
-      borderWidth: 1,
+  /*     borderWidth: 1,
       borderRadius: 1,
       barPercentage: 0.5,
-      categoryPercentage: 1,
+      categoryPercentage: 1, */
       
     }
   ];
@@ -473,20 +490,20 @@ fetch(request1)
       data: valueWomen,
       backgroundColor: 'rgb(211, 37, 34)',
       borderColor: 'rgb(180, 36, 55)',
-      borderWidth: 1,
+   /*    borderWidth: 1,
       borderRadius: 1,
       barPercentage: 0.5,
-      categoryPercentage: 1
+      categoryPercentage: 1 */
     },
     {
     label: 'Män',
     data: valueMen,
-     backgroundColor: '#FF9F1C',
-      borderColor: '#FF9F1C',
-      borderWidth: 1,
+     backgroundColor: '#350908',
+      borderColor: '#350908',
+    /*   borderWidth: 1,
       borderRadius: 1,
       barPercentage: 0.5,
-      categoryPercentage: 1
+      categoryPercentage: 1 */
 
     }
   
@@ -498,14 +515,26 @@ fetch(request1)
     
 
       options: {
-        scales:{
+        scales: {
           y: {
-            
-          }
+            ticks: {
+              color: "#350908" // <-- Färg på y-axelns värden
+            }
           },
-
-
+          x: {
+            ticks: {
+              color: "#350908"
+            }
+          }
+        },
           plugins: {
+            legend: {
+              position: 'right',
+              align: 'center',
+              labels: {
+                color: "#350908"
+              }
+            },
             title: {
               display: true,
               align: 'start',
@@ -519,7 +548,6 @@ fetch(request1)
               }
             }
           }
-        
       }
     });
   
@@ -612,6 +640,8 @@ async function displayCountryDataOnMap() {
   const mapData = await fetchEurostatsData();
   if (!mapData) return;
 
+
+
   const data = [{
     type: "choropleth",
     locations: mapData.countries,
@@ -626,18 +656,32 @@ async function displayCountryDataOnMap() {
       scope: 'europe',
       center: { lon: 15, lat: 52 },
       zoom: 3.2,
-      projection: { type: "natural earth" },
+      projection: {type: "natural earth"},
       showland: true,
       landcolor: "#e0e0e0",
       countrycolor: "#ffffff", 
-      showcountries: true
+      showcountries: true,
+
     },
-    margin: { t: 0, b: 0, l: 0, r: 0 },
+    margin: { t: 80, b: 0, l: 0, r: 0 },
     width: 800,
-    height: 600
+    height: 600,
+      title: {
+        text: 'KAJDFJNSAKNASKLNRTA',
+        font: {
+          family: 'montserrat, sans-serif',
+          weight: 'bold',
+          size: 16
+        }
+      }
+
+
+    
+  
+  
   };
 
   Plotly.newPlot('euStats', data, layout);
-}
+};
 
 displayCountryDataOnMap();
