@@ -539,7 +539,7 @@ fetch(request1)
             title: {
               display: true,
               align: 'start',
-              text: 'Anmäld misshandel genom parrelation Sverige 2015-2016',
+              text: 'Anmäld misshandel genom parrelation Sverige 2020–2022',
               color: '#350908',
               padding: 15,
               font: {
