@@ -135,6 +135,14 @@ Promise.all([
             }
           },
           x: {
+            title: {
+            display: true,
+            text: 'Källa: SCB',
+            align: 'end',
+            padding: {
+              top: 18
+              }
+            },
             ticks: {
               color: "#350908"
             }
@@ -154,8 +162,8 @@ Promise.all([
                 padding: 20,
                 font: {
                   family: 'montserrat, sans-serif',
-                    size: size,
-                    weight: 'bold'
+                    size: 16
+                    
                 }
               }
             }
@@ -253,6 +261,16 @@ datasets: datasetsSCBKvinnofrid
              }
          },
          x: {
+          title: {
+            display: true,
+            text: 'Källa: SCB',
+            align: 'end',
+            padding: {
+              top: 18
+            }
+
+          
+          },
           ticks: {
             color: "#350908",
             callback: function(val, index) {
@@ -392,6 +410,14 @@ fetch(request1)
             }
           },
           x: {
+            title: {
+            display: true,
+            text: 'Källa: SCB',
+            align: 'end',
+            padding: {
+              top: 18
+              }
+            },
             ticks: {
               color: "#350908"
             }
@@ -529,6 +555,8 @@ async function displayCountryDataOnMap() {
     colorbar: {
       title: {text: '%'},
       thickness: 20,
+      x: 0.85,
+      y: 0.5
       
   },
   zmin: 0,
@@ -543,14 +571,20 @@ async function displayCountryDataOnMap() {
 
   const layout = {
     title: {
-      text: 'Andel kvinnor som någonsin utsatts för parnervåld <br> - Psykiskt, fysiskt eller sexuellt'
-    },
+      display: true,
+      text: 'Andel kvinnor som någonsin utsatts för parnervåld,<br>- Psykiskt, fysiskt eller sexuellt',
+      'x': 0.07,
+      'xanchor': 'left',
     font: {
       family: "montserrat, sans-serif", 
       weight: "bold",
-      size: 11,                    
-      color: "#350908" 
+      size: 16,                    
+      color: "#350908",
+      align: "start"
+      },
     },
+
+
     geo: {
       scope: 'europe',
       center: { lon: 15, lat: 52 },

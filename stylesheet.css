@@ -10,6 +10,7 @@ body, html {
 }
 
 
+
 .header-text {
     color: #de2e2b;
     font-family: akshar, sans-serif;
@@ -20,11 +21,12 @@ body, html {
 .img {
     position:sticky;
 
-/*     width: 100%; */
+
 }
 .header-container {
     position: relative;
     text-align: left;
+    width: 100%;
   }
   .header-intro {
     position: absolute;
@@ -40,7 +42,10 @@ body, html {
     font-family: akshar, sans-serif;
     font-weight:lighter;
   }
-
+.first-text h2 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
   .titel {
     font-size: 4rem;
   }
@@ -50,18 +55,48 @@ body, html {
   .block {
     background-color: #22231f;
     padding-block: 4rem;
-    margin-block: 2rem;
+    /* margin-block: 2rem; */
     font-family: akshar, sans-serif;
     color: #F7F6F3;
     margin-bottom: 4rem;
+    width: 100%;
+  
+  }
+ 
+/* 
+  .block-referenser {
+    background-color: #350908;
+    padding-block-end: 7rem;
+  
+    font-family: helvetica, sans-serif;
+    color: #F7F6F3;
+    margin-bottom: 4rem;
+    width: 100%;
   }
 
+.accordion-4,
+.accordion-item,
+.accordion-button-4 {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.accordion-button-4 {
+  color: white;
+  font-weight: bold;
+}
+
+.accordion-body-4 {
+  color: white !important;
+  background-color: transparent;
+}
+ */
   .block-text {
     font-size: 2rem;
-    margin-left: 3rem;
+    margin-left: 4rem;
   }
   .morkertal {
-    margin-left: 3rem;
+    margin-left: 4rem;
   }
 
 .first-text {
@@ -74,6 +109,7 @@ body, html {
     margin-inline: 4rem;
     margin-top: 2rem;
 }
+
 
 .ingress-grafer {
   font-size: 1rem;
@@ -90,12 +126,6 @@ body, html {
   margin-bottom: 2rem;
 }
 
-.figurtext {
-  text-align: center;
-  font-size: 0.7rem;
-  font-family: helvetica, sans-serif;
-  color: #350908;
-}
 
 .rubrik-över-grafer {
   font-size: 1.4rem;
@@ -110,6 +140,14 @@ body, html {
   width: 100%
 } */
 
+.nav-link-footer {
+  color: #350908;
+  font-family: helvetica, sans-serif;;
+}
+
+.ingress-grafer, .rubrik-över-grafer {
+  margin-left: 4rem;
+ }
 
 /* X-Small devices (0-575px) */
 @media (max-width: 575px) {
@@ -150,9 +188,17 @@ body, html {
     margin-top: 4rem;
   }
 
-    .flip-card {
+  .flip-card {
      width: 17rem;
     height: 27rem;
+  }
+  .cards {
+    display: flex;
+    justify-content: center;
+  }
+  .accordion-block {
+    display:flex;
+    justify-content: center;
   }
 
 
@@ -169,7 +215,10 @@ body, html {
     width: 41rem !important; 
  } */
  .ingress-grafer, .rubrik-över-grafer {
-  margin-left: 3rem;
+  margin-left: 4rem;
+ }
+ .ingress-grafer {
+  font-size: 0.9rem;
   max-width: 80%;
  }
 
@@ -186,23 +235,38 @@ body, html {
 .img-2 {
   display: inline;
   } */
-
+  .cards {
+    display: flex;
+    justify-content: center;
+  }
   .first-text-block {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    margin-inline: 4rem;
   }
 
   .rubrik-över-grafer {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-family: montserrat, sans-serif;
     font-weight: bold;
     color: #350908;
+    margin-top: 3rem;
+    margin-left: 5rem;
   } 
+  .ingress-grafer {
+    font-size: 1rem;
+    max-width: 80%;
+    margin-left: 5rem;
+   }
 
   .text-grafer {
-    font-size: 1.1rem;
+    font-size: .9rem;
     text-align: justify;
     column-count: 2;
     column-gap: 1.7rem;
+    margin-left: 5rem;
+  }
+  .block-text, .morkertal {
+    margin-left: 5rem;
   }
 /*   .header-text {
     font-size: 8rem;
@@ -215,20 +279,37 @@ body, html {
 }
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) {
-  
+  .cards {
+    display: flex;
+    justify-content: center;
+  }
   .first-text-block {
-    font-size: 1.6rem;
+    font-size: 1.1rem;
+    max-width: 70ch;
+    margin: 0 auto;
+  }
+  .first-text {
+    margin: 0 auto;
   }
 
   .text-grafer {
-    font-size: 1.3rem;
+    font-size: .9rem;
   }
-
+  
   .rubrik-över-grafer {
-    font-size: 2.4rem;
+    font-size: 1.6rem;
     font-family: montserrat, sans-serif;
     font-weight: bold;
     color: #350908;
+  }
+  .accordion-button-1.collapsed, .accordion-button-2.collapsed, .accordion-button-3.collapsed {
+    padding-left: 5rem;
+    padding-right: 5rem;
+    padding-block: 2rem;
+    font-size: 1.2rem;
+  }
+  .test {
+    margin-top: 15rem;
   }
   }
 
@@ -236,19 +317,24 @@ body, html {
 @media (min-width: 1200px) {
 
   .first-text-block {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
   }
 
+
   .text-grafer {
-    font-size: 1.8rem;
+    font-size: 1rem;
   }
   
   .rubrik-över-grafer {
-    font-size: 2.8rem;
+    margin-top: 30rem;
+    font-size: 1.8rem;
     font-family: montserrat, sans-serif;
     font-weight: bold;
     color: #350908;
   } 
+  .ingress-grafer {
+    max-width: 90ch;
+  }
  }
 
 /* XX-Large devices (larger desktops, 1400px and up) */
@@ -338,6 +424,7 @@ body, html {
     font-size: 1.2rem;
     font-weight: lighter;
     padding-block: 1rem;
+
  /*    margin-bottom: .4rem; */
         
 
@@ -360,7 +447,8 @@ body, html {
 
   .accordion-button-1:not(.collapsed), 
   .accordion-button-2:not(.collapsed),
-  .accordion-button-3:not(.collapsed) {
+  .accordion-button-3:not(.collapsed)
+    {
     background-color: rgb(53, 9, 8);
     color: #fbfbf8;
   }
@@ -389,9 +477,10 @@ body, html {
 
 .accordion-body-1, .accordion-body-2, .accordion-body-3 {
     padding-left: 2rem;
-    padding: 1rem;
-    max-width: 60%;
+    padding: 1.6rem;
+    max-width: 70%;
   }
+
 
   #button-up {
     position: fixed;
@@ -422,6 +511,12 @@ body, html {
     object-fit: cover;
     height: 100%;
     max-height: 100vh; /* eller ett fast värde som 500px */
+    
+    
+  }
+  .accordion {
+    margin-bottom: 5rem;
+    width: 100%;
   }
 
 /*   .chartResize {
@@ -540,8 +635,8 @@ body, html {
   color: #350908
 }
 
-.flip-card-text {
-  font-size: 1rem;
+.flip-card-text-front {
+  font-size: .8rem;
   color:#350908;
 }
 
@@ -550,6 +645,19 @@ body, html {
   border-top-right-radius: 6px;
 
 }
+
+.flip-card-text-back {
+  font-size: .9rem;
+}
+
+.text-back-first {
+  margin-top: 1rem;
+}
+
+.text-back-second {
+  margin-top: 6rem;
+}
+
 
 /* .mapEustat {
   background-color: wheat;
