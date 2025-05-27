@@ -1,6 +1,14 @@
 body {
     background-color: #fbfbf8;
 }
+body, html {
+  width: 100%;
+  height: auto;
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+
 
 .header-text {
     color: #de2e2b;
@@ -11,6 +19,7 @@ body {
 }
 .img {
     position:sticky;
+
 /*     width: 100%; */
 }
 .header-container {
@@ -40,7 +49,7 @@ body {
 
   .block {
     background-color: #22231f;
-    padding-block: 3rem;
+    padding-block: 4rem;
     margin-block: 2rem;
     font-family: akshar, sans-serif;
     color: #F7F6F3;
@@ -49,10 +58,10 @@ body {
 
   .block-text {
     font-size: 2rem;
-    margin-left: 2rem;
+    margin-left: 3rem;
   }
   .morkertal {
-    margin-left: 2rem;
+    margin-left: 3rem;
   }
 
 .first-text {
@@ -60,21 +69,35 @@ body {
     font-family: helvetica, sans-serif;
     font-weight:lighter;
     color: rgb(53, 9, 8);
-    max-width: 80ch;
+  /*   max-width: 80%; */
     text-align: center;
+    margin-inline: 4rem;
     margin-top: 2rem;
 }
 
+.ingress-grafer {
+  font-size: 1rem;
+  font-family: helvetica, sans-serif;
+  color: #350908;
+
+}
 
 .text-grafer {
   font-size: 0.8rem;
   font-family: helvetica, sans-serif;
   font-weight:lighter;
   color: #350908;
-  margin-bottom: 8rem;
+  margin-bottom: 2rem;
 }
 
-.rubrik-under-grafer {
+.figurtext {
+  text-align: center;
+  font-size: 0.7rem;
+  font-family: helvetica, sans-serif;
+  color: #350908;
+}
+
+.rubrik-över-grafer {
   font-size: 1.4rem;
   font-family: montserrat, sans-serif;
   font-weight: bold;
@@ -96,12 +119,12 @@ body {
   
   .flip-card {
      width: 15rem;
-     height: 27rem;
+     height: 15rem;
   }
 
   .flip-card-img {
     width:14.95rem;
-    height:auto;
+    height: 15rem;
   }
   /* .test {
     width: 2rem;
@@ -121,18 +144,23 @@ body {
 @media (min-width: 576px) {
 
   .first-text-block {
-    font-size: 1rem;
+    font-size: .9rem;
+  }
+  .first-text {
+    margin-top: 4rem;
   }
 
     .flip-card {
      width: 17rem;
-  height: 29rem;
+    height: 27rem;
   }
 
-  .flip-card-img {
+
+ /*  .flip-card-img {
       width:17rem;
-    height:17rem;
-  }
+      height:17rem;
+  } */
+ 
 /*   .chartResize {
     width: 40rem;
     height: 20rem;
@@ -140,6 +168,11 @@ body {
 /*   .chartResize {
     width: 41rem !important; 
  } */
+ .ingress-grafer, .rubrik-över-grafer {
+  margin-left: 3rem;
+  max-width: 80%;
+ }
+
  }
 
 /* Medium devices (tablets, 768px and up) */
@@ -158,7 +191,7 @@ body {
     font-size: 1.2rem;
   }
 
-  .rubrik-under-grafer {
+  .rubrik-över-grafer {
     font-size: 2rem;
     font-family: montserrat, sans-serif;
     font-weight: bold;
@@ -191,7 +224,7 @@ body {
     font-size: 1.3rem;
   }
 
-  .rubrik-under-grafer {
+  .rubrik-över-grafer {
     font-size: 2.4rem;
     font-family: montserrat, sans-serif;
     font-weight: bold;
@@ -210,7 +243,7 @@ body {
     font-size: 1.8rem;
   }
   
-  .rubrik-under-grafer {
+  .rubrik-över-grafer {
     font-size: 2.8rem;
     font-family: montserrat, sans-serif;
     font-weight: bold;
@@ -229,7 +262,7 @@ body {
     font-size: 2rem;
   }
 
-  .rubrik-under-grafer {
+  .rubrik-över-grafer {
     font-size: 3.2rem;
     font-family: montserrat, sans-serif;
     font-weight: bold;
@@ -451,7 +484,8 @@ body {
 }
 
 .flip-card {
-  background-color: transparent;
+  /* background-color: transparent; */
+
   border-radius: 6px;
   perspective: 1000px; 
   margin-bottom: 10rem;

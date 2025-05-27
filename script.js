@@ -287,138 +287,6 @@ datasets: datasetsSCBKvinnofrid
 };
  
 
-/* Graf: Personer som blir utsatta för misshandel efter relation till förövare 2015-2016 */
-
-const urlSCButsatta =
-"https://api.scb.se/OV0104/v1/doris/sv/ssd/START/LE/LE0201/LE0201Våld/Tema66";
-
-const querySCButsatta =
-{
-    "query": [
-      {
-        "code": "ContentsCode",
-        "selection": {
-          "filter": "item",
-          "values": [
-            "000002WI"
-          ]
-        }
-      }
-    ],
-    "response": {
-      "format": "json"
-    }
-  };
-
-  const request = new Request(urlSCButsatta, {
-    method: "POST",
-    body: JSON.stringify(querySCButsatta)
-  });
-
-  fetch(request)
-  .then(response => response.json())
-  .then(printSCButsattaChart);
-
-    function printSCButsattaChart(dataSCButsatta) {
-      console.log(dataSCButsatta);
-     
-      const gender = dataSCButsatta.data;
-      const relation = dataSCButsatta.data;
-      const amount = dataSCButsatta.data;
-   
-      const womenValues = dataSCButsatta.data.filter(data => data.key[1] == 1).map(data => data.values[0]); 
-      const menValues = dataSCButsatta.data.filter(data => data.key[1] == 2).map(data => data.values[0]); 
-      console.log(womenValues)
-   
-      const labels = gender.map(gender => gender.key[1]);
-      console.log(labels);
-    
-    const keys = relation.map(relation => relation.key[0]);
-    const labels1 = [
-    ...keys.slice(0, 1),
-    ...keys.slice(2, 3),
-    ...keys.slice(4, 5)
-    ];
-
-    console.log(labels1);
-    const data = amount.map(amount => amount.values[0]);
-    console.log(data);
-
-    const datasets = [{
-      label: "Kvinnor",
-      data: womenValues,
-      backgroundColor: 'rgb(211, 37, 34)',
-      backgroundColor: '#DE2F2B',
-      borderColor: '#DE2F2B',
-    /*   borderWidth: 1,
-      borderRadius: 1,
-      barPercentage: 0.5,
-      categoryPercentage: 1, */
-      
-    },
-    {
-      label: "Män",
-      data: menValues,
-      backgroundColor: '#350908',
-      borderColor: '#350908',
-  /*     borderWidth: 1,
-      borderRadius: 1,
-      barPercentage: 0.5,
-      categoryPercentage: 1, */
-      
-    }
-  ];
-
-    const myChart = new Chart(document.getElementById("scbUtsatta"),
-      {
-        type: "bar",
-        data: {
-          datasets: datasets,
-          labels: ['Närstående', 'Bekanta', 'Helt okända'] 
-        },
-        options: {
-       scales:{
-         y: {
-             ticks: {
-              color: "#350908"
-              }
-             },
-
-           x: {
-            ticks: {
-              color: "#350908"
-            }
-          }  
-         },
-      
-      plugins: { 
-        
-        legend: {
-          position: 'right',
-          align: 'center',
-          
-           labels:{
-            color: "#350908",
-           }
-        },
-        
-        title: {           
-            display: true,
-            align: 'start',
-              text: 'Antal personer utsatta för misshandel efter relation till förövare i Sverige år 2015-2016',
-              color: '#350908',
-                padding: 49,
-                font: {
-                  family: 'montserrat, sans-serif',
-                    weight: 'bold',
-                    size: 16
-                },
-              }
-            }
-           } 
-      }
-    );
-    }
  
 /* Anmäld misshandel närstående genom parrelation */
 
@@ -476,9 +344,10 @@ fetch(request1)
 
     const keys1 = years.map(years => years.key[2]); 
     const labels2 = [
-       ...keys1.slice(0, 1),
-        ...keys1.slice(2, 3),
-        ...keys1.slice(4, 5)
+        ...keys1.slice(0, 1),
+        ...keys1.slice(4, 5),
+        ...keys1.slice(2, 3)
+
     ];
     console.log(labels2);
 
