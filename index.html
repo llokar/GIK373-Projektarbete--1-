@@ -12,14 +12,14 @@
 
     
 </head>
-<body>
+<body data-spy="scroll" data-target="#myScrollspy" data-offset="20">
     <header class="header-container col-12">
         <img src="/Bilder/headerbild.jpg" class="img" width="100%" alt="svartvit bild på kvinnoansikte som kollar rakt in i kameran, med en ljusstrimma över ögat">
         
-        <nav class="navbar navbar-expand-lg navbar-dark navbar-design fixed-top">
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-design fixed-top" id="myScrollspy">
           
           <div class="container-fluid">
-            <a class="navbar-brand" href="#">women stats</a>
+            <a class="navbar-brand" href="#">Women Stats</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -34,14 +34,14 @@
                     </a>
                     <div class = "dropdown-hover-bridge"></div>
                     <ul class = "dropdown-menu" aria-labelledby="statistikDropdown">
-                      <li><a class="dropdown-item" href="#">Grov kvinnofridskränkning: anmälda vs lagförda </a></li>
-                      <li><a class="dropdown-item" href="#">Anmälda brott: grov kvinnofridskränkning</a></li>
-                      <li><a class="dropdown-item" href="#">Personer utsatta för misshandel efter relation till förövare</a></li>
-                      <li><a class="dropdown-item" href="#">Anmäld misshandel i parrelation</a></li>
+                      <li><a class="dropdown-item" href="#first">Grov kvinnofridskränkning: andel anmälda som blev lagförda </a></li>
+                      <li><a class="dropdown-item" href="#second">Anmälda brott: grov kvinnofridskränkning</a></li>
+                      <li><a class="dropdown-item" href="#third">Andel kvinnor som någonsin utsatts för partnervåld i EU</a></li>
+                      <li><a class="dropdown-item" href="#fourth">Anmäld misshandel i parrelation</a></li>
                     </ul></div>
 
                     <a class="nav-link active" href="#">Om oss</a>
-                    <a class="nav-link active" href="#">Kontakt</a>
+                    <a class="nav-link active" href="#fifth">Referenser</a>
                    
                 </div>
             </div>
@@ -53,20 +53,20 @@
         </div>   
     </header>
 <div class="first-text"> <!-- col-9 offset-1 offset-lg-3 offset-sm-2 -->
-    <h2 class="rubrik-över-grafer">Women Stats</h2>
+    <p class="rubrik-över-grafer first-title mb-2">Women Stats </p>
     <p class="first-text-block">Var tredje kvinna utsätts för våld under sin livstid. En siffra som borde skrika, men som istället viskas bort. Bakom varje siffra finns ett ansikte, ett namn, ett liv som slagits i spillror. 
       Det börjar sällan med ett slag. Det börjar med en blick, en kommentar, en gräns som sakta förflyttas. Det händer systematiskt, i tystnaden av förtvivlan. Det händer inte dig, mig, eller någon vi känner. Ändå är det var tredje kvinnas verklighet. Det är dags att lyfta blicken. 
       <br><br>
-      På WomenStats riktar vi strålkastarna mot en akut orättvisa – mäns våld och utnyttjande av kvinnor och flickor. Att få ett slut på detta är en kärna i det femte globala målet: jämställdhet mellan kvinnor och män. Det är en rättighet, ett måste. Och det brådskar. 
-      På WomenStats låter vi siffrorna skrika. Genom visualiseringar vill vi skapa medvetenhet och förståelse för ett samhällsproblem som inte hör hemma bland viskningar, och vi vägrar vara tysta.
+      På Women Stats riktar vi strålkastarna mot en akut orättvisa – mäns våld och utnyttjande av kvinnor och flickor. Att få ett slut på detta är en kärna i det femte globala målet: jämställdhet mellan kvinnor och män. Det är en rättighet, ett måste. Och det brådskar. 
+      På Women Stats låter vi siffrorna skrika. Genom visualiseringar vill vi skapa medvetenhet och förståelse för ett samhällsproblem som inte hör hemma bland viskningar, och vi vägrar vara tysta.
       </p>
 </div>
 
 <!--flip cards !-->
 
 <div class ="container-fluid">     
-  <div class="cards row">
-    <div class="flip-card mb-5 col-sm-3">
+  <div class="cards row mt-0">
+    <div class="flip-card mb-3 col-sm-3">
       <div class="flip-card-holder">
         <div class="flip-card-front">
           <img class="flip-card-img" src="/Bilder/05-jamstalldhet.png" alt="Avatar" style="width: 100%; height: auto;">
@@ -84,7 +84,7 @@
     </div>
 
 
-    <div class="flip-card col-sm-3 col-md-4 mb-5">
+    <div class="flip-card col-sm-3 col-md-4 mb-3">
       <div class="flip-card-holder">
         <div class="flip-card-front">
           <img class="flip-card-img" src="/Bilder/utrota.png" alt="..." style="width: 100%; height: auto;">
@@ -103,7 +103,7 @@
   </div>
 </div>
 
-<p class ="rubrik-över-grafer col-lg-10 col-xl-9 col-xxl-12">Få anmälda fall av grov kvinnofridskränkning leder till lagföring</p>
+<p class ="rubrik-över-grafer col-lg-10 col-xl-9 col-xxl-12" id="first">Få anmälda fall av grov kvinnofridskränkning leder till lagföring</p>
 
 <p class ="ingress-grafer">Grafen visar utvecklingen av lagföringsgraden i ärenden om grov kvinnofridskränkning i Sverige mellan 2017 och 2023. “Brottet grov kvinnofridskränkning är en underkategori till brottet grov fridskränkning, brottet fokuserar på upprepade kränkningar i form av vålds- frids- eller sexualbrott som en man begår mot en kvinna i en nära relation” (Uppsala Universitet, 2025). Observera: Även om statistik över anmälda brott finns från 1998, visar grafen endast data från 2017 och framåt eftersom SCB började publicera statistik över lagförda brott då. För att kunna jämföra anmälda och lagförda brott under samma år har vi därför valt att utesluta anmälningsstatistik från innan 2017.</p>
 
@@ -112,7 +112,7 @@
         </div>
 
         
-      <div class="text-grafer text col-8 offset-sm-1 offset-2 col-md-10 col-lg-9">
+      <div class="text-grafer col-8 offset-sm-1 offset-2 col-md-10 col-lg-9">
         
         <p> Grafen visar att andelen lagförda fall av grov kvinnofridskränkning i Sverige är låg. Under perioden 2017–2023 låg andelen anmälda brott som ledde till lagföring på cirka 8 %–12,5 %.  En svag ökning kan observeras efter 2019, där åren 2022 och 2023 hade högst andel lagförda brott. </p> 
         
@@ -129,7 +129,7 @@
     <p class="morkertal col-9">Visste du att det är det psykiska våldet som är det mest förekommande våldet i nära relation? Samtidigt är det just den typen av våld som har störst mörkertal. Ofta upplevs en gråzon där offren anser att det psykiska våldet inte är tillräckligt allvarligt för att göra en polisanmälan – man väljer ofta att istället söka andra former av stöd (Frenzel, 2024). Enligt Brottsförebyggande rådet är de mest representerade skälen att relationsvåld inte polisanmäls att offret känner gärningsmannen, man tror inte att polisen kan göra något samt att offret inte vågar anmäla. Ändå har 99% av de utsatta svarande tänkt på att anmäla (Hradilova, 2009).</p>
   </div>
 
-  <p class ="rubrik-över-grafer col-lg-8 col-xl-9 col-xxl-12">Anmälningarna ökar, ett tecken på förändring eller fara? </p>
+  <p class ="rubrik-över-grafer col-lg-8 col-xl-9 col-xxl-12" id="second">Anmälningarna ökar, ett tecken på förändring eller fara? </p>
 
   <p class ="ingress-grafer">Trendlinjen i grafen visar hur antalet anmälda fall av grov kvinnofridskränkning i Sverige har utvecklats från 1998 till 2023. Brottet grov kvinnofridskränkning infördes i Sverige 1998 som en del av kvinnofridsreformen. Enligt BRÅ (2019) infördes infördes brottet i syfte att stärka det straffrättsliga skyddet för kvinnor som utsatts för upprepade övergrepp av en nuvarande eller tidigare partner. </p>
  
@@ -138,7 +138,7 @@
   </div>
   
 
-   <div class="text-grafer text col-8  offset-sm-1 offset-2 col-md-10 col-lg-9">
+   <div class="text-grafer col-8 offset-sm-1 offset-2 col-md-10 col-lg-9">
         
     <p> I grafen syns att antalet anmälningar om grov kvinnofridskränkning har stigit från omkring 200 anmälningar år 1998, till omkring 1000 år 1999 och nådde sin topp 2008 med omkring 2700 anmälningar. Mellan 1998 och 2023 var medianen för antalet anmälningar ungefär 1860 per år</p> 
     
@@ -148,11 +148,11 @@
     
   </div>
 
-  <p class ="rubrik-över-grafer col-lg-8 col-xl-9 col-xxl-12">Hur ser det ut i EU? </p>
+  <p class ="rubrik-över-grafer col-lg-8 col-xl-9 col-xxl-12" id="third">Hur ser det ut i EU? </p>
   <p class ="ingress-grafer">Här ser vi en kartgraf över Europa som visar på andel kvinnor (i procent) som någon gång under sin livstid haft en partner som utsatt de för våld i nära relation. Denna graf innefattar våldstyperna psykiskt våld, fysiskt våld och sexuellt våld utfört av partner. Desto klarare den röda färgen är, desto högre andel av kvinnorna i landet har utsatts för våld i nära relation. De mörkare färgerna indikerar alltså på en lägre procentandel. </p>
 
 
-    <div class = "mapEustat" id="euStats"></div> 
+    <div class = "mapEustat graph" style="width: 100%;" id="euStats"></div> 
 
       
     <div class="text-grafer text col-8  offset-sm-1 offset-2 col-md-10 col-lg-9">
@@ -164,40 +164,42 @@
       <p> Om man ser på jämställdhetsindex har de nordiska länderna väldigt höga poäng, allra högst poäng har Sverige med hela 82.0 (European Institute for Gender Equality, 2025). Trots detta har Sverige en väldigt hög procentandel kvinnor som utsatts för våld i nära relation på kartan över Europa. Detta gäller generellt för de nordiska länderna och kallas för ”Den nordiska paradoxen” (Gracia & Merlo, 2016). Gracia och Merlo (2016) nämner att det tidigare föreslagits att förklaringen till den Nordiska Paradoxen kan ligga i att kvinnor i dessa mer jämställda länder vågar prata om och anmäla våldet de utsätts eller har utsatts för. Samtidigt verkar problemet vara mer komplext än så, och de menar att man ännu inte har ett tydligt svar kring varför de nordiska länderna med allra högst jämställdhetsindex också skattar väldigt högt kring förekomst av våld i nära relationer mot kvinnor.</p>
       
     </div>
-    <div class="container accordion-block">
+
+    
+    <div class="container-fluid accordion-block">
       <div class="row">
         <img src="/Bilder/baby_bw.png" class="img-2 col-12 p-0 object-fit-cover" width="100vw" alt="bebisben">
 
         <div class="col-12 p-0">
           <div class="accordion accordion-flush" id="accordionFlushExample">
               <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingOne">
-                  <button class="accordion-button-1 accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                <h2 class="accordion-header" id="flush-heading">
+                  <button class="accordion-button-1 accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse" aria-expanded="false" aria-controls="flush-collapse">
                     Mäns plats i statistiken
                   </button>
                 </h2>
 
-                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                <div id="flush-collapse" class="accordion-collapse collapse" aria-labelledby="flush-heading" data-bs-parent="#accordionFlushExample">
                   <div class="accordion-body-1">Mäns våld mot kvinnor är ett omfattande samhällsproblem, och det är ofta det första man tänker på när man pratar om våld i nära relation. Män blir dock också utsatta, men forskningen på detta är begränsad. I BRÅ’s rapport om våld mot kvinnor och män i nära relationer skriver man om hur våldet skiljer sig beroende på om det är en man eller kvinna som blir utsatt. Där våldet mot kvinnor tenderar att upprepas, är grövre och ger fler negativa konsekvenser än vad gäller relationsvåld där män är offer. Män rapporteras främst utsättas för trakasserier, medan kvinnor utsätts för misshandel och hot i större utsträckning (Hradilova, 2009). Enligt Jämställdhetsmyndigheten är förövaren när det kommer till våldsbrott oftast en man, oavsett om offret är en kvinna eller en man. Man kan även se att en av riskfaktorerna för en våldsutövande man är just negativ inställning till jämlikhet (Jämställdhetsmyndigheten, 2025).</div>
                 </div>
               </div>
               <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingTwo">
-                  <button class="accordion-button-2 accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                <h2 class="accordion-header" id="flush-heading2">
+                  <button class="accordion-button-2 accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse2" aria-expanded="false" aria-controls="flush-collapse2">
                     Ålder som faktor
                   </button>
                 </h2>
-                <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                <div id="flush-collapse2" class="accordion-collapse collapse" aria-labelledby="flush-headin2" data-bs-parent="#accordionFlushExample">
                   <div class="accordion-body-2">Risken att utsättas för någon form av våld tenderar att öka desto yngre åldrar som studeras. Det är dubbelt så stor risk att utsättas för våld för någon i åldern 16-29 år än för en person som är 45 år eller äldre. Detta är dessutom ett samband som är särskilt starkt för kvinnor (Viberg, 2025). Organisationerna Unizon och Män har skapat Machofabriken – en verksamhet med material och verktyg för att skapa bättre jämställdhet och minska våldet bland unga. De riktar sig till ungdomar och unga vuxna 13-25 år och har som mål att bland annat skapa förutsättningar för unga att leva friare liv (Machofabriken, u.å.). </div>
                 </div>
               </div>
               <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingThree">
-                  <button class="accordion-button-3 accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                <h2 class="accordion-header" id="flush-heading3">
+                  <button class="accordion-button-3 accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse3" aria-expanded="false" aria-controls="flush-collapse3">
                     Dödligt våld
                   </button>
                 </h2>
-                <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                <div id="flush-collapse3" class="accordion-collapse collapse" aria-labelledby="flush-heading" data-bs-parent="#accordionFlushExample">
                   <div class="accordion-body-3">Döden är den yttersta konsekvensen av våld i nära relationer. Enligt Uppsala Universitet (2025) tyder forskning på att det största motivet till dödligt våld i nära relationer är mannens behov av kontroll över kvinnan. Under perioden 2017-2023 har antalet kvinnor som fallit offer för dödligt våld i partnerrelation haft ett årsmedelvärde på 14 offer (87,5%), medan mäns medelvärde för samma period var 2 (12,5%) (Brottsförebyggande rådet, 2025). 
                     Om man jämför detta med hur det dödliga våldet rent generellt såg ut under samma period (inte enbart dödligt våld i nära relation), kan man i BRÅ’s rapport från 2024 se att kvinnorna fallit offer i ~ 23,5% av fallen, medan männen utsatts i ~ 76,5% (Lundbeck, 2024).
                     </div>
@@ -208,45 +210,55 @@
       </div>
     </div>
     
-    <div class="test">
-      <p class ="rubrik-över-grafer">Misshandel i parrelation</p>
+        <p class ="rubrik-över-grafer mt-0" id="fourth">Misshandel i parrelation</p>
+        <p class ="ingress-grafer">Grafen nedan visar antal anmäld misshandel genom parrelation i Sverige åren 2020-2022. Den klarröda stapeln är antalet kvinnor, och den mörkröda stapeln är antalet män.  </p>
 
-      <p class ="ingress-grafer">Grafen nedan visar antal anmäld misshandel genom parrelation i Sverige åren 2020-2022. Den klarröda stapeln är antalet kvinnor, och den mörkröda stapeln är antalet män.  </p>
-    </div>
       <div class = "graph offset-1" style="position: relative; height:40vw; width:80vw;">
         <canvas id="scbMisshandel"></canvas>
       </div>
         <button onclick="topFunction()" id="button-up" title="Go to top">Till toppen</button>
         
         
-        <div class="text-grafer text col-8  offset-sm-1 offset-2 col-md-10 col-lg-9">
+        <div class="text-grafer col-8  offset-sm-1 offset-2 col-md-10 col-lg-9">
           <p> I grafen kan vi se stor skillnad mellan män och kvinnor när det kommer till anmälning av misshandel i parrelation. Den klarröda stapeln som representerar kvinnor är väldigt mycket högre under alla tre representerade år. Året med flest anmälningar gjorda av kvinnor i grafen är år 2020 med 13 616 från kvinnor, medan anmälningar från män under samma år ligger på 3000. Både stapeln för kvinnor, och stapeln för män håller en synlig trend genom alla tre år.</p> 
-          
           <p> Denna tabell avser misshandel som fysiskt våld. Det fysiska våldet kan innefatta allt mellan knuffar och slag, till mycket våldsamma handlingar som ger allvarliga skador hos offret (BRÅ, 2025). </p>
-          
           <p> Enligt en ny kortanalys av BRÅ (Viberg, 2025) riskerar kvinnor i högre grad att bli utsatta för olika typer av fysiskt våld så som misshandel och sexuellt våld av sin partner. Kvinnor har dessutom en större risk för att bli utsatta för hot av sin partner än män. Analysen visar dock att när det kommer till icke-fysiskt våld så som ekonomisk eller materiellt våld, löpen männen en något större risk att utsättas än kvinnorna (Viberg, 2025). Den yttersta konsekvensen av partnervåld är det dödliga våldet, vilket kvinnor blir utsatta för i en mycket större utsträckning än män. Under 2022 och 2023 förekom inga manliga offer för dödligt partnervåld, medan det under båda åren var 10 kvinnor som föll offer (BRÅ, 2025).</p>
         </div>
+ 
+  
+<div class="references w-100">
+  <div class="container">
+    <div class="col-12 col-md-10 offset-md-1">
 
-    <!-- <div class = "block-referenser">
-         <div class="col-9 offset-1"> <!--  col-md-5 offset-1 -->
-<!--           <div class="accordion-4 accordion-flush" id="accordion-ref">
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingOne-ref">
-                  <button class="accordion-button-4 accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-                  Referenser
-                  </button>
-                </h2>
-                <div id="accordion-referenser" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body-4">Här lägger vi in våra referensers</div>
-                </div>
-              </div>
+      <div class="accordion accordion-flush" id="accordionReferences">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingReferences">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseReferences" aria-expanded="false" aria-controls="collapseReferences">
+              Referenser
+            </button>
+          </h2>
+
+          <div id="collapseReferences" class="accordion-collapse collapse" aria-labelledby="headingReferences" data-bs-parent="#accordionReferences">
+            <div class="accordion-body">
+              Här lägger vi in våra referenser.
+              <ul>
+                <li>BRÅ (2025). </li>
+                <li>Jämställdhetsmyndigheten (2025). </li>
+                <li>Uppsala Universitet (2025). </li>
+              </ul>
             </div>
           </div>
-        </div>  -->
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 
 <div class ="container"> 
   <footer class = "py-3 my-4"> 
-    <ul class = "nav justify-content-center border-bottom pb-3 mb-3">
+    <ul class = "nav justify-content-center border-top pt-5 mt-3">
       <li class = "nav-item-footer">
         <a href = "#" class ="nav-link-footer px-2 ">Till startsidan</a> </li>
         <li class = "nav-item">

@@ -157,12 +157,13 @@ Promise.all([
         title: {           
             display: true,
             align: 'start',
-              text: ['Grov kvinnofridskränkning i Sverige', 'Anmälda brott som blev lagförda (%)'],
+              text: 'Grov kvinnofridskränkning i Sverige, anmälda brott som blev lagförda (%)',
               color: '#350908',
-                padding: 20,
+                padding: 30,
                 font: {
-                  family: 'montserrat, sans-serif',
-                    size: 16
+                  /* family: 'montserrat, sans-serif', */
+                    size: 16,
+                    weight: 500
                     
                 }
               }
@@ -289,13 +290,13 @@ datasets: datasetsSCBKvinnofrid
         title: {           
             display: true,
             align: 'start',
-              text: ['Anmälda brott: grov kvinnofridskränkning i Sverige 1998–2023'],
+              text: 'Anmälda brott: grov kvinnofridskränkning i Sverige 1998–2023',
               color: '#350908',
-                padding: 40,
+                padding: 30,
                 font: {
-                  family: 'montserrat, sans-serif',
-                    size: size,
-                    weight: 'bold'
+                 /*  family: 'montserrat, sans-serif', */
+                    size: 16,
+                    weight: 500
                 },
               }
             }
@@ -436,10 +437,10 @@ fetch(request1)
               align: 'start',
               text: 'Anmäld misshandel genom parrelation Sverige 2020–2022',
               color: '#350908',
-              padding: 15,
+              padding: 30,
               font: {
-                family: 'montserrat, sans-serif',
-                weight: 'bold',
+                /* family: 'montserrat, sans-serif', */
+                weight: 500,
                 size: 16
               }
             }
@@ -573,11 +574,12 @@ async function displayCountryDataOnMap() {
     title: {
       display: true,
       text: 'Andel kvinnor som någonsin utsatts för parnervåld,<br>- Psykiskt, fysiskt eller sexuellt',
-      'x': 0.07,
+      'x': 0.12,
       'xanchor': 'left',
+
     font: {
-      family: "montserrat, sans-serif", 
-      weight: "bold",
+      family: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif", 
+      weight: 500,
       size: 16,                    
       color: "#350908",
       align: "start"
@@ -587,7 +589,7 @@ async function displayCountryDataOnMap() {
 
     geo: {
       scope: 'europe',
-      center: { lon: 15, lat: 52 },
+      center: { lon: 26, lat: 55 },
       zoom: 3.2,
       projection: {type: "natural earth"},
       showland: true,
