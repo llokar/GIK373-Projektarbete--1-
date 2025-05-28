@@ -546,12 +546,12 @@ async function displayCountryDataOnMap() {
     featureidkey: "properties.NAME",
     geojson: "https://raw.githubusercontent.com/leakyMirror/map-of-europe/refs/heads/master/GeoJSON/europe.geojson",
     colorscale: [
-      [0,    '#DE2F2B'],  // Ljus röd
-      [0.35, '#C02826'],
-      [0.5,  '#A02120'],
-      [0.6,  '#7D1919'],
-      [0.7,  '#5A1111'],
-      [1,    '#350908']   // Vinröd
+      [0,    '#340909'],  // Vinröd
+      [0.35, '#7A1515'],
+      [0.5,  '#AE1E1E'],
+      [0.6,  '#D12323'],
+      [0.7,  '#DC2E2E'],
+      [1,    '#F0A8A8']   // Ljusröd
   ],
     colorbar: {
       title: {text: '%'},
@@ -574,8 +574,10 @@ async function displayCountryDataOnMap() {
     title: {
       display: true,
       text: 'Andel kvinnor som någonsin utsatts för parnervåld,<br>- Psykiskt, fysiskt eller sexuellt',
-      'x': 0.12,
+      'x': 0.33,
+      'y': 5,
       'xanchor': 'left',
+  
 
     font: {
       family: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif", 
@@ -589,13 +591,14 @@ async function displayCountryDataOnMap() {
 
     geo: {
       scope: 'europe',
-      center: { lon: 26, lat: 55 },
+      center: { lon: 25, lat: 55 },
       zoom: 3.2,
       projection: {type: "natural earth"},
       showland: true,
       landcolor: "#e0e0e0",
       countrycolor: "#ffffff", 
-      bgcolor: 'rgba(0,0,0,0)'
+      bgcolor: 'rgba(0,0,0,0)',
+      
 
     },
     
