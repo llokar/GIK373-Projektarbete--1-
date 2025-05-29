@@ -153,7 +153,7 @@ margin: 0;
   margin-bottom: 2rem;
   margin-left: 4rem;
   margin-top: 2.2rem;   
-  width: 80ch;
+  width: 70ch;
   }
 
   .block {
@@ -216,6 +216,7 @@ margin: 0;
     max-width: 70%;
     padding-block: 1rem;
     background-color: #fbfbf8;
+    font-family: helvetica, sans-serif;
   }
   .accordion-collapse {
     background-color: #fbfbf8;
@@ -241,11 +242,13 @@ margin: 0;
     color: #350908;
     font-size: 1rem;
     background-color: transparent;
+    font-family: helvetica, sans-serif;
   }
   .references {
     margin-top: 4rem;
     background-color: rgba(53, 9, 8, 0.3); 
     width: 100%;
+    font-family: helvetica, sans-serif;
   }
 
   /* flip-cards */
@@ -488,16 +491,14 @@ margin: 0;
   }
 /* rubrik */
 .references .accordion-header:not(.collapsed), .accordion-header.collapsed {
-  margin-left: 4rem;
+  padding-left: 1.2rem;
 }
-
-
-  /* pil */
-.references .accordion-button:not(.collapsed)::after, .accordion-button.collapsed::after {
-  margin: 0;
-  right: 4rem;
-  position: absolute;
-  zoom: 1;
+.references .accordion-body:not(.collapsed) {
+  background-color: rgba(53, 9, 8, 0.3); 
+  padding-left: 3.4rem;
+}
+.references .accordion-button:not(.collapsed)::after, .references .accordion-button.collapsed::after {
+  margin-right: 0rem;
 }
 
 
