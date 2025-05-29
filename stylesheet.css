@@ -468,16 +468,16 @@ margin: 0;
     width: 81%;
   }
 
-  .mapEustat {
+/*   .mapEustat {
     transform: translateX(-5.8rem);
-    /*position: relative; */
+
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
     margin-left: 5rem;
     margin-top: 2rem;
-/*     margin-left: 4rem; */
-  }
+
+  } */
   .accordion-button-1.collapsed, .accordion-button-2.collapsed, .accordion-button-3.collapsed,
   .accordion-button-1:not(.collapsed), .accordion-button-2:not(.collapsed), .accordion-button-3:not(.collapsed) {
     font-size: 1rem;
@@ -502,7 +502,27 @@ margin: 0;
   margin-right: 0rem;
 }
 
+.mapWrapper {
+  width: 100vw; /* eller vad som passar din design */
+  height: auto;
+}
 
+.mapTitle {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #350908;
+  text-align: left;
+  margin-bottom: 10px;
+  margin-left: 4rem;
+}
+
+#euStats {
+  height: 60vh;
+  max-width: 100%;
+  scale: .8;
+  overflow: hidden;
+}
 } 
 
 /* XX-Large devices (larger desktops, 1400px and up) */
@@ -579,14 +599,14 @@ margin: 0;
     margin-left: 8rem;
   }
 
-  .mapEustat {
+/*   .mapEustat {
     transform: translateX(-4rem);
     margin-top: 1rem;
     display: flex;
     width: 90%;
     gap: 1rem;
     margin-left: 6rem;
-  }
+  } */
 
   .accordion-button-1.collapsed, .accordion-button-2.collapsed, .accordion-button-3.collapsed {
     padding-left: 8rem;
@@ -597,6 +617,11 @@ margin: 0;
 }
 
 @media (min-width: 1900px) {
+
+  .stycke {
+    break-inside: avoid;
+  }
+  
   .first-title {
     font-size: 3rem;
     margin-left: 10rem;
@@ -660,12 +685,12 @@ margin: 0;
     width: 70.4%;
     margin-left: 7.3rem
   }
-  .mapEustat {
+/*   .mapEustat { */
     /* transform: translateX(-10rem); */
-    margin-top: 1rem;
+/*     margin-top: 1rem;
     zoom: 2;
     margin-left: 1rem;
-  }
+  } */
 
   .block-text {
     font-size: 4rem;
@@ -758,5 +783,29 @@ margin: 0;
   position: absolute;
   right: 1rem;
 } */
+
+.mapWrapper {
+  width: 80vw; /* eller vad som passar din design */
+  height: auto;
+  margin-left: 8rem;
+}
+
+.mapTitle {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #350908;
+  text-align: left;
+  margin-bottom: 10px;
+  margin-left: 0;
+}
+
+#euStats {
+  height: 60vh;
+  scale: 1.4;
+  margin-left: 18rem;
+  margin-top: 10rem;
+  overflow: hidden;
+}
 
 }

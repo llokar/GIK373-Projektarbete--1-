@@ -570,11 +570,16 @@ async function displayCountryDataOnMap() {
       [0.7,  '#DC2E2E'],
       [1,    '#F0A8A8']   // Ljusröd
   ],
+
     colorbar: {
       title: {text: '%'},
-      thickness: 20,
-      x: .85,
-      y: 0.5
+      thickness: 15,
+      len: .4,
+      lenmode: 'fraction',
+/*       x: 0.9,
+      y: 0.5 */
+      x: 0,
+      y: .7,
       
   },
   zmin: 0,
@@ -588,40 +593,26 @@ async function displayCountryDataOnMap() {
   }];
 
   const layout = {
-    title: {
-      display: true,
-      text: 'Andel kvinnor i EU som någonsin utsatts för parnervåld,<br>- Psykiskt, fysiskt eller sexuellt',
-      'x': 0.33,
-      'y': 5,
-      'xanchor': 'left',
-  
-
-    font: {
-      family: "'Helvetica Neue', 'Helvetica', 'Arial', sans-serif", 
-      weight: 500,
-      size: 16,                    
-      color: "#350908",
-      align: "start"
-      },
-    },
-
-
     geo: {
       scope: 'europe',
-      center: { lon: 25, lat: 55 },
-      zoom: 3.2,
-      projection: {type: "natural earth"},
+      center: { lon: 38, lat: 38 },
+      /* zoom: 8, */
+      fitbounds: false,
+      projection: {type: "natural earth",
+      scale: .8,
+    },
       showland: true,
       landcolor: "#e0e0e0",
       countrycolor: "#ffffff", 
       bgcolor: 'rgba(0,0,0,0)',
+    
       
 
     },
     
-    margin: { t: 30, b: 0, l: 0, r: 0 },
-   /*  width: 700,
-    height: 400, */
+    margin: { t: 0, b: 0, l: 0, r:0 },
+    width: 1200,
+    height: 800,
     paper_bgcolor: 'rgba(0,0,0,0)',
     plot_bgcolor: 'rgba(0,0,0,0)',
    
