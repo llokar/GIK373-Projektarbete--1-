@@ -631,7 +631,7 @@ margin: 0;
   }
   .flip-card-text-back {
     font-size: 1.1rem;
-    padding-block: 4rem;
+    padding-inline: 2rem;
   }
 
 
