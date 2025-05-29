@@ -1,3 +1,14 @@
+/* Eventlyssnare för mer-text-indikator i brödtexter */
+document.addEventListener('DOMContentLoaded', function () {
+  const text = document.querySelector('.text-preview');
+
+  text.addEventListener('click', () => {
+    text.classList.toggle('expanded');
+    text.classList.toggle('collapsed');
+  });
+});
+
+
 /* Graf: Grov kvinnofridskränkning i SVGForeignObjectElement, anmälda vs lagförda */
 
 const urlSCBAnmalda = 'https://api.scb.se/OV0104/v1/doris/sv/ssd/START/LE/LE0201/LE0201Våld/Tema613';
@@ -138,9 +149,10 @@ Promise.all([
             title: {
             display: true,
             text: 'Källa: SCB',
+            color: "#350908",
             align: 'end',
             padding: {
-              top: 18
+              top: 15
               }
             },
             ticks: {
@@ -265,9 +277,10 @@ datasets: datasetsSCBKvinnofrid
           title: {
             display: true,
             text: 'Källa: SCB',
+            color: "#350908",
             align: 'end',
             padding: {
-              top: 18
+              top: 15
             }
 
           
@@ -415,8 +428,9 @@ fetch(request1)
             display: true,
             text: 'Källa: SCB',
             align: 'end',
+            color: "#350908",
             padding: {
-              top: 18
+              top: 15
               }
             },
             ticks: {
@@ -435,7 +449,7 @@ fetch(request1)
             title: {
               display: true,
               align: 'start',
-              text: 'Anmäld misshandel genom parrelation Sverige 2020–2022',
+              text: 'Anmäld misshandel i parrelation, Sverige 2020–2022',
               color: '#350908',
               padding: 30,
               font: {
@@ -556,7 +570,7 @@ async function displayCountryDataOnMap() {
     colorbar: {
       title: {text: '%'},
       thickness: 20,
-      x: 0.85,
+      x: .85,
       y: 0.5
       
   },
@@ -573,7 +587,7 @@ async function displayCountryDataOnMap() {
   const layout = {
     title: {
       display: true,
-      text: 'Andel kvinnor som någonsin utsatts för parnervåld,<br>- Psykiskt, fysiskt eller sexuellt',
+      text: 'Andel kvinnor i EU som någonsin utsatts för parnervåld,<br>- Psykiskt, fysiskt eller sexuellt',
       'x': 0.33,
       'y': 5,
       'xanchor': 'left',
