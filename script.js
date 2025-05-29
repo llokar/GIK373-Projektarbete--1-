@@ -129,10 +129,10 @@ Promise.all([
       borderWidth: 1
     }
   ]; */
-  let size = 20; 
+  let size = 30; 
   //om window.matchMedia > 600px, sätt size till något annat
-  if (window.matchMedia("(max-width: 600px)")) {
-    size = 15; 
+  if (window.matchMedia("(max-width: 900px)").matches) {
+    size = 16; 
   }
   new Chart(document.getElementById('scbAnmaldaochLagforda'), {
     type: 'bar',
@@ -177,7 +177,7 @@ Promise.all([
                 padding: 30,
                 font: {
                   /* family: 'montserrat, sans-serif', */
-                    size: 16,
+                    size: size,
                     weight: 500
                     
                 }

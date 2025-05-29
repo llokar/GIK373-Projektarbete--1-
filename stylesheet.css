@@ -196,6 +196,7 @@ margin: 0;
     color: #DE2F2B;
   }
   .accordion-button::after {
+
     filter: brightness(0) invert(1);
     margin-right: 4rem; /* Gör pilen vit */
   }
@@ -630,8 +631,11 @@ margin: 0;
     height: 100%;
   }
   .flip-card-text-back {
-    font-size: 1.1rem;
-    padding-inline: 2rem;
+    font-size: 1rem;
+    padding-inline: 1.2rem;
+  }
+  .flip-card-text-front {
+    font-size: 1rem;
   }
 
 
@@ -650,16 +654,17 @@ margin: 0;
     margin-left: 10rem;
     margin-top: 3rem;
     margin-bottom: 8rem;
+    padding-bottom: 1.2rem;
   }
   .graph {
-    width: 74%;
-    margin-left: 6rem
+    width: 70.4%;
+    margin-left: 7.3rem
   }
   .mapEustat {
-    transform: translateX(-10rem);
+    /* transform: translateX(-10rem); */
     margin-top: 1rem;
     zoom: 2;
-    margin-left: 10rem;
+    margin-left: 1rem;
   }
 
   .block-text {
@@ -674,7 +679,7 @@ margin: 0;
   .accordion-button-1:not(.collapsed), .accordion-button-2:not(.collapsed), .accordion-button-3:not(.collapsed) {
     font-size: 1.3rem;
     padding-block: 2rem;
-    padding-left: 6rem;
+    padding-left: 5.4rem;
     zoom: 1.8;
   }
   .accordion-body-1, .accordion-body-2, .accordion-body-3 {
@@ -683,11 +688,17 @@ margin: 0;
 /*   .accordion-button.collapsed::after, .accordion-button:not(.collapsed)::after {
     zoom: 1.8;
   } */
- 
+  .accordion-button:not(.collapsed)::after, .accordion-button.collapsed::after {
+    position: absolute;
+    margin: 0;
+    right: 5rem;
+    position: absolute;
+    zoom: 1.8
+  }
   .references {
     zoom: 1.3;
-    margin-right: 10rem;
-  }
+/*     margin-right: 10rem;
+ */  }
 
   /* .references .accordion-button:not(.collapsed)::after {
     zoom: 1.8;
@@ -699,24 +710,39 @@ margin: 0;
     margin-left: 4rem;
     width: 100%;
   } */
+  .mellanrubrik {
+    font-size: 1.4rem;
+    text-align: left;
+  }
 
+  .accordion-body-1, .accordion-body-2, .accordion-body-3 {
 
-  .accordion-body {
-    padding-left: 6rem;
+    font-size: 1.2rem;
+    padding: 1rem;
+    margin-left: 8.2rem;
+    width: 80ch;
+
 }
 
 /* pil */
 .references .accordion-button:not(.collapsed)::after, .accordion-button.collapsed::after {
   margin: 0;
-  right: 4rem;
+  right: 5rem;
   position: absolute;
   zoom: 1.8
 }
 
 /* rubrik */
-.references .accordion-header:not(.collapsed), .accordion-header.collapsed {
-  margin-left: 4rem;
+/* .references .accordion-header:not(.collapsed), .accordion-header.collapsed {
+  padding-left: 4rem;
+} */
+/* .references .accordion-body {
+  padding-left: 10rem;
+} */
+.references .accordion-item {
+  padding-left: 3.4rem;
 }
+
 
 /* .accordion-button-1.collapsed, .accordion-button-2.collapsed, .accordion-button-3.collapsed {
   margin-left: 0rem;
