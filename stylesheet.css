@@ -471,6 +471,7 @@ margin: 0;
     gap: 1rem;
     flex-wrap: wrap;
     margin-left: 5rem;
+    margin-top: 2rem;
 /*     margin-left: 4rem; */
   }
   .accordion-button-1.collapsed, .accordion-button-2.collapsed, .accordion-button-3.collapsed,
