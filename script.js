@@ -1,12 +1,15 @@
 /* Eventlyssnare för mer-text-indikator i brödtexter */
 document.addEventListener('DOMContentLoaded', function () {
-  const text = document.querySelector('.text-preview');
+  const textBlocks = document.querySelectorAll('.text-preview');
 
-  text.addEventListener('click', () => {
-    text.classList.toggle('expanded');
-    text.classList.toggle('collapsed');
+  textBlocks.forEach((text) => {
+    text.addEventListener('click', () => {
+      text.classList.toggle('expanded');
+      text.classList.toggle('collapsed');
+    });
   });
 });
+
 
 
 /* Graf: Grov kvinnofridskränkning i SVGForeignObjectElement, anmälda vs lagförda */
