@@ -252,6 +252,15 @@ margin: 0;
     font-family: helvetica, sans-serif;
   }
 
+  a.webbadress-referenser {
+    color: #350908;
+    text-decoration: underline;
+  }
+  
+  a.webbadress-referenser:visited {
+    color: #660000;
+  }
+
   /* flip-cards */
   .flip-card {
     border-radius: 6px;
@@ -767,6 +776,8 @@ margin: 0;
 .references .accordion-item {
   padding-left: 3.4rem;
 }
+
+
 
 
 /* .accordion-button-1.collapsed, .accordion-button-2.collapsed, .accordion-button-3.collapsed {
