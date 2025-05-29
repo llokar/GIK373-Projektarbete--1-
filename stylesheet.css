@@ -127,6 +127,7 @@ margin: 0;
     color: rgb(53, 9, 8);
     text-align: center;
     margin-top: 4rem;
+    margin-bottom: 4rem;
   }
 
   .rubrik-över-grafer {
@@ -151,7 +152,7 @@ margin: 0;
   color: #350908;
   margin-bottom: 2rem;
   margin-left: 4rem;
-  margin-top: 1rem;   
+  margin-top: 2.2rem;   
   width: 80ch;
   }
 
@@ -426,6 +427,8 @@ margin: 0;
 
   .rubrik-över-grafer {
     width: 80%;
+    font-size: 1.32rem;
+    margin-top: 6rem;
   }
 
   .ingress-grafer, .rubrik-över-grafer {
@@ -478,7 +481,7 @@ margin: 0;
     padding-right: 1rem;
     zoom: 1;
   }
-  .accordion-body-1 {
+  .accordion-body-1, .accordion-body-2, .accordion-body-3 {
     font-size: .8rem;
     max-width: 80%;
   }
