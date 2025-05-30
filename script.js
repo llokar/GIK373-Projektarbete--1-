@@ -112,23 +112,7 @@ Promise.all([
     }
   ];
 
-/*   const datasets = [
-    {
-      label: 'Anmälda',
-      data: dataAnmalda,
-      backgroundColor: 'rgb(211, 37, 34)',
-      borderColor: 'rgb(180, 36, 55)',
-      borderWidth: 1,
-      borderRadius: 1
-    },
-    {
-      label: 'Lagförda',
-      data: dataLagforda,
-      backgroundColor: '#ee9796',
-      borderColor: '#ee9796',
-      borderWidth: 1
-    }
-  ]; */
+
   let size = 20;
   if (window.matchMedia("(max-width: 800px)").matches) {
     size = 16; 
@@ -195,7 +179,7 @@ observer.observe(chartElement);
               color: '#350908',
                 padding: 30,
                 font: {
-                  /* family: 'montserrat, sans-serif', */
+                  
                     size: size,
                     weight: 500
                     
@@ -328,7 +312,7 @@ datasets: datasetsSCBKvinnofrid
               color: '#350908',
                 padding: 30,
                 font: {
-                 /*  family: 'montserrat, sans-serif', */
+                 
                     size: size,
                     weight: 500
                 },
@@ -413,20 +397,14 @@ fetch(request1)
       data: valueWomen,
       backgroundColor: 'rgb(211, 37, 34)',
       borderColor: 'rgb(180, 36, 55)',
-   /*    borderWidth: 1,
-      borderRadius: 1,
-      barPercentage: 0.5,
-      categoryPercentage: 1 */
+   
     },
     {
     label: 'Män',
     data: valueMen,
      backgroundColor: '#350908',
       borderColor: '#350908',
-    /*   borderWidth: 1,
-      borderRadius: 1,
-      barPercentage: 0.5,
-      categoryPercentage: 1 */
+
 
     }
   
@@ -479,7 +457,7 @@ fetch(request1)
               color: '#350908',
               padding: 30,
               font: {
-                /* family: 'montserrat, sans-serif', */
+                
                 weight: 500,
                 size: size
               }
@@ -619,7 +597,7 @@ async function displayCountryDataOnMap() {
     geo: {
       scope: 'europe',
       center: { lon: 38, lat: 38 },
-      /* zoom: 8, */
+      
       fitbounds: false,
       projection: {type: "natural earth",
       scale: .8,
