@@ -82,11 +82,11 @@ Promise.all([
     method: 'POST',
     body: JSON.stringify(querySCBLagforda)
   }).then(response => response.json()),
-]).then(([dataSCBAnmälda, dataSCBLagforda]) => {
+]).then(([dataSCBAnmalda, dataSCBLagforda]) => {
 
-  const labels = dataSCBAnmälda.data.map(year =>year.key[0]);
+  const labels = dataSCBAnmalda.data.map(year =>year.key[0]);
   
-  const dataAnmalda = dataSCBAnmälda.data.map(year => Number(year.values[0]));
+  const dataAnmalda = dataSCBAnmalda.data.map(year => Number(year.values[0]));
   
   const lagforda = {};
   dataSCBLagforda.data.forEach(year => {
@@ -134,6 +134,11 @@ Promise.all([
     size = 16; 
   }
 
+  let delayed;
+
+const chartElement = document.getElementById('scbAnmaldaochLagforda');
+observer.observe(chartElement);
+
   new Chart(document.getElementById('scbAnmaldaochLagforda'), {
     type: 'bar',
     data: {
@@ -142,6 +147,20 @@ Promise.all([
     },
     options: {
       responsive: true,
+
+    animation: {
+      onComplete: () => {
+        delayed = true;
+      },
+      delay: (context) => {
+        let delay = 0;
+        if (context.type === 'data' && context.mode === 'default' && !delayed) {
+          delay = context.dataIndex * 300 + context.datasetIndex * 100;
+        }
+        return delay;
+      },
+    },
+
       scales: {
          y: {
             ticks: {
@@ -611,7 +630,7 @@ async function displayCountryDataOnMap() {
       bgcolor: 'rgba(0,0,0,0)', 
 
     },
-
+  
 
     margin: { t: 0, b: 0, l: 0, r:0 },
     width: 1200,
