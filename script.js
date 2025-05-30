@@ -1,3 +1,19 @@
+/* Eventlyssnare för mer-text-indikator i brödtexter */
+document.addEventListener('DOMContentLoaded', function () {
+  const textBlocks = document.querySelectorAll('.text-preview');
+
+  textBlocks.forEach((text) => {
+    text.addEventListener('click', () => {
+      text.classList.toggle('expanded');
+      text.classList.toggle('collapsed');
+    });
+  });
+});
+
+
+
+/* Graf: Grov kvinnofridskränkning i SVGForeignObjectElement, anmälda vs lagförda */
+
 const urlSCBAnmalda = 'https://api.scb.se/OV0104/v1/doris/sv/ssd/START/LE/LE0201/LE0201Våld/Tema613';
 
 const urlSCBLagforda = "https://api.scb.se/OV0104/v1/doris/sv/ssd/START/LE/LE0201/LE0201Våld/Tema615";
@@ -77,9 +93,26 @@ Promise.all([
     lagforda[year.key[2]] = Number(year.values[0]);
   });
 
+  /* om värdet är null används 0 */
   const dataLagforda = labels.map(year => lagforda[year] || 0);
 
+  const andelLagforda = dataLagforda.map (
+    (Lagforda, i) =>
+    Number((Lagforda / dataAnmalda[i]) * 100).toFixed(2)); 
+
+
   const datasets = [
+    {
+      label: '%',
+      data: andelLagforda,
+      backgroundColor: 'rgb(211, 37, 34)',
+      borderColor: 'rgb(180, 36, 55)',
+      borderWidth: 1,
+      borderRadius: 1
+    }
+  ];
+
+/*   const datasets = [
     {
       label: 'Anmälda',
       data: dataAnmalda,
@@ -91,15 +124,15 @@ Promise.all([
     {
       label: 'Lagförda',
       data: dataLagforda,
-      backgroundColor: 'rgb(238, 151, 150)',
-      borderColor: 'rgb(237, 135, 133)',
+      backgroundColor: '#ee9796',
+      borderColor: '#ee9796',
       borderWidth: 1
     }
-  ];
-  let size = 20; 
+  ]; */
+  let size = 30; 
   //om window.matchMedia > 600px, sätt size till något annat
-  if(window.matchMedia("(max-width: 600px)")) {
-    size = 15; 
+  if (window.matchMedia("(max-width: 900px)").matches) {
+    size = 16; 
   }
   new Chart(document.getElementById('scbAnmaldaochLagforda'), {
     type: 'bar',
@@ -108,36 +141,55 @@ Promise.all([
       datasets: datasets
     },
     options: {
-       scales:{
+      responsive: true,
+      scales: {
          y: {
-             title: {
-               display: true,
-               text: 'Antal',
-               padding: 15
+            ticks: {
+              color: "#350908" // <-- Färg på y-axelns värden
+            }
+          },
+          x: {
+            title: {
+            display: true,
+            text: 'Källa: SCB',
+            color: "#350908",
+            align: 'end',
+            padding: {
+              top: 15
               }
-             },
-  
-         },
-      
-      plugins: {      
+            },
+            ticks: {
+              color: "#350908"
+            }
+          }
+        ,
+      },
+    
+       plugins: {    
+      legend: {
+          display: false,
+        },  
         title: {           
             display: true,
-              text: ['Kvinnofridskränkning i Sverige' , 'Anmälningar vs Lagförda'],
+            align: 'start',
+              text: 'Grov kvinnofridskränkning i Sverige, anmälda brott som blev lagförda (%)',
               color: '#350908',
-                padding: 20,
+                padding: 30,
                 font: {
-                  family: 'montserrat, sans-serif',
+                  /* family: 'montserrat, sans-serif', */
                     size: size,
-                    weight: 'bold'
-                },
+                    weight: 500
+                    
+                }
               }
             }
-           } 
-  });
+          }
+        }
+    )});
+      
 
-}); /* .catch(err => console.error('Fel vid hämtning av data:', err)); */
 
-/* Anmäld grov kvinnofridskräkning 1998–2023*/
+/* Graf: Anmäld grov kvinnofridskräkning 1998–2023*/
 
 const urlSCBKvinnofrid = 'https://api.scb.se/OV0104/v1/doris/sv/ssd/START/LE/LE0201/LE0201Våld/Tema613' 
 
@@ -185,17 +237,25 @@ console.log(dataKvinnofrid);
 
 const datasetsSCBKvinnofrid = [{ 
 
-label: 'Anmäld grov kvinnofridskränkning', 
+label: 'Kvinnor utsatta av män',
 
 data: dataKvinnofrid, 
 
+ 
+
 borderColor: "#DE2F2B", 
 
-backgroundColor: "rgba(145, 35, 223, 0.4)" 
+backgroundColor: "#DE2F2B" 
 
 } 
 
 ]; 
+
+let size = 20; 
+  //om window.matchMedia > 600px, sätt size till något annat
+  if(window.matchMedia("(max-width: 600px)")) {
+    size = 15; 
+  }
 
 new Chart(document.getElementById('scbAnmaldaKvinnofrid'), { 
 
@@ -207,214 +267,208 @@ labels: labels,
 
 datasets: datasetsSCBKvinnofrid 
 
-}  
-
-}); 
-
- 
-
-} 
-
- 
-
-
-/* Personer som blir utsatta för misshandel efter relation till förövare 2015-2016 */
-
-const urlSCButsatta =
-"https://api.scb.se/OV0104/v1/doris/sv/ssd/START/LE/LE0201/LE0201Våld/Tema66";
-
-const querySCButsatta =
-{
-    "query": [
-      {
-        "code": "ContentsCode",
-        "selection": {
-          "filter": "item",
-          "values": [
-            "000002WI"
-          ]
-        }
-      }
-    ],
-    "response": {
-      "format": "json"
-    }
-  };
-
-  const request = new Request(urlSCButsatta, {
-    method: "POST",
-    body: JSON.stringify(querySCButsatta)
-  });
-
-  fetch(request)
-  .then(response => response.json())
-  .then(printSCButsattaChart);
-
-    function printSCButsattaChart(dataSCButsatta) {
-      console.log(dataSCButsatta);
-     
-      const gender = dataSCButsatta.data;
-      const relation = dataSCButsatta.data;
-      const amount = dataSCButsatta.data;
-   
-      const womenValues = dataSCButsatta.data.filter(data => data.key[1] == 1).map(data => data.values[0]); 
-    const menValues = dataSCButsatta.data.filter(data => data.key[1] == 2).map(data => data.values[0]); 
-    console.log(womenValues)
-   
-    const labels = gender.map(gender => gender.key[1]);
-    console.log(labels);
-    
-    const keys = relation.map(relation => relation.key[0]);
-    const labels1 = [
-    ...keys.slice(0, 1),
-    ...keys.slice(2, 3),
-    ...keys.slice(4, 5)
-    ];
-
-    console.log(labels1);
-    const data = amount.map(amount => amount.values[0]);
-    console.log(data);
-
-    const datasets = [{
-      label: "Kvinnor",
-      data: womenValues,
-      backgroundColor: 'rgb(211, 37, 34)',
-      borderColor: 'rgb(180, 36, 55)',
-      borderWidth: 1,
-      borderRadius: 1
-    },
-    {
-      label: "Män",
-      data: menValues,
-      backgroundColor: 'rgb(238, 151, 150)',
-      borderColor: 'rgb(237, 135, 133)',
-      borderWidth: 1,
-      borderRadius: 1
-    }
-  ];
-
-    const myChart = new Chart(document.getElementById("scbUtsatta"),
-      {
-        type: "bar",
-        data: {
-          datasets: datasets,
-          labels: ['Närstående', 'Bekanta', 'Helt okända'] 
-        },
-        options: {
+}, 
+    options: {
        scales:{
          y: {
-             title: {
-               display: true,
-               text: 'Antal',
-               color:'#350908',
-               padding: 15,
-               font:{
-                family: 'montserrat, sans-serif',
-                weight: 'bold',
-                size: 13, 
-               }
-              }
-             },
-
-           x: {
-            title: {
-              display: true,
-             text: 'Typ av relation',
-             color: '#350908',
-              padding: 15,
-              font: {
-                family: 'monsterrat, sans-serif',
-                weight: 'bold',
-                size: 13,
-              },
+            
+             ticks: {
+              color: "#350908"
              }
-          }  
          },
+         x: {
+          title: {
+            display: true,
+            text: 'Källa: SCB',
+            color: "#350908",
+            align: 'end',
+            padding: {
+              top: 15
+            }
+
+          
+          },
+          ticks: {
+            color: "#350908",
+            callback: function(val, index) {
+              // Hide every 2nd tick label
+              return index % 2 === 0 ? this.getLabelForValue(val) : '';
+            }
+          }
+        }
+      },
       
-      plugins: {      
+      plugins: {    
+        legend: {
+          display: false,
+          
+        },
         title: {           
             display: true,
-              text: ['Personer utsatta för misshandel, efter relation till förövare','Sverige 2015-2016'],
+            align: 'start',
+              text: 'Anmälda brott: grov kvinnofridskränkning i Sverige 1998–2023',
               color: '#350908',
-                padding: 20,
+                padding: 30,
                 font: {
-                  family: 'montserrat, sans-serif',
-                    weight: 'bold'
+                 /*  family: 'montserrat, sans-serif', */
+                    size: 16,
+                    weight: 500
                 },
               }
             }
            } 
-      }
-    );
-    }
+  });
+
+};
+ 
+
  
 /* Anmäld misshandel närstående genom parrelation */
 
-/* const urlSCBmisshandel =
-"https://api.scb.se/OV0104/v1/doris/sv/ssd/START/LE/LE0201/LE0201Våld/Tema16b";
-*/
+const urlSCBmisshandel = 'https://api.scb.se/OV0104/v1/doris/sv/ssd/START/LE/LE0201/LE0201Våld/Tema16b'
 
-  const labels = [
-    "Kvinnor",
-    "Män"
-  ];
-
-  const datasets = [
+const querySCBmisshandel = {
+  "query": [
     {
-      label: 'Anmäld misshandel, kvinnor',
-      data: [13616, 13583, 13445],
-      backgroundColor: "rgba(244,255,12,0.4)",
-      borderColor: "blue",
-      borderWidth: 2,
-      hoverBorderColor: "red",
-     
-      
-    },    
-    {
-      label: 'Anmäld misshandel, män',
-      data: [3000, 2954, 2912],
-      backgroundColor: "rgba(244,255,12)",
-      hoverBorderColor: "magenta",
-
+      "code": "RelOff",
+      "selection": {
+        "filter": "item",
+        "values": [
+          "30"
+        ]
+      }
     },
-  ];
-  
-  const config = { 
-    type: 'bar',
-    data: {labels: labels, datasets: datasets}, 
+    {
+      "code": "ContentsCode",
+      "selection": {
+        "filter": "item",
+        "values": [
+          "000004K5"
+        ]
+      }
+    }
+  ],
+  "response": {
+    "format": "json"
+  }
 };
 
-  const canvas = document.getElementById('myChart');
-  const myChart = new Chart(canvas, config);
 
-  const config2 = {
-    type: "bar",
-    data: {
-      labels: [2020, 2021, 2022],
-      datasets: [{
-        label: "Kvinnor", 
-        data: [13616, 13583, 13445],
-        backgroundColor: 'rgb(211, 37, 34)',
-        borderColor: 'rgb(180, 36, 55)',
-        borderWidth: 1,
-        borderRadius: 1
-      },
-      {
-        label: "Män", 
-        data: [3000, 2954, 2912],
-        backgroundColor: 'rgb(238, 151, 150)',
-        borderColor: 'rgb(237, 135, 133)',
-        borderWidth: 1,
-        borderRadius: 1
-      }
-    ]
-    
+const request1 = new Request(urlSCBmisshandel, {
+  method: "POST",
+  body: JSON.stringify(querySCBmisshandel)
+});
+
+fetch(request1)
+  .then(response => response.json())
+  .then(printSCBMisshandel);
+
+  function printSCBMisshandel(dataSCBMisshandel) {
+    const years = dataSCBMisshandel.data;
+    const amount = dataSCBMisshandel.data;
+    console.log(dataSCBMisshandel);
+
+    const valueWomen = dataSCBMisshandel.data.filter(data => data.key[1] == 2).map(data => data.values[0]);
+    const valueMen = dataSCBMisshandel.data.filter(data => data.key[1] == 1).map(data => data.values[0]);
+    console.log(valueWomen);
+
+
+    const labels = years.map(years => years.key[2]);
+    console.log(labels);
+
+
+    const keys1 = years.map(years => years.key[2]); 
+    const labels2 = [
+        ...keys1.slice(0, 1),
+        ...keys1.slice(4, 5),
+        ...keys1.slice(2, 3)
+
+    ];
+    console.log(labels2);
+
+    const data = amount.map(amount => amount.values[0]);
+    console.log(data);
+
+
+    const datasets = [{
+      label: "Kvinnor",
+      data: valueWomen,
+      backgroundColor: 'rgb(211, 37, 34)',
+      borderColor: 'rgb(180, 36, 55)',
+   /*    borderWidth: 1,
+      borderRadius: 1,
+      barPercentage: 0.5,
+      categoryPercentage: 1 */
+    },
+    {
+    label: 'Män',
+    data: valueMen,
+     backgroundColor: '#350908',
+      borderColor: '#350908',
+    /*   borderWidth: 1,
+      borderRadius: 1,
+      barPercentage: 0.5,
+      categoryPercentage: 1 */
+
     }
+  
+  ];
+
+  new Chart(document.getElementById('scbMisshandel'), {
+      type: 'bar',
+      data: {labels: labels2, datasets: datasets},
     
-  };
 
-const scbMisshandel = new Chart(document.getElementById("scbMisshandel"), config2)
+      options: {
+        scales: {
+          y: {
+            ticks: {
+              color: "#350908" // <-- Färg på y-axelns värden
+            }
+          },
+          x: {
+            title: {
+            display: true,
+            text: 'Källa: SCB',
+            align: 'end',
+            color: "#350908",
+            padding: {
+              top: 15
+              }
+            },
+            ticks: {
+              color: "#350908"
+            }
+          }
+        },
+          plugins: {
+            legend: {
+              position: 'right',
+              align: 'center',
+              labels: {
+                color: "#350908"
+              }
+            },
+            title: {
+              display: true,
+              align: 'start',
+              text: 'Anmäld misshandel i parrelation, Sverige 2020–2022',
+              color: '#350908',
+              padding: 30,
+              font: {
+                /* family: 'montserrat, sans-serif', */
+                weight: 500,
+                size: 16
+              }
+            }
+          }
+      }
+    });
+  
 
+
+
+/* Back-to-top */
 const upBtn = document.getElementById("button-up");
 
 window.onscroll = function () {
@@ -437,3 +491,137 @@ function backToTop() {
 document.body.scrollTop = 0;
 document.documentElement.scrollTop = 0;
 }
+  }
+
+/* Karta */
+
+const countryCodes = {
+  'BE': 'Belgium', 
+  'BG': 'Bulgaria', 
+  'CZ': 'Czech Republic', 
+  'DK': 'Denmark',
+  'DE': 'Germany', 
+  'EE': 'Estonia', 
+  'IE': 'Ireland', 
+  'EL': 'Greece',
+  'ES': 'Spain', 
+  'FR': 'France', 
+  'HR': 'Croatia', 
+  'IT': 'Italy',
+  'CY': 'Cyprus', 
+  'LV': 'Latvia', 
+  'LT': 'Lithuania', 
+  'LU': 'Luxembourg',
+  'HU': 'Hungary', 
+  'MT': 'Malta', 
+  'NL': 'Netherlands', 
+  'AT': 'Austria',
+  'PL': 'Poland', 
+  'PT': 'Portugal', 
+  'RO': 'Romania', 
+  'SI': 'Slovenia',
+  'SK': 'Slovakia', 
+  'FI': 'Finland', 
+  'SE': 'Sweden', 
+  'ME': 'Montenegro',
+  'RS': 'Serbia'
+};
+
+async function fetchEurostatsData() {
+  const euStatsUrl = 'https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gbv_ipv_type$defaultview/?format=JSON&lang=en';
+  try {
+    const response = await fetch(euStatsUrl);
+    if (!response.ok) {
+      throw new Error(`Error status: ${response.status}`);
+    }
+
+    const data = await response.json();
+
+    const geoIndex = data.dimension?.geo?.category?.index;
+    const countries = Object.keys(geoIndex).map(code => countryCodes[code] || code);
+    const valuesArray = Object.values(data.value);
+
+    return {
+      countries,
+      valuesArray
+    };
+  } catch (error) {
+    console.error("Error fetching EuroStats data:", error);
+  }
+}
+
+async function displayCountryDataOnMap() {
+  const mapData = await fetchEurostatsData();
+  if (!mapData) return;
+
+
+
+  const data = [{
+    type: "choropleth",
+    locations: mapData.countries,
+    z: mapData.valuesArray,
+    featureidkey: "properties.NAME",
+    geojson: "https://raw.githubusercontent.com/leakyMirror/map-of-europe/refs/heads/master/GeoJSON/europe.geojson",
+    colorscale: [
+      [0,    '#340909'],  // Vinröd
+      [0.35, '#7A1515'],
+      [0.5,  '#AE1E1E'],
+      [0.6,  '#D12323'],
+      [0.7,  '#DC2E2E'],
+      [1,    '#F0A8A8']   // Ljusröd
+  ],
+
+    colorbar: {
+      title: {text: '%'},
+      thickness: 15,
+      len: .4,
+      lenmode: 'fraction',
+/*       x: 0.9,
+      y: 0.5 */
+      x: 0,
+      y: .7,
+      
+  },
+  zmin: 0,
+  zmax: 55,
+  reversescale: true,
+  marker: {
+      line: {
+          color: 'white',
+          width: 1.5
+      }},
+  }];
+
+  const layout = {
+    geo: {
+      scope: 'europe',
+      center: { lon: 38, lat: 38 },
+      /* zoom: 8, */
+      fitbounds: false,
+      projection: {type: "natural earth",
+      scale: .8,
+    },
+      showland: true,
+      landcolor: "#e0e0e0",
+      countrycolor: "#ffffff", 
+      bgcolor: 'rgba(0,0,0,0)',
+    
+      
+
+    },
+    
+    margin: { t: 0, b: 0, l: 0, r:0 },
+    width: 1200,
+    height: 800,
+    paper_bgcolor: 'rgba(0,0,0,0)',
+    plot_bgcolor: 'rgba(0,0,0,0)',
+   
+    
+  
+  
+  };
+
+  Plotly.newPlot('euStats', data, layout, {scrollZoom: false});
+}
+
+displayCountryDataOnMap();

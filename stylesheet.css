@@ -1,101 +1,32 @@
 body {
-    background-color: #fbfbf8;
+  background-color: #fbfbf8;
 }
 
-.header-text {
-    color: #de2e2b;
-/*     font-family: montserrat, sans-serif; */
-    font-family: akshar, sans-serif;
-    font-size: 7rem;
-    margin: 0;
-    font-weight: bold;
-}
-.img {
-    position:sticky;
-}
-.header-container {
-    position: relative;
-    text-align: left;
-  }
-  .header-intro {
-    position: absolute;
-    bottom: 8px;
-    left: 16px;
-   /*  margin-left: 5rem; */
-  }
-  .intro {
-    color: #DE2F2B;  
-    padding-left: 1.1rem;
-    margin-top: -1rem; 
-    font-size: 1.1rem;
-    font-family: akshar, sans-serif;
-    font-weight:lighter;
-  }
-
-  .block {
-background-color: #22231f;
-padding-block: 3rem;
-margin-block: 2rem;
-font-family: akshar, sans-serif;
-color: #F7F6F3;
-  }
-
-  .block-text {
-    font-size: 2rem;
-    margin-left: 2rem;
-  }
-  .morkertal {
-    margin-left: 2rem;
-  }
-
-.first-text {
-    font-size: 0.8rem;
-    font-family: helvetica, sans-serif;
-    font-weight:lighter;
-    color: rgb(53, 9, 8);
+body, html {
+width: 100%;
+height: auto;
+display: block;
+padding: 0;
+margin: 0;
 }
 
-/* X-Small devices (0-575px) */
-@media (max-width: 575px) {
-    .header-text {
-        font-size: 5rem;
-    }
-}
-
-/* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) { }
-
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {  }
-
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {  }
-
-/* X-Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) { }
-
-/* XX-Large devices (larger desktops, 1400px and up) */
-@media (min-width: 1400px) { }
-
-
+/* navbar */
 .navbar-design,
 .navbar-design {
     background-color: rgba(53, 9, 8, 0.5);
-    
-    color: #fbfbf8 !important;
+    color: #fbfbf8;
     font-family: helvetica, sans-serif;
     font-weight:lighter;
     font-size: 1rem;
     margin-block: -.3rem;
 }
 .navbar-brand {
-    color: #fbfbf8 !important;
+    color: #fbfbf8;
     padding-inline: .4rem;
     font-family: helvetica, sans-serif;
-    font-weight:lighter;
+    font-weight: bolder;
     font-size: 1.2rem;
 }
-
 .nav-link {
     padding-inline: .4rem;
 }
@@ -107,89 +38,297 @@ color: #F7F6F3;
 .navbar-design .navbar-toggler-icon {
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23DE2F2B' stroke-width='2' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
-
 .navbar-toggler:focus {
   box-shadow: none;
 }
 .navbar-toggler {
     border: none;
 }
-
-
-.first-text {
-    margin: 5rem;
+.navbar-nav .dropdown {
+  position: relative; /* Viktigt! Annars har 'top' ingen referens */
+}
+.dropdown-menu {
+  position: absolute;
+  background-color: rgba(53, 9, 8, 0.7);
+  border: none;
+  top: 3.4rem;
+}
+.dropdown-item {
+  color: #fbfbf8;
+  font-family: helvetica;
+  font-weight: lighter;
+}
+.dropdown-item:hover {
+    color:#DE2F2B;
+    background-color: transparent;
+}
+.nav-item.dropdown:hover .dropdown-menu {
+      display: block;
+      margin-top: 0; 
+      pointer-events: auto;
+}
+.dropdown-hover-bridge {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 3.4rem;
+  pointer-events: auto;
+  background: transparent;
+  z-index: 1;
+  pointer-events: auto;
 }
 
-/* .accordion-button {
-    background-color: #350908;
-    color: #fbfbf8;
-} */
+.header-container {
+  position: relative;
+  text-align: left;
+  width: 100%;
+}
 
-.accordion-button-1 {
-    background-color: #350908;
+.img {
+  position:sticky;
+}
+
+.header-intro {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+}
+
+.header-text {
+  color: #de2e2b;
+  font-family: akshar, sans-serif;
+  font-size: 16vw;
+  margin: 0;
+  font-weight: bold;
+}
+
+.intro {
+  color: #DE2F2B;  
+  padding-left: 1.1rem;
+  margin-top: -4vw; 
+  font-size: 3.5vw;
+  font-family: akshar, sans-serif;
+  font-weight:lighter;
+}
+
+.first-title {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  font-family: montserrat, sans-serif;
+  font-weight: bold;
+  color: #350908;
+  }
+
+  .first-text {
+    font-size: 0.8rem;
+    font-family: helvetica, sans-serif;
+    font-weight:lighter;
+    color: rgb(53, 9, 8);
+    text-align: center;
     margin-top: 4rem;
-}
+    margin-bottom: 4rem;
+  }
 
-.accordion-button-2 {
-    background-color: #DE2F2B;
-}
-.accordion-button-3 {
-    background-color: #ee9796;
-}
+  .rubrik-över-grafer {
+    font-size: 1.8rem;
+    font-family: montserrat, sans-serif;
+    font-weight: bold;
+    color: #350908;
+    margin-top: 4rem;
+    }
+  
+  .ingress-grafer {
+    font-family: helvetica, sans-serif;
+    color: #350908;
+    width: 60ch;
+    font-size: .9rem;
+  }
+    
+  .text-grafer {
+  font-size: 0.7rem;
+  font-family: helvetica, sans-serif;
+  font-weight:lighter;
+  color: #350908;
+  margin-bottom: 2rem;
+  margin-left: 4rem;
+  margin-top: 2.2rem;   
+  width: 70ch;
+  }
 
-.accordion-button-1, .accordion-button-2, .accordion-button-3 {
-    color: #fbfbf8;
+  .block {
+    background-color: #22231f;
+    padding-block: 4rem;
+    font-family: akshar, sans-serif;
+    color: #F7F6F3;
+    margin-bottom: 4rem;
     width: 100%;
+    margin-top: 4rem;
+  }
+
+  .img-2 {
+    object-fit: cover;
+    height: 100%;
+    max-height: 100vh;
+  }
+
+
+  /* accordions */
+  .accordion {
+    margin-bottom: 5rem;
+    width: 100%;
+  }
+  .accordion-button-1, .accordion-button-2, .accordion-button-3 {
+    background-color: #350908;
     font-family: helvetica;
     font-size: 1.2rem;
     font-weight: lighter;
     padding-block: 1rem;
- /*    margin-bottom: .4rem; */
-        
-
-    text-align: left;
     padding-left: 2rem;
-}
-
-/* .accordion {
-    margin-block: 2rem;
-} */
-
-
-.accordion-button::after {
-    filter: brightness(0) invert(1); /* Gör pilen vit */
-  }
-
-  .accordion-button-1:not(.collapsed) {
-    background-color: rgb(53, 9, 8);
-    color: #fbfbf8;
-   
-  }
-  
-  .accordion-button-2:not(.collapsed) {
-    background-color: #DE2F2B;
     color: #fbfbf8;
   }
-  
-  .accordion-button-3:not(.collapsed) {
-    background-color: rgb(238, 151, 150);
-    color: #fbfbf8;
-  }
-
   .accordion-button:focus {
     border-color: transparent;
     box-shadow: none;
     outline: none;
   }
+  .accordion-button:hover {
+    color: #DE2F2B;
+  }
+  .accordion-button::after {
 
-.accordion-body-1, .accordion-body-2, .accordion-body-3 {
-    padding-left: 2rem;
-    padding: 1rem;
-    max-width: 60%;
+    filter: brightness(0) invert(1);
+    margin-right: 4rem; /* Gör pilen vit */
+  }
+  .accordion-button-1:not(.collapsed), 
+  .accordion-button-2:not(.collapsed),
+  .accordion-button-3:not(.collapsed) {
+    background-color: rgb(53, 9, 8) !important;
+    color: #fbfbf8;
+    padding-left: 4rem;
+    padding-top: 1rem;
+  }
+  .accordion-button, .accordion-body {
+    padding-left: 2.1rem;
+  }
+  .accordion-body-1, .accordion-body-2, .accordion-body-3 {
+    padding-left: 4rem;
+    margin-bottom: 1rem;
+    max-width: 70%;
+    padding-block: 1rem;
+    background-color: #fbfbf8;
+    font-family: helvetica, sans-serif;
+  }
+  .accordion-collapse {
+    background-color: #fbfbf8;
+  }
+  .references .accordion-item {
+    background-color: transparent;
+    border: none;
+  }
+  .references .accordion-button {
+    color: #350908;
+    font-family: helvetica;
+    font-weight:500;
+    font-size: 1.1rem;
+    box-shadow: none;
+    border: none;
+    background-color: transparent;
+  }
+  .references .accordion-button::after {
+    color: #350908;
+    filter: none; /* Tar bort eventuell gråtoning */
+  }
+  .references .accordion-body {
+    color: #350908;
+    font-size: 1rem;
+    background-color: transparent;
+    font-family: helvetica, sans-serif;
+  }
+  .references {
+    margin-top: 4rem;
+    background-color: rgba(53, 9, 8, 0.3); 
+    width: 100%;
+    font-family: helvetica, sans-serif;
   }
 
+  a.webbadress-referenser {
+    color: #350908;
+    text-decoration: underline;
+  }
+  
+  a.webbadress-referenser:visited {
+    color: #660000;
+  }
+
+  /* flip-cards */
+  .flip-card {
+    border-radius: 6px;
+    perspective: 1000px; 
+    margin-bottom: 10rem;
+  }
+  .flip-card-holder {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    border-radius: 6px;
+    border: 1px solid #b1b1b1;
+    
+  }
+  .flip-card:hover .flip-card-holder {
+    transform: rotateY(180deg);
+  }
+  .flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+  .flip-card-front {
+    background-color: #fbfbf8;
+    color: black;
+    border-radius: 6px;
+  }
+  .flip-card-back {
+    background-color: #350908;
+    color: white;
+    transform: rotateY(180deg);
+    border-radius: 6px;
+  }
+  .flip-card-body {
+    padding: 1rem;
+  }
+  .flip-card-title {
+    margin-bottom: .5rem;
+    color: #350908
+  }
+  .flip-card-text-front {
+    font-size: .8rem;
+    color:#350908;
+  }
+  .flip-card-img {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+  }
+  .flip-card-text-back {
+    font-size: .9rem;
+  }
+  .text-back-first {
+    margin-top: 1rem;
+  }
+  .text-back-second {
+    margin-top: 6rem;
+  }
+
+  .nav-link-footer {
+    color: #350908;
+    font-family: helvetica, sans-serif;;
+    }
+
+    /* back-to-top-knapp */
   #button-up {
-    position: fixed;
     bottom: 20px; 
     right: 30px;
     border: none;
@@ -200,9 +339,484 @@ color: #F7F6F3;
     padding-block: .4rem;
     border-radius: .4rem; 
     font-size: 1rem; 
+    position: fixed;
+  }
+    
+  #button-up:hover {
+    color: #350908;
+    background-color: #fbfbf8;
+  }
+
+  /* Gömmer mer-text-indikator i brödtexter  */
+.fade-indicator,
+.text-preview::after {
+  display: none;
+}
+
+.text-preview {
+  max-height: none;
+  overflow: visible;
+  cursor: auto;
+  position: relative;
+  transition: max-height 0.5s ease;
+}
+
+
+@media (min-width: 576px) {
+
+/* Text-fade med pil som hintar om att mer brödtext finns */
+.text-preview {
+  overflow: hidden;
+  position: relative;
+  transition: max-height 0.5s ease;
+  max-height: 12rem; /* Visa ca 1-2 paragrafer – justera efter smak */
+  cursor: pointer;
+}
+
+/* När den är expanderad */
+.text-preview.expanded {
+  max-height: none;
+}
+
+/* Faden nedtill – hintar att mer text finns */
+.text-preview::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3rem;
+  background: linear-gradient(to bottom, rgba(255,255,255,0), #fff); /* Anpassa färg vid behov */
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Ta bort faden vid expanderad */
+.text-preview.expanded::after {
+  opacity: 0;
+}
+
+/* Hint-pil */
+.fade-arrow {
+  display: inline-block;
+  margin-left: 0.5rem;
+  font-weight: bold;
+  opacity: 0.6;
+  font-size: 1.2rem;
+  vertical-align: middle;
+}
+
+/* Fade-indikator som ligger utanför texten */
+.fade-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4rem;
+  background: linear-gradient(to top, white, transparent);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.arrow-down {
+  font-size: 2.2rem;
+  color: #350908;
+  opacity: 0.6;
+  margin-bottom: -0.1rem;
+}
+
+/* Döljer pilen när brödtexten är expanderad */
+.text-preview.expanded .fade-indicator {
+  display: none;
+}
+
+  .first-text-block {
+    font-size: .9rem;
+    margin-inline: 4rem;
+  }
+
+  .rubrik-över-grafer {
+    width: 80%;
+    font-size: 1.32rem;
+    margin-top: 6rem;
+  }
+
+  .ingress-grafer, .rubrik-över-grafer {
+    margin-left: 4rem;
+  }
+
+  .flip-card {
+    width: 17rem;
+    height: 27rem;
+    margin-top: 1rem;
+  }
+
+  .cards {
+    display: flex;
+    justify-content: center;
+    margin-inline: 1rem;
+  }
+
+  .morkertal {
+    margin-left: 4rem;
+  }
+
+  .block-text {
+    font-size: 2rem;
+    margin-left: 4rem;
+    max-width: 70%;
+  }
+
+  .graph {
+    transform: translateX(1.1rem);
+    margin-top: 1rem;
+    margin-left: 3rem;
+    width: 81%;
+  }
+
+/*   .mapEustat {
+    transform: translateX(-5.8rem);
+
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-left: 5rem;
+    margin-top: 2rem;
+
+  } */
+  .accordion-button-1.collapsed, .accordion-button-2.collapsed, .accordion-button-3.collapsed,
+  .accordion-button-1:not(.collapsed), .accordion-button-2:not(.collapsed), .accordion-button-3:not(.collapsed) {
+    font-size: 1rem;
+    padding-block: .8rem;
+    padding-left: 4rem;
+    padding-right: 1rem;
+    zoom: 1;
+  }
+  .accordion-body-1, .accordion-body-2, .accordion-body-3 {
+    font-size: .8rem;
+    max-width: 80%;
+  }
+/* rubrik */
+.references .accordion-header:not(.collapsed), .accordion-header.collapsed {
+  padding-left: 1.2rem;
+}
+.references .accordion-body:not(.collapsed) {
+  background-color: rgba(53, 9, 8, 0.3); 
+  padding-left: 3.4rem;
+}
+.references .accordion-button:not(.collapsed)::after, .references .accordion-button.collapsed::after {
+  margin-right: 0rem;
+}
+
+.mapWrapper {
+  width: 100vw; /* eller vad som passar din design */
+  height: auto;
+}
+
+.mapTitle {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #350908;
+  text-align: left;
+  margin-bottom: 10px;
+  margin-left: 4rem;
+}
+
+#euStats {
+  height: 60vh;
+  max-width: 100%;
+  scale: .8;
+  overflow: hidden;
+}
+} 
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) { 
+
+  .fade-indicator,
+  .text-preview::after {
+    display: none;
+  }
+
+  .text-preview {
+    max-height: none;
+    overflow: visible;
+    cursor: auto;
+  }
+
+  .first-section {
+    display: flex;
+    align-items: flex-start;
+    gap: 8rem;
+    margin-block: 6rem;
+  }
+
+  .first-title {
+    text-align: left;
+    margin-left: 8rem;
+    font-size: 2.4rem;
+  }
+
+  .first-text-block {
+    font-size: 1rem;
+    text-align: left;
+    margin-left: 8rem;
+    width: 54ch;
+  }
+
+  .rubrik-över-grafer {
+    font-size: 2.1rem;
+    width: 60vw;
+    margin-top: 6rem;
+  } 
+
+  .rubrik-över-grafer, .ingress-grafer {
+    margin-left: 8rem;
+  }
+
+  .ingress-grafer {
+    width: 80ch;
+  }
+
+  .text-grafer {
+    font-size: .9rem;
+    margin-left: 8rem;
+    text-align: justify;
+    column-count: 3;
+    column-gap: 1.7rem;
+    width: 150ch;
+    hyphens: auto;
+  }
+
+  .flip-card {
+    margin-top: 6rem;
+  }
+
+  .graph {
+    transform: translateX(2.4rem);
+    margin-top: 1rem;
+    margin-left: 4rem;
+    width: 89%;
+  }
+
+  .morkertal, .block-text {
+    width: 80ch;
+    margin-left: 8rem;
+  }
+
+/*   .mapEustat {
+    transform: translateX(-4rem);
+    margin-top: 1rem;
+    display: flex;
+    width: 90%;
+    gap: 1rem;
+    margin-left: 6rem;
+  } */
+
+  .accordion-button-1.collapsed, .accordion-button-2.collapsed, .accordion-button-3.collapsed {
+    padding-left: 8rem;
+    padding-right: 8rem;
+    padding-block: 2rem;
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 1900px) {
+
+  .stycke {
+    break-inside: avoid;
   }
   
-  #button-up:hover {
-    background-color: #fbfbf8;
-    color: #350908;
+  .first-title {
+    font-size: 3rem;
+    margin-left: 10rem;
   }
+  .first-text-block {
+    font-size: 1.2rem;
+    margin-left: 10rem;
+  }
+  .first-section {
+    margin-block: 10rem;
+  }
+/*   .flip-cards {
+    width: 30rem;
+  } */
+
+  .flip-card {
+    width: 18vw;
+    height: 28vw;
+  }
+  
+  .flip-card-img {
+    height: 18vw;
+    object-fit: cover;
+  }
+  .flip-card-holder {
+    width: 100%;
+    height: 100%;
+    perspective: 1000px;
+  }
+  .flip-card-front, .flip-card-back {
+    width: 100%;
+    height: 100%;
+  }
+  .flip-card-text-back {
+    font-size: 1rem;
+    padding-inline: 1.2rem;
+  }
+  .flip-card-text-front {
+    font-size: 1rem;
+  }
+
+
+  .rubrik-över-grafer {
+    font-size: 2.2rem;
+    max-width: 50%;
+    margin-left: 10rem;
+  }
+  .ingress-grafer {
+    font-size: 1.2rem;
+    margin-left: 10rem;
+    margin-bottom: 3rem;
+  }
+  .text-grafer {
+    font-size: 1rem;
+    margin-left: 10rem;
+    margin-top: 3rem;
+    margin-bottom: 8rem;
+    padding-bottom: 1.2rem;
+  }
+  .graph {
+    width: 70.4%;
+    margin-left: 7.3rem
+  }
+/*   .mapEustat { */
+    /* transform: translateX(-10rem); */
+/*     margin-top: 1rem;
+    zoom: 2;
+    margin-left: 1rem;
+  } */
+
+  .block-text {
+    font-size: 4rem;
+    margin-left: 10rem;
+  }
+  .morkertal {
+    font-size: 1.4rem;
+    margin-left: 10rem;
+  }
+  .accordion-button-1.collapsed, .accordion-button-2.collapsed, .accordion-button-3.collapsed,
+  .accordion-button-1:not(.collapsed), .accordion-button-2:not(.collapsed), .accordion-button-3:not(.collapsed) {
+    font-size: 1.3rem;
+    padding-block: 2rem;
+    padding-left: 5.4rem;
+    zoom: 1.8;
+  }
+  .accordion-body-1, .accordion-body-2, .accordion-body-3 {
+    margin-left: 7rem;
+  } 
+/*   .accordion-button.collapsed::after, .accordion-button:not(.collapsed)::after {
+    zoom: 1.8;
+  } */
+  .accordion-button:not(.collapsed)::after, .accordion-button.collapsed::after {
+    position: absolute;
+    margin: 0;
+    right: 5rem;
+    position: absolute;
+    zoom: 1.8
+  }
+  .references {
+    zoom: 1.3;
+/*     margin-right: 10rem;
+ */  }
+
+  /* .references .accordion-button:not(.collapsed)::after {
+    zoom: 1.8;
+  } */
+  .references .accordion-body:not(.collapsed) {
+    background-color: rgba(53, 9, 8, 0.3); 
+  }
+/*   .reference-container {
+    margin-left: 4rem;
+    width: 100%;
+  } */
+  .mellanrubrik {
+    font-size: 1.4rem;
+    text-align: left;
+  }
+
+  .accordion-body-1, .accordion-body-2, .accordion-body-3 {
+
+    font-size: 1.2rem;
+    padding: 1rem;
+    margin-left: 8.2rem;
+    width: 80ch;
+
+}
+
+/* pil */
+.references .accordion-button:not(.collapsed)::after, .accordion-button.collapsed::after {
+  margin: 0;
+  right: 5rem;
+  position: absolute;
+  zoom: 1.8
+}
+
+/* rubrik */
+/* .references .accordion-header:not(.collapsed), .accordion-header.collapsed {
+  padding-left: 4rem;
+} */
+/* .references .accordion-body {
+  padding-left: 10rem;
+} */
+.references .accordion-item {
+  padding-left: 3.4rem;
+}
+
+
+
+
+/* .accordion-button-1.collapsed, .accordion-button-2.collapsed, .accordion-button-3.collapsed {
+  margin-left: 0rem;
+  padding-left: 6rem;
+  text-align: start;
+} */
+
+/* .accordion-button::after {
+  margin-left: auto;
+} */
+
+/* .accordion-button::after {
+  position: absolute;
+  right: 1rem;
+} */
+
+.mapWrapper {
+  width: 80vw; /* eller vad som passar din design */
+  height: auto;
+  margin-left: 8rem;
+}
+
+.mapTitle {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #350908;
+  text-align: left;
+  margin-bottom: 10px;
+  margin-left: 0;
+}
+
+#euStats {
+  height: 60vh;
+  scale: 1.4;
+  margin-left: 18rem;
+  margin-top: 10rem;
+  overflow: hidden;
+}
+
+}
