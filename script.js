@@ -129,11 +129,11 @@ Promise.all([
       borderWidth: 1
     }
   ]; */
-  let size = 30; 
-  //om window.matchMedia > 600px, sätt size till något annat
-  if (window.matchMedia("(max-width: 900px)").matches) {
+  let size = 20;
+  if (window.matchMedia("(max-width: 800px)").matches) {
     size = 16; 
   }
+
   new Chart(document.getElementById('scbAnmaldaochLagforda'), {
     type: 'bar',
     data: {
@@ -251,10 +251,9 @@ backgroundColor: "#DE2F2B"
 
 ]; 
 
-let size = 20; 
-  //om window.matchMedia > 600px, sätt size till något annat
-  if(window.matchMedia("(max-width: 600px)")) {
-    size = 15; 
+ let size = 20;
+  if (window.matchMedia("(max-width: 800px)").matches) {
+    size = 16; 
   }
 
 new Chart(document.getElementById('scbAnmaldaKvinnofrid'), { 
@@ -311,7 +310,7 @@ datasets: datasetsSCBKvinnofrid
                 padding: 30,
                 font: {
                  /*  family: 'montserrat, sans-serif', */
-                    size: 16,
+                    size: size,
                     weight: 500
                 },
               }
@@ -414,6 +413,11 @@ fetch(request1)
   
   ];
 
+ let size = 20;
+  if (window.matchMedia("(max-width: 800px)").matches) {
+    size = 16; 
+  }
+
   new Chart(document.getElementById('scbMisshandel'), {
       type: 'bar',
       data: {labels: labels2, datasets: datasets},
@@ -458,7 +462,7 @@ fetch(request1)
               font: {
                 /* family: 'montserrat, sans-serif', */
                 weight: 500,
-                size: 16
+                size: size
               }
             }
           }
@@ -625,3 +629,16 @@ async function displayCountryDataOnMap() {
 }
 
 displayCountryDataOnMap();
+
+/* animerad text */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('typing-start');
+      observer.unobserve(entry.target); // Kör bara en gång
+    }
+  });
+});
+
+const typingElement = document.querySelector('.typing-text');
+observer.observe(typingElement);

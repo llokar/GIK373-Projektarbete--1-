@@ -166,10 +166,43 @@ margin: 0;
     margin-top: 4rem;
   }
 
+  /* animerad text */
+  .typing-text {
+    width: 37ch;
+    margin-left: 8rem;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid red;
+    font-family: montserrat, sans-serif;
+    font-size: 2.6rem;
+    visibility: hidden;
+    color: whitesmoke;
+  }
+  
+  .typing-start {
+    visibility: visible;
+    animation: typing 3s steps(40, end), blink .75s step-end infinite;
+  }
+  
+  .animated-text-block {
+    background-color: #22231f;
+    padding-block: 10rem;
+  }
+  
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 37ch; }
+  }
+  
+  @keyframes blink {
+    80% { border-color: transparent; }
+  }/*  */
+  
   .img-2 {
     object-fit: cover;
     height: 100%;
     max-height: 100vh;
+    margin-top: 4rem;
   }
 
 
@@ -386,7 +419,7 @@ margin: 0;
   left: 0;
   width: 100%;
   height: 3rem;
-  background: linear-gradient(to bottom, rgba(255,255,255,0), #fff); /* Anpassa färg vid behov */
+  background: linear-gradient(to bottom, rgba(255,255,255,0), #fbfbf8); /* Anpassa färg vid behov */
   pointer-events: none;
   transition: opacity 0.3s ease;
 }
@@ -413,7 +446,7 @@ margin: 0;
   left: 0;
   right: 0;
   height: 4rem;
-  background: linear-gradient(to top, white, transparent);
+  background: linear-gradient(to top,#fbfbf8, transparent);
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -513,16 +546,16 @@ margin: 0;
 
 .mapWrapper {
   width: 100vw; /* eller vad som passar din design */
-  height: auto;
+  height: 30rem;
 }
 
 .mapTitle {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 16px;
   color: #350908;
   text-align: left;
-  margin-bottom: 10px;
+  margin-top: 3rem;
   margin-left: 4rem;
 }
 
@@ -532,6 +565,13 @@ margin: 0;
   scale: .8;
   overflow: hidden;
 }
+
+.under-karta{
+  color: #350908;
+  font-size: 12px;
+  font-family: helvetica,arial, sans-serif;
+}
+
 } 
 
 /* XX-Large devices (larger desktops, 1400px and up) */
@@ -599,8 +639,8 @@ margin: 0;
   .graph {
     transform: translateX(2.4rem);
     margin-top: 1rem;
-    margin-left: 4rem;
-    width: 89%;
+    margin-left: 5.5rem;
+    width: 67.5%;
   }
 
   .morkertal, .block-text {
@@ -623,10 +663,44 @@ margin: 0;
     padding-block: 2rem;
     font-size: 1.2rem;
   }
+  .mapWrapper {
+    width: 40vw; /* eller vad som passar din design */
+    height: 10vw;
+    margin-top: 3rem;
+    margin-bottom: 36rem;
+    margin-left: 8rem;
+  }
+  
+  .mapTitle {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    color: #350908;
+    text-align: left;
+    margin-bottom: 10px;
+    margin-left: 0rem;
+  }
+  
+  #euStats {
+    height: 60vh;
+    scale: 1.4;
+    margin-left: 18rem;
+    margin-top: 6rem;
+    overflow: hidden;
+  }
+  .references {
+    padding-left: 4rem;
+  }
+
 }
 
 @media (min-width: 1900px) {
-
+  .header-intro {
+    margin-left: 2rem;
+  }
+  .nav-item, .dropdown-item {
+    font-size: 1.15rem;
+  }
   .stycke {
     break-inside: avoid;
   }
@@ -692,7 +766,7 @@ margin: 0;
   }
   .graph {
     width: 70.4%;
-    margin-left: 7.3rem
+    margin-left: 7rem
   }
 /*   .mapEustat { */
     /* transform: translateX(-10rem); */
@@ -713,8 +787,8 @@ margin: 0;
   .accordion-button-1:not(.collapsed), .accordion-button-2:not(.collapsed), .accordion-button-3:not(.collapsed) {
     font-size: 1.3rem;
     padding-block: 2rem;
-    padding-left: 5.4rem;
-    zoom: 1.8;
+    padding-left: 7rem;
+    zoom: 1.4;
   }
   .accordion-body-1, .accordion-body-2, .accordion-body-3 {
     margin-left: 7rem;
@@ -731,6 +805,7 @@ margin: 0;
   }
   .references {
     zoom: 1.3;
+    
 /*     margin-right: 10rem;
  */  }
 
@@ -796,26 +871,28 @@ margin: 0;
 } */
 
 .mapWrapper {
-  width: 80vw; /* eller vad som passar din design */
-  height: auto;
+  width: 40vw; /* eller vad som passar din design */
+  height: 22vw;
+  margin-top: 3rem;
+  margin-bottom: 26rem;
   margin-left: 8rem;
 }
 
 .mapTitle {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 20px;
   color: #350908;
   text-align: left;
   margin-bottom: 10px;
-  margin-left: 0;
+  margin-left: 2rem;
 }
 
 #euStats {
   height: 60vh;
   scale: 1.4;
   margin-left: 18rem;
-  margin-top: 10rem;
+  margin-top: 12rem;
   overflow: hidden;
 }
 
