@@ -130,7 +130,7 @@ margin: 0;
     margin-bottom: 4rem;
   }
 
-  .rubrik-över-grafer {
+  .rubrik-over-grafer {
     font-size: 1.8rem;
     font-family: montserrat, sans-serif;
     font-weight: bold;
@@ -168,35 +168,66 @@ margin: 0;
 
   /* animerad text */
   .typing-text {
-    width: 37ch;
-    margin-left: 8rem;
     overflow: hidden;
     white-space: nowrap;
-    border-right: 2px solid red;
+    border-right: 1px solid red;
     font-family: montserrat, sans-serif;
-    font-size: 2.6rem;
-    visibility: hidden;
+    font-size: 1rem;
     color: whitesmoke;
+    visibility: hidden;
+    display: inline-block;
+    width: 0; /* startpunkt för animation */
   }
   
-  .typing-start {
+  /* Animation för varje rad – anpassa steps(...) efter teckenlängd */
+  .line-1.typing-start {
     visibility: visible;
-    animation: typing 3s steps(40, end), blink .75s step-end infinite;
+    animation: typing-line-1 2.5s steps(40, end) forwards, blink 0.75s step-end infinite;
+  }
+  .line-2.typing-start {
+    visibility: visible;
+    animation: typing-line-2 2s steps(22, end) forwards, blink 0.75s step-end infinite;
+  }
+  .line-3.typing-start {
+    visibility: visible;
+    animation: typing-line-3 1.5s steps(23, end) forwards, blink 0.75s step-end infinite;
+  }
+  
+  /* Keyframes per rad */
+  @keyframes typing-line-1 {
+    from { width: 0ch; }
+    to { width: 40ch; } /* matchar antal tecken i rad 1 */
+  }
+  @keyframes typing-line-2 {
+    from { width: 0ch; }
+    to { width: 22ch; }
+  }
+  @keyframes typing-line-3 {
+    from { width: 0ch; }
+    to { width: 23ch; }
+  }
+  
+  @keyframes blink {
+    60% { border-color: transparent; }
   }
   
   .animated-text-block {
     background-color: #22231f;
     padding-block: 10rem;
+    gap: 1.5rem;
+  }
+  .remove-cursor {
+    border-right: none !important;
   }
   
-  @keyframes typing {
-    from { width: 0; }
-    to { width: 37ch; }
+  /* Dölj båda blocken som standard */
+  .multi-line,
+  .two-line {
+    display: none;
+    flex-direction: column;
+    gap: 1.5rem;
   }
   
-  @keyframes blink {
-    80% { border-color: transparent; }
-  }/*  */
   
   .img-2 {
     object-fit: cover;
@@ -250,6 +281,7 @@ margin: 0;
     max-width: 70%;
     padding-block: 1rem;
     background-color: #fbfbf8;
+    color: #350908;
     font-family: helvetica, sans-serif;
   }
   .accordion-collapse {
@@ -461,6 +493,14 @@ margin: 0;
   margin-bottom: -0.1rem;
 }
 
+.multi-line {
+  display: flex;
+/*   padding-left: 4rem;
+  gap: 0.2rem;
+  padding-block: 4rem; */
+}
+
+
 /* Döljer pilen när brödtexten är expanderad */
 .text-preview.expanded .fade-indicator {
   display: none;
@@ -471,13 +511,13 @@ margin: 0;
     margin-inline: 4rem;
   }
 
-  .rubrik-över-grafer {
+  .rubrik-over-grafer {
     width: 80%;
     font-size: 1.32rem;
     margin-top: 6rem;
   }
 
-  .ingress-grafer, .rubrik-över-grafer {
+  .ingress-grafer, .rubrik-over-grafer {
     margin-left: 4rem;
   }
 
@@ -568,14 +608,21 @@ margin: 0;
 
 .under-karta{
   color: #350908;
-  font-size: 12px;
+  font-size: .7rem;
   font-family: helvetica,arial, sans-serif;
+  text-align: right;
+  margin-right: 4rem;
+
+  
 }
 
 } 
 
 /* XX-Large devices (larger desktops, 1400px and up) */
 @media (min-width: 1400px) { 
+  .two-line {
+    display: flex;
+  }
 
   .fade-indicator,
   .text-preview::after {
@@ -608,13 +655,13 @@ margin: 0;
     width: 54ch;
   }
 
-  .rubrik-över-grafer {
+  .rubrik-over-grafer {
     font-size: 2.1rem;
     width: 60vw;
     margin-top: 6rem;
   } 
 
-  .rubrik-över-grafer, .ingress-grafer {
+  .rubrik-over-grafer, .ingress-grafer {
     margin-left: 8rem;
   }
 
@@ -670,6 +717,13 @@ margin: 0;
     margin-bottom: 36rem;
     margin-left: 8rem;
   }
+
+  .under-karta{
+  color: #350908;
+  font-size: 12px;
+  font-family: helvetica,arial, sans-serif;
+  margin-left: 32rem;
+}
   
   .mapTitle {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -695,6 +749,10 @@ margin: 0;
 }
 
 @media (min-width: 1900px) {
+  .two-line {
+    display: flex;
+  }
+
   .header-intro {
     margin-left: 2rem;
   }
@@ -747,7 +805,7 @@ margin: 0;
   }
 
 
-  .rubrik-över-grafer {
+  .rubrik-over-grafer {
     font-size: 2.2rem;
     max-width: 50%;
     margin-left: 10rem;

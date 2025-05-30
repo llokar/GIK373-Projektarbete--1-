@@ -608,12 +608,11 @@ async function displayCountryDataOnMap() {
       showland: true,
       landcolor: "#e0e0e0",
       countrycolor: "#ffffff", 
-      bgcolor: 'rgba(0,0,0,0)',
-    
-      
+      bgcolor: 'rgba(0,0,0,0)', 
 
     },
-    
+
+
     margin: { t: 0, b: 0, l: 0, r:0 },
     width: 1200,
     height: 800,
@@ -631,14 +630,35 @@ async function displayCountryDataOnMap() {
 displayCountryDataOnMap();
 
 /* animerad text */
-const observer = new IntersectionObserver(entries => {
+const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('typing-start');
-      observer.unobserve(entry.target); // Kör bara en gång
+      const visibleLines = entry.target.querySelectorAll('.typing-text');
+
+      visibleLines.forEach((line) => {
+        // Ta bort tidigare animation
+        line.classList.remove('typing-start', 'remove-cursor');
+        void line.offsetWidth; // trigger reflow
+
+        const delay = parseFloat(line.dataset.delay) || 0;
+
+        setTimeout(() => {
+          line.classList.add('typing-start');
+        }, delay * 3500);
+
+        // Ta bort cursor på alla utom sista raden
+        const isLast = line.classList.contains('last-line');
+        const typingDuration = 3000;
+        if (!isLast) {
+          setTimeout(() => {
+            line.classList.add('remove-cursor');
+          }, delay * 3500 + typingDuration);
+        }
+      });
     }
   });
-});
+}, { threshold: 0.6 });
 
-const typingElement = document.querySelector('.typing-text');
-observer.observe(typingElement);
+document.querySelectorAll('.animated-text-block').forEach(block => {
+  observer.observe(block);
+});
