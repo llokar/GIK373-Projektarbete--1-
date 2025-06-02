@@ -1,3 +1,9 @@
+/* 
+Lovisa Wikberg h23lovwi 
+Lovisa Sandell h23losan
+Louise Karlsson h23lokar
+*/
+
 /* Eventlyssnare för mer-text-indikator i brödtexter */
 document.addEventListener('DOMContentLoaded', function () {
   const textBlocks = document.querySelectorAll('.text-preview');
@@ -82,11 +88,11 @@ Promise.all([
     method: 'POST',
     body: JSON.stringify(querySCBLagforda)
   }).then(response => response.json()),
-]).then(([dataSCBAnmalda, dataSCBLagforda]) => {
+]).then(([dataSCBAnmälda, dataSCBLagforda]) => {
 
-  const labels = dataSCBAnmalda.data.map(year =>year.key[0]);
+  const labels = dataSCBAnmälda.data.map(year =>year.key[0]);
   
-  const dataAnmalda = dataSCBAnmalda.data.map(year => Number(year.values[0]));
+  const dataAnmalda = dataSCBAnmälda.data.map(year => Number(year.values[0]));
   
   const lagforda = {};
   dataSCBLagforda.data.forEach(year => {
@@ -112,18 +118,33 @@ Promise.all([
     }
   ];
 
-
-  let size = 20;
-  if (window.matchMedia("(max-width: 800px)").matches) {
-    size = 16; 
+/*   const datasets = [
+    {
+      label: 'Anmälda',
+      data: dataAnmalda,
+      backgroundColor: 'rgb(211, 37, 34)',
+      borderColor: 'rgb(180, 36, 55)',
+      borderWidth: 1,
+      borderRadius: 1
+    },
+    {
+      label: 'Lagförda',
+      data: dataLagforda,
+      backgroundColor: '#ee9796',
+      borderColor: '#ee9796',
+      borderWidth: 1
+    }
+  ]; */
+  let size = 20; 
+  //om window.matchMedia > 600px, sätt size till något annat
+  if (window.matchMedia("(max-width: 600px)")) {
+    size = 15; 
   }
 
-  let delayed = false;
+  let delayed;
 
-const chartElement = document.getElementById('scbAnmaldaochLagforda');
-observer.observe(chartElement);
 
-  new Chart(document.getElementById('scbAnmaldaochLagforda'), {
+    new Chart(document.getElementById('scbAnmaldaochLagforda'), {
     type: 'bar',
     data: {
       labels: labels,
@@ -132,7 +153,7 @@ observer.observe(chartElement);
     options: {
       responsive: true,
 
-    animation: {
+          animation: {
       onComplete: () => {
         delayed = true;
       },
@@ -155,10 +176,9 @@ observer.observe(chartElement);
             title: {
             display: true,
             text: 'Källa: SCB',
-            color: "#350908",
             align: 'end',
             padding: {
-              top: 15
+              top: 18
               }
             },
             ticks: {
@@ -179,8 +199,8 @@ observer.observe(chartElement);
               color: '#350908',
                 padding: 30,
                 font: {
-                  
-                    size: size,
+                  /* family: 'montserrat, sans-serif', */
+                    size: 16,
                     weight: 500
                     
                 }
@@ -188,8 +208,9 @@ observer.observe(chartElement);
             }
           }
         }
-    )});
       
+    )});
+
 
 
 /* Graf: Anmäld grov kvinnofridskräkning 1998–2023*/
@@ -204,11 +225,8 @@ const querySCBKvinnofrid = {
 };
 
 const requestKvinnofrid = new Request(urlSCBKvinnofrid, { 
-
 method: 'POST', 
-
 body: JSON.stringify(querySCBKvinnofrid) 
-
 }); 
 
 
@@ -222,7 +240,7 @@ fetch(requestKvinnofrid)
 
 function printSCBKvinnofridChart(dataSCBKvinnofrid) { 
 
-const yearsSCBKvinnofrid = dataSCBKvinnofrid.data; 
+{const yearsSCBKvinnofrid = dataSCBKvinnofrid.data; 
 
 console.log(yearsSCBKvinnofrid); 
 
@@ -295,23 +313,21 @@ backgroundColor: "#DE2F2B"
   };
 
 
+
 new Chart(document.getElementById('scbAnmaldaKvinnofrid'), { 
 
 type: 'line', 
-
 data: { 
-
 labels: labels, 
-
 datasets: datasetsSCBKvinnofrid 
 
 }, 
     options: {
       responsive: true,
       animation: animation,
+    
        scales:{
          y: {
-            
              ticks: {
               color: "#350908"
              }
@@ -359,8 +375,6 @@ datasets: datasetsSCBKvinnofrid
            } 
   });
 
-};
- 
 
  
 /* Anmäld misshandel närstående genom parrelation */
@@ -453,13 +467,42 @@ fetch(request1)
     size = 16; 
   }
 
+  let delayedTwo;
+
+  const actions = [
+  {
+    name: 'Randomize',
+    handler(chart) {
+      chart.data.datasets.forEach(dataset => {
+        dataset.data = Utils.numbers({count: chart.data.labels.length, min: -100, max: 100});
+      });
+      chart.update();
+    }
+  },
+];
+
   new Chart(document.getElementById('scbMisshandel'), {
       type: 'bar',
       data: {labels: labels2, datasets: datasets},
     
 
       options: {
+        responsive: true,
+        animation: {
+      onComplete: () => {
+        delayedTwo = true;
+      },
+      delay: (context) => {
+        let delay = 0;
+        if (context.type === 'data' && context.mode === 'default' && !delayedTwo) {
+          delay = context.dataIndex * 300 + context.datasetIndex * 100;
+        }
+        return delay;
+      },
+    },
+
         scales: {
+          
           y: {
             ticks: {
               color: "#350908" // <-- Färg på y-axelns värden
@@ -566,7 +609,7 @@ const countryCodes = {
   'RS': 'Serbia'
 };
 
-async function fetchEurostatsData() {
+async function fetchEurostatData() {
   const euStatsUrl = 'https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/gbv_ipv_type$defaultview/?format=JSON&lang=en';
   try {
     const response = await fetch(euStatsUrl);
@@ -585,12 +628,12 @@ async function fetchEurostatsData() {
       valuesArray
     };
   } catch (error) {
-    console.error("Error fetching EuroStats data:", error);
+    console.error("Error fetching EuroStat data:", error);
   }
 }
 
 async function displayCountryDataOnMap() {
-  const mapData = await fetchEurostatsData();
+  const mapData = await fetchEurostatData();
   if (!mapData) return;
 
 
@@ -697,3 +740,5 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.animated-text-block').forEach(block => {
   observer.observe(block);
 });
+}
+}

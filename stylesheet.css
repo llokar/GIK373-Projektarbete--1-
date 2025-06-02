@@ -1,3 +1,8 @@
+/* 
+Lovisa Wikberg h23lovwi 
+Lovisa Sandell h23losan
+Louise Karlsson h23lokar
+*/
 body {
   background-color: #fbfbf8;
 }
@@ -15,12 +20,15 @@ margin: 0;
 /* navbar */
 .navbar-design,
 .navbar-design {
-    background-color: rgba(53, 9, 8, 0.5);
+    background-color: rgba(53, 9, 8, 0.75);
     color: #fbfbf8;
     font-family: helvetica, sans-serif;
     font-weight:lighter;
     font-size: 1rem;
     margin-block: -.3rem;
+  /*   box-shadow: 0rem .2rem .1rem rgba(53, 9, 8, 0.75); */
+    
+    
 }
 .navbar-brand {
     color: #fbfbf8;
@@ -128,7 +136,7 @@ margin: 0;
     font-family: helvetica, sans-serif;
     font-weight:lighter;
     color: rgb(53, 9, 8);
-    text-align: center;
+    text-align: left;
     margin-top: 4rem;
     margin-bottom: 4rem;
   }
@@ -193,7 +201,7 @@ margin: 0;
   }
   .line-3.typing-start {
     visibility: visible;
-    animation: typing-line-3 1.5s steps(23, end) forwards, blink 0.75s step-end infinite;
+    animation: typing-line-3 1.5s steps(29, end) forwards, blink 0.75s step-end infinite;
   }
   
   /* Keyframes per rad */
@@ -207,7 +215,7 @@ margin: 0;
   }
   @keyframes typing-line-3 {
     from { width: 0ch; }
-    to { width: 23ch; }
+    to { width: 29ch; }
   }
   
   @keyframes blink {
@@ -392,15 +400,14 @@ margin: 0;
     margin-top: 6rem;
   }
 
-  .nav-link-footer {
+  .nav-link-footer, .text-copyright {
     color: #350908;
     font-family: helvetica, sans-serif;;
+    font-size: .9rem;
     }
+    
 
-  .text-copyright {
-    color: #350908;
-    font-family: helvetica, sans-serif;;
-  }
+
 
     /* back-to-top-knapp */
   #button-up {
@@ -458,6 +465,13 @@ margin: 0;
   max-height: none;
 }
 
+/* Roterar pilen när texten är expanderad */
+.text-preview.expanded .arrow-down {
+  transform: rotate(180deg);
+  transition: transform 0.3s ease;
+}
+
+
 /* Faden nedtill – hintar att mer text finns */
 .text-preview::after {
   content: "";
@@ -499,6 +513,18 @@ margin: 0;
   align-items: flex-end;
   pointer-events: none;
   z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.text-preview.expanded .fade-indicator {
+  position: relative;
+  background: none;
+  pointer-events: auto; /* så man kan klicka på den */
+  margin-top: 1rem;
+  pointer-events: auto;
+  z-index: auto;
+  justify-content: center;
+  align-items: center;
 }
 
 .arrow-down {
@@ -517,13 +543,19 @@ margin: 0;
 
 
 /* Döljer pilen när brödtexten är expanderad */
-.text-preview.expanded .fade-indicator {
+/* .text-preview.expanded .fade-indicator {
   display: none;
-}
+} */
 
+
+.first-text {
+  text-align: left;
+  margin-left: 4rem;
+  max-width: 80%;
+}
   .first-text-block {
     font-size: .9rem;
-    margin-inline: 4rem;
+    /* margin-inline: 4rem; */
   }
 
   .rubrik-over-grafer {
@@ -639,7 +671,8 @@ margin: 0;
     justify-content: center;
   }
   .first-text-block {
-    margin-inline: 10rem;
+    /* margin-inline: 10rem; */
+    max-width: 70%;
    
   }
 }
@@ -647,8 +680,9 @@ margin: 0;
 
 /* XX-Large devices (larger desktops, 1400px and up) */
 @media (min-width: 1400px) { 
-
-
+.animated-text-block {
+  margin-top: 6rem;
+}
   .references .accordion-body p {
     font-size: 1rem;
     font-family: helvetica;
@@ -687,14 +721,14 @@ margin: 0;
 
   .first-title {
     text-align: left;
-    margin-left: 8rem;
+    margin-left: 4rem;
     font-size: 2.4rem;
   }
 
   .first-text-block {
     font-size: 1rem;
     text-align: left;
-    margin-left: 8rem;
+    margin-left: 4rem;
     width: 54ch;
   }
 
@@ -805,7 +839,7 @@ margin: 0;
   .accordion-button:not(.collapsed)::after, .accordion-button.collapsed::after {
     position: absolute;
     margin: 0;
-    right: 5rem;
+    right: 2.4rem;
     position: absolute;
     zoom: 1.2;
   }
@@ -849,6 +883,7 @@ margin: 0;
   .first-text-block {
     font-size: 1.2rem;
     margin-left: 10rem;
+    
   }
   .first-section {
     margin-block: 10rem;
