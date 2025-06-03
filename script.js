@@ -1,7 +1,7 @@
 /* 
-Lovisa Wikberg h23lovwi 
+Lovisa Wikberg h23lovwi
 Lovisa Sandell h23losan
-Louise Karlsson h23lokar
+Louise Karlsson h23lokar 
 */
 
 /* Eventlyssnare för mer-text-indikator i brödtexter */
@@ -16,12 +16,8 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-
-
 /* Graf: Grov kvinnofridskränkning anmälda vs lagförda */
-
 const urlSCBAnmalda = 'https://api.scb.se/OV0104/v1/doris/sv/ssd/START/LE/LE0201/LE0201Våld/Tema613';
-
 const urlSCBLagforda = "https://api.scb.se/OV0104/v1/doris/sv/ssd/START/LE/LE0201/LE0201Våld/Tema615";
 
 const querySCBAnmalda = {
@@ -91,7 +87,6 @@ Promise.all([
 ]).then(([dataSCBAnmälda, dataSCBLagforda]) => {
 
   const labels = dataSCBAnmälda.data.map(year =>year.key[0]);
-  
   const dataAnmalda = dataSCBAnmälda.data.map(year => Number(year.values[0]));
   
   const lagforda = {};
@@ -101,11 +96,9 @@ Promise.all([
 
   /* om värdet är null används 0 */
   const dataLagforda = labels.map(year => lagforda[year] || 0);
-
   const andelLagforda = dataLagforda.map (
     (Lagforda, i) =>
     Number((Lagforda / dataAnmalda[i]) * 100).toFixed(2)); 
-
 
   const datasets = [
     {
@@ -118,32 +111,13 @@ Promise.all([
     }
   ];
 
-/*   const datasets = [
-    {
-      label: 'Anmälda',
-      data: dataAnmalda,
-      backgroundColor: 'rgb(211, 37, 34)',
-      borderColor: 'rgb(180, 36, 55)',
-      borderWidth: 1,
-      borderRadius: 1
-    },
-    {
-      label: 'Lagförda',
-      data: dataLagforda,
-      backgroundColor: '#ee9796',
-      borderColor: '#ee9796',
-      borderWidth: 1
-    }
-  ]; */
   let size = 20; 
-  //om window.matchMedia > 600px, sätt size till något annat
   if (window.matchMedia("(max-width: 600px)")) {
     size = 15; 
   }
 
   let delayed;
-
-
+  
     new Chart(document.getElementById('scbAnmaldaochLagforda'), {
     type: 'bar',
     data: {
@@ -152,7 +126,6 @@ Promise.all([
     },
     options: {
       responsive: true,
-
           animation: {
       onComplete: () => {
         delayed = true;
@@ -169,13 +142,14 @@ Promise.all([
       scales: {
          y: {
             ticks: {
-              color: "#350908" // <-- Färg på y-axelns värden
+              color: "#350908" 
             }
           },
           x: {
             title: {
             display: true,
             text: 'Källa: SCB',
+            color: "#350908",
             align: 'end',
             padding: {
               top: 18
@@ -199,10 +173,8 @@ Promise.all([
               color: '#350908',
                 padding: 30,
                 font: {
-                  /* family: 'montserrat, sans-serif', */
                     size: 16,
-                    weight: 500
-                    
+                    weight: 500 
                 }
               }
             }
@@ -211,70 +183,46 @@ Promise.all([
       
     )});
 
-
-
-/* Graf: Anmäld grov kvinnofridskräkning 1998–2023*/
-
+/* Graf: Anmäld grov kvinnofridskräkning 1998–2023 */
 const urlSCBKvinnofrid = 'https://api.scb.se/OV0104/v1/doris/sv/ssd/START/LE/LE0201/LE0201Våld/Tema613' 
-
 const querySCBKvinnofrid = {
-  "query": [],
-  "response": {
+    "query": [],
+    "response": {
     "format": "json"
-  }
-};
+    }
+  };
 
 const requestKvinnofrid = new Request(urlSCBKvinnofrid, { 
-method: 'POST', 
-body: JSON.stringify(querySCBKvinnofrid) 
-}); 
+    method: 'POST', 
+    body: JSON.stringify(querySCBKvinnofrid) 
+  }); 
 
+  fetch(requestKvinnofrid) 
+    .then((response) => response.json()) 
+    .then(printSCBKvinnofridChart); 
 
-fetch(requestKvinnofrid) 
+  function printSCBKvinnofridChart(dataSCBKvinnofrid) { 
 
-.then((response) => response.json()) 
+  const yearsSCBKvinnofrid = dataSCBKvinnofrid.data; 
+    console.log(yearsSCBKvinnofrid); 
 
-.then(printSCBKvinnofridChart); 
+  const labels = yearsSCBKvinnofrid.map((year) => year.key[0]); 
+    console.log(labels); 
 
+  const dataKvinnofrid = yearsSCBKvinnofrid.map((year) => year.values[0]); 
+    console.log(dataKvinnofrid); 
  
-
-function printSCBKvinnofridChart(dataSCBKvinnofrid) { 
-
-{const yearsSCBKvinnofrid = dataSCBKvinnofrid.data; 
-
-console.log(yearsSCBKvinnofrid); 
-
-const labels = yearsSCBKvinnofrid.map((year) => year.key[0]); 
-
-console.log(labels); 
-
- 
-
-const dataKvinnofrid = yearsSCBKvinnofrid.map((year) => year.values[0]); 
-
-console.log(dataKvinnofrid); 
-
- 
-
-const datasetsSCBKvinnofrid = [{ 
-
-label: 'Kvinnor utsatta av män',
-
-data: dataKvinnofrid, 
-
- 
-
-borderColor: "#DE2F2B", 
-
-backgroundColor: "#DE2F2B" 
-
-} 
-
+  const datasetsSCBKvinnofrid = [{ 
+    label: 'Kvinnor utsatta av män',
+    data: dataKvinnofrid, 
+    borderColor: "#DE2F2B", 
+    backgroundColor: "#DE2F2B" 
+  } 
 ]; 
 
- let size = 20;
-  if (window.matchMedia("(max-width: 800px)").matches) {
-    size = 16; 
+  let size = 20;
+    if (window.matchMedia("(max-width: 800px)").matches) {
+      size = 16; 
   }
 
   /* Animering av trendlinjen */
@@ -312,15 +260,11 @@ backgroundColor: "#DE2F2B"
     }
   };
 
-
-
 new Chart(document.getElementById('scbAnmaldaKvinnofrid'), { 
-
 type: 'line', 
 data: { 
 labels: labels, 
 datasets: datasetsSCBKvinnofrid 
-
 }, 
     options: {
       responsive: true,
@@ -341,13 +285,10 @@ datasets: datasetsSCBKvinnofrid
             padding: {
               top: 15
             }
-
-          
           },
           ticks: {
             color: "#350908",
             callback: function(val, index) {
-              // Hide every 2nd tick label
               return index % 2 === 0 ? this.getLabelForValue(val) : '';
             }
           }
@@ -357,7 +298,6 @@ datasets: datasetsSCBKvinnofrid
       plugins: {    
         legend: {
           display: false,
-          
         },
         title: {           
             display: true,
@@ -366,7 +306,6 @@ datasets: datasetsSCBKvinnofrid
               color: '#350908',
                 padding: 30,
                 font: {
-                 
                     size: size,
                     weight: 500
                 },
@@ -375,12 +314,8 @@ datasets: datasetsSCBKvinnofrid
            } 
   });
 
-
- 
-/* Anmäld misshandel närstående genom parrelation */
-
+/* Anmäld misshandel närstående i parrelation */
 const urlSCBmisshandel = 'https://api.scb.se/OV0104/v1/doris/sv/ssd/START/LE/LE0201/LE0201Våld/Tema16b'
-
 const querySCBmisshandel = {
   "query": [
     {
@@ -407,7 +342,6 @@ const querySCBmisshandel = {
   }
 };
 
-
 const request1 = new Request(urlSCBmisshandel, {
   method: "POST",
   body: JSON.stringify(querySCBmisshandel)
@@ -426,40 +360,32 @@ fetch(request1)
     const valueMen = dataSCBMisshandel.data.filter(data => data.key[1] == 1).map(data => data.values[0]);
     console.log(valueWomen);
 
-
     const labels = years.map(years => years.key[2]);
     console.log(labels);
-
 
     const keys1 = years.map(years => years.key[2]); 
     const labels2 = [
         ...keys1.slice(0, 1),
         ...keys1.slice(4, 5),
         ...keys1.slice(2, 3)
-
     ];
     console.log(labels2);
 
     const data = amount.map(amount => amount.values[0]);
     console.log(data);
 
-
     const datasets = [{
       label: "Kvinnor",
       data: valueWomen,
       backgroundColor: 'rgb(211, 37, 34)',
       borderColor: 'rgb(180, 36, 55)',
-   
     },
     {
     label: 'Män',
     data: valueMen,
      backgroundColor: '#350908',
       borderColor: '#350908',
-
-
     }
-  
   ];
 
  let size = 20;
@@ -469,8 +395,7 @@ fetch(request1)
 
   let delayedTwo;
 
-  const actions = [
-  {
+  const actions = [{
     name: 'Randomize',
     handler(chart) {
       chart.data.datasets.forEach(dataset => {
@@ -484,8 +409,6 @@ fetch(request1)
   new Chart(document.getElementById('scbMisshandel'), {
       type: 'bar',
       data: {labels: labels2, datasets: datasets},
-    
-
       options: {
         responsive: true,
         animation: {
@@ -502,10 +425,9 @@ fetch(request1)
     },
 
         scales: {
-          
           y: {
             ticks: {
-              color: "#350908" // <-- Färg på y-axelns värden
+              color: "#350908" 
             }
           },
           x: {
@@ -538,7 +460,6 @@ fetch(request1)
               color: '#350908',
               padding: 30,
               font: {
-                
                 weight: 500,
                 size: size
               }
@@ -547,9 +468,6 @@ fetch(request1)
       }
     });
   
-
-
-
 /* Back-to-top */
 const upBtn = document.getElementById("button-up");
 
@@ -575,8 +493,7 @@ document.documentElement.scrollTop = 0;
 }
   }
 
-/* Karta */
-
+/* Kartgraf */
 const countryCodes = {
   'BE': 'Belgium', 
   'BG': 'Bulgaria', 
@@ -636,8 +553,6 @@ async function displayCountryDataOnMap() {
   const mapData = await fetchEurostatData();
   if (!mapData) return;
 
-
-
   const data = [{
     type: "choropleth",
     locations: mapData.countries,
@@ -645,12 +560,12 @@ async function displayCountryDataOnMap() {
     featureidkey: "properties.NAME",
     geojson: "https://raw.githubusercontent.com/leakyMirror/map-of-europe/refs/heads/master/GeoJSON/europe.geojson",
     colorscale: [
-      [0,    '#340909'],  // Vinröd
+      [0,    '#340909'],  
       [0.35, '#7A1515'],
       [0.5,  '#AE1E1E'],
       [0.6,  '#D12323'],
       [0.7,  '#DC2E2E'],
-      [1,    '#F0A8A8']   // Ljusröd
+      [1,    '#F0A8A8']   
   ],
 
     colorbar: {
@@ -658,11 +573,8 @@ async function displayCountryDataOnMap() {
       thickness: 15,
       len: .4,
       lenmode: 'fraction',
-/*       x: 0.9,
-      y: 0.5 */
       x: 0,
       y: .7,
-      
   },
   zmin: 0,
   zmax: 55,
@@ -687,19 +599,13 @@ async function displayCountryDataOnMap() {
       landcolor: "#e0e0e0",
       countrycolor: "#ffffff", 
       bgcolor: 'rgba(0,0,0,0)', 
-
     },
   
-
     margin: { t: 0, b: 0, l: 0, r:0 },
     width: 1200,
     height: 800,
     paper_bgcolor: 'rgba(0,0,0,0)',
     plot_bgcolor: 'rgba(0,0,0,0)',
-   
-    
-  
-  
   };
 
   Plotly.newPlot('euStats', data, layout, {scrollZoom: false});
@@ -707,16 +613,15 @@ async function displayCountryDataOnMap() {
 
 displayCountryDataOnMap();
 
-/* animerad text */
+/* Animerat citat */ 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       const visibleLines = entry.target.querySelectorAll('.typing-text');
 
       visibleLines.forEach((line) => {
-        // Ta bort tidigare animation
         line.classList.remove('typing-start', 'remove-cursor');
-        void line.offsetWidth; // trigger reflow
+        void line.offsetWidth; 
 
         const delay = parseFloat(line.dataset.delay) || 0;
 
@@ -724,7 +629,6 @@ const observer = new IntersectionObserver((entries) => {
           line.classList.add('typing-start');
         }, delay * 3500);
 
-        // Ta bort cursor på alla utom sista raden
         const isLast = line.classList.contains('last-line');
         const typingDuration = 3000;
         if (!isLast) {
@@ -740,5 +644,4 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.animated-text-block').forEach(block => {
   observer.observe(block);
 });
-}
 }
