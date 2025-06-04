@@ -314,7 +314,7 @@ datasets: datasetsSCBKvinnofrid
            } 
   });
 
-/* Anmäld misshandel närstående i parrelation */
+/* Graf: Anmäld misshandel närstående i parrelation */
 const urlSCBmisshandel = 'https://api.scb.se/OV0104/v1/doris/sv/ssd/START/LE/LE0201/LE0201Våld/Tema16b'
 const querySCBmisshandel = {
   "query": [
@@ -468,7 +468,7 @@ fetch(request1)
       }
     });
   
-/* Back-to-top */
+/* Back-to-top-knapp */
 const upBtn = document.getElementById("button-up");
 
 window.onscroll = function () {
@@ -493,7 +493,7 @@ document.documentElement.scrollTop = 0;
 }
   }
 
-/* Kartgraf */
+/* Graf: våldets karta över EU */
 const countryCodes = {
   'BE': 'Belgium', 
   'BG': 'Bulgaria', 

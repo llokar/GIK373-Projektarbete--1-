@@ -44,7 +44,7 @@ margin: 0;
   color: #DE2F2B;
   opacity: 1;
 }
-/* gör hamburger-ikon röd */
+/* gör hamburgermeny-ikon röd */
 .navbar-design .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23DE2F2B' stroke-width='2' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
@@ -187,7 +187,7 @@ margin: 0;
     color: whitesmoke;
     visibility: hidden;
     display: inline-block;
-    width: 0; /* startpunkt för animation */
+    width: 0; 
   }
   
   .line-1.typing-start {
@@ -230,7 +230,7 @@ margin: 0;
     border-right: none !important;
   }
   
-  /* Dölj båda blocken som standard */
+  
   .multi-line {
     display: none;
     flex-direction: column;
@@ -273,7 +273,7 @@ margin: 0;
   .accordion-button::after {
 
     filter: brightness(0) invert(1);
-    margin-right: 4rem; /* Gör pilen vit */
+    margin-right: 4rem;
   }
   .accordion-button-1:not(.collapsed), 
   .accordion-button-2:not(.collapsed),
@@ -403,7 +403,7 @@ margin: 0;
     font-size: .9rem;
     }
 
-    /* back-to-top-knapp */
+  /* back-to-top-knapp */
   #button-up {
     bottom: 20px; 
     right: 30px;
@@ -450,7 +450,7 @@ margin: 0;
   overflow: hidden;
   position: relative;
   transition: max-height 0.5s ease;
-  max-height: 12rem; /* Visa ca 1-2 paragrafer */
+  max-height: 12rem; 
   cursor: pointer;
 }
 
@@ -473,7 +473,7 @@ margin: 0;
   left: 0;
   width: 100%;
   height: 3rem;
-  background: linear-gradient(to bottom, rgba(255,255,255,0), #fbfbf8); /* Anpassa färg vid behov */
+  background: linear-gradient(to bottom, rgba(255,255,255,0), #fbfbf8); 
   pointer-events: none;
   transition: opacity 0.3s ease;
 }
@@ -512,7 +512,7 @@ margin: 0;
 .text-preview.expanded .fade-indicator {
   position: relative;
   background: none;
-  pointer-events: auto; /* så man kan klicka på den */
+  pointer-events: auto; 
   margin-top: 1rem;
   pointer-events: auto;
   z-index: auto;
@@ -628,12 +628,12 @@ margin: 0;
   overflow: hidden;
 }
 
-.under-karta{
+.under-karta {
   color: #350908;
   font-size: .7rem;
   font-family: helvetica,arial, sans-serif;
   text-align: right;
-  margin-right: 4rem;
+  margin-right: -4rem;
 } 
 
   .webbadress-referenser {
@@ -654,7 +654,6 @@ margin: 0;
     justify-content: center;
   }
   .first-text-block {
-    /* margin-inline: 10rem; */
     max-width: 70%;
   }
 }
@@ -778,7 +777,6 @@ margin: 0;
   color: #350908;
   font-size: 12px;
   font-family: helvetica,arial, sans-serif;
-  margin-left: 55rem;
 }
   
   .mapTitle {
@@ -830,6 +828,7 @@ margin: 0;
 
 /* Media query för stor desktop */
 @media (min-width: 1900px) {
+  
   .multi-line {
     display: flex;
     padding-left: 10rem;
